@@ -46,7 +46,7 @@ class FrontCategory extends \backend\models\BaseModel
             'name' => '类别名称',
             'create_user' => '创建人',
             'update_user' => '更新人',
-            'create_date' => 'Create Date',
+            'create_date' => '创建时间',
             'update_date' => '更新时间',
         ];
     }
@@ -164,7 +164,7 @@ class FrontCategory extends \backend\models\BaseModel
                         'name' => 'create_date',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '',
+//                         'comment' => '创建时间',
 //                         'dbType' => "datetime",
                         'defaultValue' => '',
                         'enumValues' => null,
