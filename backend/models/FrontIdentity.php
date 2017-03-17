@@ -209,5 +209,7 @@ class FrontIdentity extends \backend\models\BaseModel
 		        );
         
     }
- 
+ public function getIdentity(){
+     return $this->find()->all();
+ }
 }

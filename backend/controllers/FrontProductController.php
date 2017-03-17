@@ -2,6 +2,9 @@
 
 namespace backend\controllers;
 
+use app\models\UploadForm;
+use backend\models\FrontCategory;
+use backend\models\FrontIdentity;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontProduct;
@@ -9,6 +12,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FrontProductController implements the CRUD actions for FrontProduct model.
@@ -44,7 +48,10 @@ class FrontProductController extends BaseController
                 $query = $query->where($condition, $parame);
             }
         }
-
+        $category_model = new FrontCategory();
+        $category = $category_model->getCategory();
+        $identity_model = new FrontIdentity();
+        $identity = $identity_model->getIdentity();
         $pagination = new Pagination([
             'totalCount' =>$query->count(), 
             'pageSize' => '10', 
@@ -66,6 +73,8 @@ class FrontProductController extends BaseController
             'models'=>$models,
             'pages'=>$pagination,
             'query'=>$querys,
+            'category'=>$category,
+            'identity'=>$identity,
         ]);
     }
 
@@ -88,13 +97,35 @@ class FrontProductController extends BaseController
      */
     public function actionCreate()
     {
+        $img_url = "";
         $model = new FrontProduct();
+        $upload = new UploadForm();
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()) {
+            $img_url = $upload->upload();
+        }
         if ($model->load(Yii::$app->request->post())) {
               if(empty($model->success_rate) == true){
                   $model->success_rate = 5;
               }
+            $category = Yii::$app->request->post()['category'];
+            $identity = Yii::$app->request->post()['identity'];
+            $category_id = "";
+            $identity_id = "";
+            foreach($category as $value){
+                $category_id .= $value.',';
+            }
+            foreach($identity as $value){
+                $identity_id .= $value.',';
+            }
+              $category_id = rtrim($category_id,',');
+              $identity_id = rtrim($identity_id,',');
+              $model->category_id = $category_id;
+              $model->identity_id = $identity_id;
+              $model->logo_url = $img_url;
               $model->update_user = Yii::$app->user->identity->uname;
-              $model->update_date = date('Y-m-d H:i:s');              $model->create_user = Yii::$app->user->identity->uname;
+              $model->update_date = date('Y-m-d H:i:s');
+              $model->create_user = Yii::$app->user->identity->uname;
               $model->create_date = date('Y-m-d H:i:s');
         
             if($model->validate() == true && $model->save()){

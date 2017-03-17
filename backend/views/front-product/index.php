@@ -5,7 +5,7 @@ use yii\base\Object;
 use yii\bootstrap\ActiveForm;
 use common\utils\CommonFun;
 use yii\helpers\Url;
-
+use yii\web\UploadedFile;
 use backend\models\FrontProduct;
 
 $modelLabel = new \backend\models\FrontProduct();
@@ -88,11 +88,27 @@ $modelLabel = new \backend\models\FrontProduct();
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->p_name . '</td>';
                 echo '  <td>' . $model->order . '</td>';
-                echo '  <td>' . $model->category_id . '</td>';
+                $category_arr = explode(',',$model->category_id);
+                $category_str = "";
+                foreach($category as $value){
+                    if(in_array($value['id'],$category_arr)){
+                        $category_str .= $value['name'].',';
+                    }
+                }
+                $category_str = rtrim($category_str,',');
+                echo '  <td>' . $category_str . '</td>';
                 //echo '  <td>' . $model->new . '</td>';
                 //echo '  <td>' . $model->hot . '</td>';
-                echo '  <td>' . $model->recommend . '</td>';
-                echo '  <td>' . $model->status . '</td>';
+                if($model->recommend){
+                    echo '  <td>' . "是" . '</td>';
+                }else{
+                    echo '  <td>' . "否" . '</td>';
+                }
+                if($model->status){
+                    echo '  <td>' . "在线" . '</td>';
+                }else{
+                    echo '  <td>' . "暂停" . '</td>';
+                }
                 //echo '  <td>' . $model->limit . '</td>';
                 //echo '  <td>' . $model->age . '</td>';
                 //echo '  <td>' . $model->identity_id . '</td>';
@@ -198,7 +214,10 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="category_id_div" class="form-group">
               <label for="category_id" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("category_id")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="category_id" name="FrontProduct[category_id]" placeholder="必填" />
+<!--                  <input type="text" class="form-control" id="category_id" name="FrontProduct[category_id]" placeholder="必填" />-->
+                  <?php foreach ($category as $val):?>
+                  <input type="checkbox" class="checkbox_ca" id="<?php echo 'category'.$val['id'];?>" name="category[]" value="<?php echo $val['id'];?>" /><?php echo $val['name'];?>
+                  <?php endforeach;?>
               </div>
               <div class="clearfix"></div>
           </div>
@@ -266,7 +285,10 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="identity_id_div" class="form-group">
               <label for="identity_id" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("identity_id")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="identity_id" name="FrontProduct[identity_id]" placeholder="必填" />
+<!--                  <input type="text" class="form-control" id="identity_id" name="FrontProduct[identity_id]" placeholder="必填" />-->
+              <?php foreach($identity as $value):?>
+                  <input type="checkbox" class="checkbox_id" id="<?php echo 'identity'.$value['id'];?>" name="identity[]" value="<?php echo $value['id'];?>"><?php echo $value['name'];?>
+              <?php endforeach;?>
               </div>
               <div class="clearfix"></div>
           </div>
@@ -285,8 +307,8 @@ $modelLabel = new \backend\models\FrontProduct();
               <label for="term" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("term")?></label>
               <div class="col-sm-10">
                   <input type="hidden" class="form-control" id="term" name="FrontProduct[term]" />
-                  <input type="number" id="term_min"  placeholder="最低" />天/周--
-                  <input type="number" id="term_max" placeholder="最高" />天/周
+                  <input type="text" id="term_min"  placeholder="最低 天/月" />--
+                  <input type="text" id="term_max" placeholder="最高 天/月" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -334,7 +356,8 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="logo_url_div" class="form-group">
               <label for="logo_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("logo_url")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="logo_url" name="FrontProduct[logo_url]" placeholder="必填" />
+<!--                  <input type="text" class="form-control" id="logo_url" name="FrontProduct[logo_url]" placeholder="必填" />-->
+                  <input type="file" class="form-control" id="" name="UploadForm[imageFile]">
               </div>
               <div class="clearfix"></div>
           </div>
@@ -457,15 +480,32 @@ function orderby(field, op){
 		$("#p_name").val('');
 		$("#order").val('');
 		$("#category_id").val('');
+        $("input[class='checkbox_ca']").each(function(){
+            $(this).prop('checked',false);;
+        });
 		$("#new").val(0);
+        $("#new_no").prop('checked',true);
 		$("#hot").val(0);
+        $("#hot_no").prop('checked',true);
 		$("#recommend").val(0);
+        $("#rec_no").prop('checked',true);
 		$("#status").val(0);
+        $("#on_no").prop('checked',true);
 		$("#limit").val('0-0元');
+        $("#limit_min").val('');
+        $("#limit_max").val('');
 		$("#age").val('0-0岁');
-		$("#identity_id").val('');
+        $("#age_min").val('');
+        $("#age_max").val('');
+        $("input[class='checkbox_id']").each(function(){
+            $(this).prop('checked',false);;
+        });
 		$("#money_rate").val('0.1%-0.2%日');
+        $("#rate_min").val('');
+        $("#rate_max").val('');
 		$("#term").val('1-7天');
+        $("#term_min").val('');
+        $("#term_max").val('');
 		$("#handle_time").val('');
 		$("#aptitude").val('');
 		$("#credit").val('');
@@ -487,16 +527,84 @@ function orderby(field, op){
 		$("#id").val(data.id);
     	$("#p_name").val(data.p_name);
     	$("#order").val(data.order);
-    	$("#category_id").val(data.category_id);
-    	$("#new").val(data.new);
-    	$("#hot").val(data.hot);
-    	$("#recommend").val(data.recommend);
-    	$("#status").val(data.status);
-    	$("#limit").val(data.limit);
-    	$("#age").val(data.age);
-    	$("#identity_id").val(data.identity_id);
-    	$("#money_rate").val(data.money_rate);
-    	$("#term").val(data.term);
+        category_arr = data.category_id.split(',');
+        $("input[class='checkbox_ca']").each(function(){
+            if($.inArray($(this).val(),category_arr) != -1){
+                $(this).prop("checked",true);
+            }else{
+                $(this).prop("checked",false);
+            }
+        });
+//    	$("#category_id").val(data.category_id);
+        if(data.new){
+            $("#new_yes").attr("checked",'checked');
+        }else{
+            $("#new_no").attr("checked",'checked');
+        }
+//    	$("#new").val(data.new);
+        if(data.hot){
+            $("#hot_yes").attr("checked",'checked');
+        }else{
+            $("#hot_no").attr("checked",'checked');
+        }
+//    	$("#hot").val(data.hot);
+        if(data.recommend){
+            $("#rec_yes").attr("checked",'checked');
+        }else{
+            $("#rec_no").attr("checked",'checked');
+        }
+//    	$("#recommend").val(data.recommend);
+        if(data.status){
+            $("#on_yes").attr("checked",'checked');
+        }else{
+            $("#on_no").attr("checked",'checked');
+        }
+//    	$("#status").val(data.status);
+        var limit = data.limit.split('-');
+        $.each(limit,function(index,value){
+            if(index == 0){
+                $("#limit_min").val(value);
+            }else{
+                $("#limit_max").val(value.substring(0,value.length-1));
+            }
+        });
+//    	$("#limit").val(data.limit);
+        var age = data.age.split('-');
+        $.each(age,function(index,value){
+            if(index == 0){
+                $("#age_min").val(value);
+            }else{
+                $("#age_max").val(value.substring(0,value.length-1));
+            }
+        });
+//    	$("#age").val(data.age);
+        identity_arr = data.identity_id.split(',');
+        $("input[class='checkbox_id']").each(function(){
+            if($.inArray($(this).val(),identity_arr) != -1){
+                $(this).prop("checked",true);
+            }else{
+                $(this).prop("checked",false);
+            }
+        });
+//    	$("#identity_id").val(data.identity_id);
+        var money_rate = data.money_rate.split('-');
+        $.each(money_rate,function(index,value){
+            if(index == 0){
+                $("#rate_min").val(value.substring(0,value.length-1));
+            }else{
+                $("#rate_max").val(value.substring(0,value.length-2));
+            }
+        });
+//    	$("#money_rate").val(data.money_rate);
+        var term = data.term.split('-');
+        $.each(term,function(index,value){
+            if(index == 0){
+                $("#term_min").val(value);
+            }else{
+                $("#term_max").val(value);
+            }
+        });
+//    	$("#term").val(data.term);
     	$("#handle_time").val(data.handle_time);
     	$("#aptitude").val(data.aptitude);
     	$("#credit").val(data.credit);
@@ -754,10 +862,10 @@ $('#rate_max').blur(function(){
 });
 
 $('#term_min').blur(function(){
-    $("#term").val($("#term_min").val()+'-'+$("#term_max").val()+'天');
+    $("#term").val($("#term_min").val()+'-'+$("#term_max").val());
 });
 $('#term_max').blur(function(){
-    $("#term").val($("#term_min").val()+'-'+$("#term_max").val()+'天');
+    $("#term").val($("#term_min").val()+'-'+$("#term_max").val());
 });
  </script>
 <?php $this->endBlock(); ?>

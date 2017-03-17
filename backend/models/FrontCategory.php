@@ -209,5 +209,7 @@ class FrontCategory extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getCategory(){
+       return $this->find()->all();
+    }
 }
