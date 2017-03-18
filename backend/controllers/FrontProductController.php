@@ -103,6 +103,9 @@ class FrontProductController extends BaseController
         $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
         if ($upload->imageFile && $upload->validate()) {
             $img_url = $upload->upload();
+        }else{
+            $msg = array('errno'=>2, 'msg'=>'图片格式错误');
+            echo json_encode($msg);
         }
         if ($model->load(Yii::$app->request->post())) {
               if(empty($model->success_rate) == true){
@@ -152,12 +155,25 @@ class FrontProductController extends BaseController
     {
         $id = Yii::$app->request->post('id');
         $model = $this->findModel($id);
+        $upload = new UploadForm();
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()){
+            $img_url = $upload->upload();
+            $model->logo_url = $img_url;
+        }
         if ($model->load(Yii::$app->request->post())) {
-        
+
              if(empty($model->success_rate) == true){
                  $model->success_rate = 5;
-             }              $model->update_user = Yii::$app->user->identity->uname;
-              $model->update_date = date('Y-m-d H:i:s');        
+             }
+            $category = Yii::$app->request->post()['category'];
+            $identity = Yii::$app->request->post()['identity'];
+            $category_str = implode(',',$category);
+            $identity_str = implode(',',$identity);
+            $model->category_id = $category_str;
+            $model->identity_id = $identity_str;
+            $model->update_user = Yii::$app->user->identity->uname;
+            $model->update_date = date('Y-m-d H:i:s');
         
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');

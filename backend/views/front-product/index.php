@@ -214,9 +214,9 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="category_id_div" class="form-group">
               <label for="category_id" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("category_id")?></label>
               <div class="col-sm-10">
-<!--                  <input type="text" class="form-control" id="category_id" name="FrontProduct[category_id]" placeholder="必填" />-->
+                  <input type="text" class="form-control" id="category_id" style="display: none" />
                   <?php foreach ($category as $val):?>
-                  <input type="checkbox" class="checkbox_ca" id="<?php echo 'category'.$val['id'];?>" name="category[]" value="<?php echo $val['id'];?>" /><?php echo $val['name'];?>
+                  <input type="checkbox" class="checkbox_ca" id="<?php echo 'category'.$val['id'];?>" name="category[]" value="<?php echo $val['id'];?>" /><span class="span_ca"><?php echo $val['name'];?></span>
                   <?php endforeach;?>
               </div>
               <div class="clearfix"></div>
@@ -479,10 +479,11 @@ function orderby(field, op){
 		$("#id").val('');
 		$("#p_name").val('');
 		$("#order").val('');
-		$("#category_id").val('');
+		$("#category_id").hide();
         $("input[class='checkbox_ca']").each(function(){
-            $(this).prop('checked',false);;
+            $(this).prop('checked',false).show();
         });
+        $(".span_ca").show();
 		$("#new").val(0);
         $("#new_no").prop('checked',true);
 		$("#hot").val(0);
@@ -527,39 +528,40 @@ function orderby(field, op){
 		$("#id").val(data.id);
     	$("#p_name").val(data.p_name);
     	$("#order").val(data.order);
+        $("#category_id").hide();
         category_arr = data.category_id.split(',');
         $("input[class='checkbox_ca']").each(function(){
             if($.inArray($(this).val(),category_arr) != -1){
-                $(this).prop("checked",true);
+                $(this).prop("checked",true).show();
             }else{
-                $(this).prop("checked",false);
+                $(this).prop("checked",false).show();
             }
         });
-//    	$("#category_id").val(data.category_id);
+        $('.span_ca').show();
         if(data.new){
             $("#new_yes").attr("checked",'checked');
         }else{
             $("#new_no").attr("checked",'checked');
         }
-//    	$("#new").val(data.new);
+    	$("#new").val(data.new);
         if(data.hot){
             $("#hot_yes").attr("checked",'checked');
         }else{
             $("#hot_no").attr("checked",'checked');
         }
-//    	$("#hot").val(data.hot);
+    	$("#hot").val(data.hot);
         if(data.recommend){
             $("#rec_yes").attr("checked",'checked');
         }else{
             $("#rec_no").attr("checked",'checked');
         }
-//    	$("#recommend").val(data.recommend);
+    	$("#recommend").val(data.recommend);
         if(data.status){
             $("#on_yes").attr("checked",'checked');
         }else{
             $("#on_no").attr("checked",'checked');
         }
-//    	$("#status").val(data.status);
+    	$("#status").val(data.status);
         var limit = data.limit.split('-');
         $.each(limit,function(index,value){
             if(index == 0){
@@ -568,7 +570,7 @@ function orderby(field, op){
                 $("#limit_max").val(value.substring(0,value.length-1));
             }
         });
-//    	$("#limit").val(data.limit);
+    	$("#limit").val(data.limit);
         var age = data.age.split('-');
         $.each(age,function(index,value){
             if(index == 0){
@@ -577,7 +579,7 @@ function orderby(field, op){
                 $("#age_max").val(value.substring(0,value.length-1));
             }
         });
-//    	$("#age").val(data.age);
+    	$("#age").val(data.age);
         identity_arr = data.identity_id.split(',');
         $("input[class='checkbox_id']").each(function(){
             if($.inArray($(this).val(),identity_arr) != -1){
@@ -595,7 +597,7 @@ function orderby(field, op){
                 $("#rate_max").val(value.substring(0,value.length-2));
             }
         });
-//    	$("#money_rate").val(data.money_rate);
+    	$("#money_rate").val(data.money_rate);
         var term = data.term.split('-');
         $.each(term,function(index,value){
             if(index == 0){
@@ -604,7 +606,7 @@ function orderby(field, op){
                 $("#term_max").val(value);
             }
         });
-//    	$("#term").val(data.term);
+    	$("#term").val(data.term);
     	$("#handle_time").val(data.handle_time);
     	$("#aptitude").val(data.aptitude);
     	$("#credit").val(data.credit);
@@ -622,10 +624,16 @@ function orderby(field, op){
     	$("#create_date").val(data.create_date);
     	}
 	if(type == "view"){
+        console.log('查看');
       $("#id").attr({readonly:true,disabled:true});
       $("#p_name").attr({readonly:true,disabled:true});
       $("#order").attr({readonly:true,disabled:true});
+      $("#category_id").show();
       $("#category_id").attr({readonly:true,disabled:true});
+      $("input[class='checkbox_ca']").each(function(){
+          $(this).hide();
+      });
+      $('.span_ca').hide();
       $("#new").attr({readonly:true,disabled:true});
       $("#hot").attr({readonly:true,disabled:true});
       $("#recommend").attr({readonly:true,disabled:true});
@@ -657,6 +665,7 @@ function orderby(field, op){
 	$('#edit_dialog_ok').addClass('hidden');
 	}
 	else{
+        console.log('22');
       $("#id").attr({readonly:false,disabled:false});
       $("#p_name").attr({readonly:false,disabled:false});
       $("#order").attr({readonly:false,disabled:false});
