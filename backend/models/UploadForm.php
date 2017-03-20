@@ -31,7 +31,7 @@ class UploadForm extends BaseModel
             $time = time().mt_rand('1000','9999');
             $flog = $this->imageFile->saveAs('../../common/uploads/' . $time . '.' . $this->imageFile->extension);
             if ($flog) {
-                $img_url = 'uploads/' . $time . '.' . $this->imageFile->extension;
+                $img_url = '../../common/uploads/' . $time . '.' . $this->imageFile->extension;
                 return $img_url;
             }
 
