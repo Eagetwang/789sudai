@@ -32,7 +32,7 @@ class FrontEssence extends \backend\models\BaseModel
             [['title', 'content', 'update_date', 'cteate_date'], 'required'],
             [['update_date', 'cteate_date'], 'safe'],
             [['title'], 'string', 'max' => 50],
-            [['introduce', 'content'], 'string', 'max' => 255]
+            [['introduce', 'content'], 'string', 'max' => 15000]
         ];
     }
 
@@ -209,5 +209,7 @@ class FrontEssence extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getById($id){
+        return $this->find()->where(['id'=>$id])->one();
+    }
 }

@@ -89,25 +89,14 @@ class FrontEssenceController extends BaseController
      */
     public function actionCreate()
     {
-//        $model = new FrontEssence();
-//        if ($model->load(Yii::$app->request->post())) {
-//
-//              $model->update_date = date('Y-m-d H:i:s');
-//            if($model->validate() == true && $model->save()){
-//                $msg = array('errno'=>0, 'msg'=>'保存成功');
-//                echo json_encode($msg);
-//            }
-//            else{
-//                var_dump('xxx');
-//                $msg = array('errno'=>2, 'data'=>$model->getErrors());
-//                echo json_encode($msg);
-//            }
-//        } else {
-//            var_dump('yy');
-//            $msg = array('errno'=>2, 'msg'=>'数据出错');
-//            echo json_encode($msg);
-//        }
-        return $this->render('create');
+        $essence = "";
+        if($id = Yii::$app->request->get('id')){
+            $model = new FrontEssence();
+            $essence = $model->getById($id);
+        }
+        return $this->render('create',[
+            'essence'=>$essence,
+        ]);
     }
     public function actionAddEssence(){
         $model = new FrontEssence();
@@ -128,6 +117,9 @@ class FrontEssenceController extends BaseController
             echo json_encode($msg);
         }
     }
+    public function actionGetContent(){
+        return 1;
+    }
     /**
      * Updates an existing FrontEssence model.
      * If update is successful, the browser will be redirected to the 'view' page.
@@ -136,25 +128,24 @@ class FrontEssenceController extends BaseController
      */
     public function actionUpdate()
     {
-//        $id = Yii::$app->request->post('id');
-//        $model = $this->findModel($id);
-//        if ($model->load(Yii::$app->request->post())) {
-//
-//              $model->update_date = date('Y-m-d H:i:s');
-//
-//            if($model->validate() == true && $model->save()){
-//                $msg = array('errno'=>0, 'msg'=>'保存成功');
-//                echo json_encode($msg);
-//            }
-//            else{
-//                $msg = array('errno'=>2, 'data'=>$model->getErrors());
-//                echo json_encode($msg);
-//            }
-//        } else {
-//            $msg = array('errno'=>2, 'msg'=>'数据出错');
-//            echo json_encode($msg);
-//        }
-    echo 1;
+        $id = Yii::$app->request->post('id');
+        $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+
+              $model->update_date = date('Y-m-d H:i:s');
+            $model->cteate_date = date('Y-m-d H:i:s');
+            if($model->validate() == true && $model->save()){
+                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                echo json_encode($msg);
+            }
+            else{
+                $msg = array('errno'=>2, 'data'=>$model->getErrors());
+                echo json_encode($msg);
+            }
+        } else {
+            $msg = array('errno'=>2, 'msg'=>'数据出错');
+            echo json_encode($msg);
+        }
     }
 
     /**

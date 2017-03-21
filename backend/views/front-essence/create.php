@@ -17,12 +17,12 @@ $modelLabel = new \backend\models\FrontEssence();
 <div class="modal-body">
     <?php $form = ActiveForm::begin(["id" => "front-essence-form", "class"=>"form-horizontal", "action"=>Url::toRoute("front-essence/save")]); ?>
 
-    <input type="hidden" class="form-control" id="id" name="id" />
+    <input type="hidden" class="form-control" id="id" name="id" value="<?php if($essence) echo $essence['id'];?>"/>
 
     <div id="title_div" class="form-group">
         <label for="title" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("title")?></label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="title" name="FrontEssence[title]" placeholder="必填" />
+            <input type="text" class="form-control" id="title" name="FrontEssence[title]" placeholder="必填" value="<?php if($essence) echo $essence['title'];?>"/>
         </div>
         <div class="clearfix"></div>
     </div>
@@ -30,7 +30,7 @@ $modelLabel = new \backend\models\FrontEssence();
     <div id="introduce_div" class="form-group">
         <label for="introduce" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("introduce")?></label>
         <div class="col-sm-10">
-            <input type="text" class="form-control" id="introduce" name="FrontEssence[introduce]" placeholder="" />
+            <input type="text" class="form-control" id="introduce" name="FrontEssence[introduce]" placeholder="" value='<?php if($essence) echo $essence['introduce'];?>' />
         </div>
         <div class="clearfix"></div>
     </div>
@@ -38,7 +38,8 @@ $modelLabel = new \backend\models\FrontEssence();
     <div id="content_div" class="form-group">
         <label for="content" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("content")?></label>
         <div class="col-sm-10">
-                  <input type="hidden" class="form-control" id="content" name="FrontEssence[content]" />
+                    <?php if($essence){echo "<input type='hidden' id='content' name='FrontEssence[content]' value='".$essence['content']."'>";}else{echo "<input type='hidden' id='content' name='FrontEssence[content]'>";}?>
+<!--                  <input type="hidden" class="form-control" id="content" name="FrontEssence[content]" value="--><?php //if($essence) echo $essence['content'];?><!--"/>-->
             <div>
                 <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
             </div>
@@ -54,8 +55,17 @@ $modelLabel = new \backend\models\FrontEssence();
         //实例化编辑器
         //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
         var ue = UE.getEditor('editor');
-
-
+        ue.ready(function(){
+            if($("#content").val() != ""){
+                console.log($("#content").val());
+                UE.getEditor('editor').setContent($("#content").val());
+            }
+            UE.getEditor('editor').addListener('blur',function(editor){
+                var arr = [];
+            arr.push(UE.getEditor('editor').getContent());
+            $('#content').val(arr);
+            });
+        });
         function isFocus(e){
             alert(UE.getEditor('editor').isFocus());
             UE.dom.domUtils.preventDefault(e)
@@ -90,10 +100,9 @@ $modelLabel = new \backend\models\FrontEssence();
             alert(arr.join('\n'))
         }
         function setContent(isAppendTo) {
-            var arr = [];
-            arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
+
             UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
-            alert(arr.join("\n"));
+
         }
         function setDisabled() {
             UE.getEditor('editor').setDisabled('fullscreen');
@@ -161,12 +170,14 @@ $modelLabel = new \backend\models\FrontEssence();
             UE.getEditor('editor').execCommand( "clearlocaldata" );
             alert("已清空草稿箱")
         }
+
         $('#edit_dialog_ok').click(function (e) {
             e.preventDefault();
-            var arr = [];
-            arr.push(UE.getEditor('editor').getContent());
-            $('#content').val(arr.join("\n"));
-            var action = "<?=Url::toRoute('front-essence/add-essence')?>";
+//            var arr = [];
+//            arr.push(UE.getEditor('editor').getContent());
+//            $('#content').val(arr);
+            var id = $("#id").val();
+            var action = id == "" ? "<?=Url::toRoute('front-essence/add-essence')?>" : "<?=Url::toRoute('front-essence/update')?>";
             console.log(action);
             $('#front-essence-form').ajaxSubmit({
                 type: "post",

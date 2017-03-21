@@ -5,21 +5,21 @@ use yii\base\Object;
 use yii\bootstrap\ActiveForm;
 use common\utils\CommonFun;
 use yii\helpers\Url;
-
+use yii\bootstrap\Modal;
 use backend\models\FrontEssence;
-
+use yii\bootstrap\Html;
 $modelLabel = new \backend\models\FrontEssence();
 ?>
 
 <?php $this->beginBlock('header');  ?>
 <!-- <head></head>中代码块 -->
 <?php $this->endBlock(); ?>
+
 <script type="text/javascript" charset="utf-8" src="../../common/utf8-php/ueditor.config.js"></script>
 <script type="text/javascript" charset="utf-8" src="../../common/utf8-php/ueditor.all.min.js"> </script>
 <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8" src="../../common/utf8-php/lang/zh-cn/zh-cn.js"></script>
-
 
 <!-- Main content -->
 <section class="content">
@@ -94,8 +94,21 @@ $modelLabel = new \backend\models\FrontEssence();
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->title . '</td>';
                 echo '  <td>' . $model->introduce . '</td>';
-				echo "<td><input type='button' value='点击查看'></td>";
-                echo '  <td>' . $model->update_date . '</td>';
+				echo "<input type='hidden' id='content_".$model->id."' value='".$model->content."'>";
+				echo '  <td>' . Html::a('点击查看', '#', [
+					'id' => 'create_'.$model->id ,
+					'data-toggle' => 'modal',
+					'data-target' => '#create-modal'.$model->id ,
+					'class' => 'btn btn-success btn-eaget',
+				]).'</td>';
+				Modal::begin([
+					'id' => 'create-modal'.$model->id ,
+					'header' => '<h4 class="modal-title">'.$model->title .'</h4>',
+					'footer' => '<a href="#" class="btn btn-primary" data-dismiss="modal">Close</a>',
+				]);
+				Modal::end();
+//				echo "<script>$('.modal-body').html(".$model->id.");</script>";
+				echo '  <td>' . $model->update_date . '</td>';
                 echo '  <td>' . $model->cteate_date . '</td>';
                 echo '  <td class="center">';
                 echo '      <a id="edit_btn" onclick="editAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i>修改</a>';
@@ -204,7 +217,7 @@ $modelLabel = new \backend\models\FrontEssence();
               </div>
               <div class="clearfix"></div>
           </div>
-                    
+                    <p><dialog open> xxx</dialog></p>
 
 			<?php ActiveForm::end(); ?>          
                 </div>
@@ -522,5 +535,12 @@ function clearLocalData () {
 	UE.getEditor('editor').execCommand( "clearlocaldata" );
 	alert("已清空草稿箱")
 }
+function showModel(){
+
+}
+$(".btn-eaget").click(function(){
+	var id = $(this).attr('id').split('_')[1];
+	$('.modal-body').html($('#content_'+id).val());
+});
 </script>
 <?php $this->endBlock(); ?>
