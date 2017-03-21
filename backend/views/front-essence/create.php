@@ -39,7 +39,6 @@ $modelLabel = new \backend\models\FrontEssence();
         <label for="content" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("content")?></label>
         <div class="col-sm-10">
                     <?php if($essence){echo "<input type='hidden' id='content' name='FrontEssence[content]' value='".$essence['content']."'>";}else{echo "<input type='hidden' id='content' name='FrontEssence[content]'>";}?>
-<!--                  <input type="hidden" class="form-control" id="content" name="FrontEssence[content]" value="--><?php //if($essence) echo $essence['content'];?><!--"/>-->
             <div>
                 <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
             </div>
