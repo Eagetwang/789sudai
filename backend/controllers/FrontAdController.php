@@ -5,7 +5,7 @@ namespace backend\controllers;
 use app\models\UploadForm;
 use Yii;
 use yii\data\Pagination;
-use backend\models\FrontPlate;
+use backend\models\FrontAd;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -13,19 +13,19 @@ use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 
 /**
- * FrontPlateController implements the CRUD actions for FrontPlate model.
+ * FrontAdController implements the CRUD actions for FrontAd model.
  */
-class FrontPlateController extends BaseController
+class FrontAdController extends BaseController
 {
 	public $layout = "lte_main";
 
     /**
-     * Lists all FrontPlate models.
+     * Lists all FrontAd models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $query = FrontPlate::find();
+        $query = FrontAd::find();
          $querys = Yii::$app->request->get('query');
         if(count($querys) > 0){
             $condition = "";
@@ -72,7 +72,7 @@ class FrontPlateController extends BaseController
     }
 
     /**
-     * Displays a single FrontPlate model.
+     * Displays a single FrontAd model.
      * @param string $id
      * @return mixed
      */
@@ -84,25 +84,15 @@ class FrontPlateController extends BaseController
     }
 
     /**
-     * Creates a new FrontPlate model.
+     * Creates a new FrontAd model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $plate = "";
-        if($id = Yii::$app->request->get('id')){
-            $model = new FrontPlate();
-            $plate = $model->getById($id);
-        }
-        return $this->render('create',[
-            'plate'=>$plate,
-        ]);
-    }
-    public function actionAddPlate(){
         $img_url = "";
         $upload = new UploadForm();
-        $model = new FrontPlate();
+        $model = new FrontAd();
         $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
         if ($upload->imageFile && $upload->validate()) {
             $img_url = $upload->upload();
@@ -110,11 +100,9 @@ class FrontPlateController extends BaseController
             $msg = array('errno'=>2, 'msg'=>'图片格式错误');
             echo json_encode($msg);
         }
-//        var_dump(Yii::$app->request->post());exit;
         if ($model->load(Yii::$app->request->post())) {
-            $model->img_url = $img_url;
-            $model->update_date = date('Y-m-d H:i:s');
-            $model->create_date = date('Y-m-d H:i:s');
+        
+            $model->banner_url = $img_url;
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');
                 echo json_encode($msg);
@@ -128,8 +116,9 @@ class FrontPlateController extends BaseController
             echo json_encode($msg);
         }
     }
+
     /**
-     * Updates an existing FrontPlate model.
+     * Updates an existing FrontAd model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -146,9 +135,9 @@ class FrontPlateController extends BaseController
         }
         if ($model->load(Yii::$app->request->post())) {
             if($img_url){
-                $model->img_url = $img_url;
+                $model->banner_url = $img_url;
             }
-              $model->update_date = date('Y-m-d H:i:s');        
+        
         
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');
@@ -166,7 +155,7 @@ class FrontPlateController extends BaseController
     }
 
     /**
-     * Deletes an existing FrontPlate model.
+     * Deletes an existing FrontAd model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -174,7 +163,7 @@ class FrontPlateController extends BaseController
     public function actionDelete(array $ids)
     {
         if(count($ids) > 0){
-            $c = FrontPlate::deleteAll(['in', 'id', $ids]);
+            $c = FrontAd::deleteAll(['in', 'id', $ids]);
             echo json_encode(array('errno'=>0, 'data'=>$c, 'msg'=>json_encode($ids)));
         }
         else{
@@ -185,15 +174,15 @@ class FrontPlateController extends BaseController
     }
 
     /**
-     * Finds the FrontPlate model based on its primary key value.
+     * Finds the FrontAd model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return FrontPlate the loaded model
+     * @return FrontAd the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = FrontPlate::findOne($id)) !== null) {
+        if (($model = FrontAd::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
