@@ -133,7 +133,6 @@ class FrontEssenceController extends BaseController
         if ($model->load(Yii::$app->request->post())) {
 
               $model->update_date = date('Y-m-d H:i:s');
-            $model->cteate_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');
                 echo json_encode($msg);

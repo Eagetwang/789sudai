@@ -46,6 +46,7 @@ class FrontPlate extends \backend\models\BaseModel
             'id' => 'ID',
             'title' => '标题',
             'introduce' => '简介',
+            'img_url' => '图片',
             'content' => '内容详细',
             'update_date' => '更新时间',
             'create_date' => '创建时间',

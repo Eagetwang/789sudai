@@ -89,6 +89,7 @@ $modelLabel = new \backend\models\FrontPlate();
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->title . '</td>';
                 echo '  <td>' . $model->introduce . '</td>';
+                echo '  <td><img style="width: 100px;height: 60px" src="' . $model->img_url . '"></img></td>';
 				echo "<input type='hidden' id='content_".$model->id."' value='".$model->content."'>";
 				echo '  <td>' . Html::a('点击查看', '#', [
 						'id' => 'create_'.$model->id ,

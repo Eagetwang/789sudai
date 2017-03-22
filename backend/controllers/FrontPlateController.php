@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use app\models\UploadForm;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontPlate;
@@ -9,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FrontPlateController implements the CRUD actions for FrontPlate model.
@@ -98,9 +100,19 @@ class FrontPlateController extends BaseController
         ]);
     }
     public function actionAddPlate(){
+        $img_url = "";
+        $upload = new UploadForm();
         $model = new FrontPlate();
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()) {
+            $img_url = $upload->upload();
+        }else{
+            $msg = array('errno'=>2, 'msg'=>'图片格式错误');
+            echo json_encode($msg);
+        }
 //        var_dump(Yii::$app->request->post());exit;
         if ($model->load(Yii::$app->request->post())) {
+            $model->img_url = $img_url;
             $model->update_date = date('Y-m-d H:i:s');
             $model->create_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
@@ -124,10 +136,21 @@ class FrontPlateController extends BaseController
      */
     public function actionUpdate()
     {
+        $img_url = "";
+        $upload = new UploadForm();
         $id = Yii::$app->request->post('id');
         $model = $this->findModel($id);
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()) {
+            $img_url = $upload->upload();
+        }else{
+            $msg = array('errno'=>2, 'msg'=>'图片格式错误');
+            echo json_encode($msg);
+        }
         if ($model->load(Yii::$app->request->post())) {
-        
+            if($img_url){
+                $model->img_url = $img_url;
+            }
               $model->update_date = date('Y-m-d H:i:s');        
         
             if($model->validate() == true && $model->save()){
