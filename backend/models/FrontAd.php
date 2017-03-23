@@ -158,5 +158,7 @@ class FrontAd extends \backend\models\BaseModel
 		        );
         
     }
- 
+ public function getAllAd(){
+     return $this->find()->where(1)->all();
+ }
 }
