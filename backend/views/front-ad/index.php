@@ -159,7 +159,16 @@ $modelLabel = new \backend\models\FrontAd();
               </div>
               <div class="clearfix"></div>
           </div>
-
+				<div id="ad_class_div" class="form-group">
+					<label for="ad_class" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("ad_class")?></label>
+					<div class="col-sm-10">
+						<input type="hidden" class="form-control" id="ad_class" name="FrontAd[ad_class]" placeholder="必填" />
+						<input type="radio" class="class_eaget" name="ad_class" value="1" />移动端首页
+						<input type="radio" class="class_eaget" name="ad_class" value="2" />移动端产品页
+						<input type="radio" class="class_eaget" name="ad_class" value="3" />PC端
+					</div>
+					<div class="clearfix"></div>
+				</div>
           <div id="banner_url_div" class="form-group">
               <label for="banner_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("banner_url")?></label>
               <div class="col-sm-10">
@@ -223,13 +232,20 @@ function orderby(field, op){
 		$("#name").val('');
 		$("#banner_url").val('');
 		$("#ad_url").val('');
-		
+		$("#ad_class").val('1');
+
 	}
 	else{
 		$("#id").val(data.id);
     	$("#name").val(data.name);
     	$("#banner_url").val(data.banner_url);
     	$("#ad_url").val(data.ad_url);
+    	$("#ad_class").val(data.ad_class);
+		$('.class_eaget').each(function(){
+			if(data.ad_class == $(this).val()){
+				$(this).prop('checked',true);
+			}
+		});
     	}
 	if(type == "view"){
       $("#id").attr({readonly:true,disabled:true});
@@ -372,7 +388,11 @@ $('#front-ad-form').bind('submit', function(e) {
     	}
     });
 });
-
+$(".class_eaget").each(function(){
+	$(this).click(function(){
+		$("#ad_class").val($(this).val());
+	});
+});
  
 </script>
 <?php $this->endBlock(); ?>

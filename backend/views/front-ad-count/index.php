@@ -60,16 +60,6 @@ $modelLabel = new \backend\models\FrontAdCount();
 <!--                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="--><?//=isset($query["date"]) ? $query["date"] : "" ?><!--">-->
                   </div>
 
-                  <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('type')?>:</label>
-					  <select class="form-control" name="query[type]">
-						  <option value="0">全部</option>
-						  <option value="1">PC</option>
-						  <option value="2">微信</option>
-						  <option value="3">WAP</option>
-					  </select>
-<!--                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="--><?//=isset($query["type"]) ? $query["type"] : "" ?><!--">-->
-                  </div>
               <div class="form-group">
               	<a onclick="searchAction()" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>搜索</a>
            	  </div>

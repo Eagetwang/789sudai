@@ -27,7 +27,7 @@ class FrontAd extends \backend\models\BaseModel
     public function rules()
     {
         return [
-            [['name', 'banner_url', 'ad_url'], 'required'],
+            [['name', 'banner_url', 'ad_url','ad_class'], 'required'],
             [['name'], 'string', 'max' => 50],
             [['banner_url', 'ad_url'], 'string', 'max' => 255]
         ];
@@ -43,6 +43,7 @@ class FrontAd extends \backend\models\BaseModel
             'name' => '广告名称',
             'banner_url' => 'banner',
             'ad_url' => '广告链接',
+            'ad_class' => '广告类别',
         ];
     }
 
