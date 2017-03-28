@@ -4,25 +4,25 @@ namespace backend\models;
 use Yii;
 
 /**
- * This is the model class for table "front_essence_count".
+ * This is the model class for table "front_product_count".
  *
  * @property string $id
- * @property integer $essence_id
+ * @property integer $product_id
+ * @property string $date
  * @property integer $type
  * @property integer $pv
  * @property integer $uv
- * @property integer $r_click_total
- * @property integer $r_apply_total
+ * @property integer $apply_total
  * @property integer $share_total
  */
-class FrontEssenceCount extends \backend\models\BaseModel
+class FrontProductCount extends \backend\models\BaseModel
 {
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
-        return 'front_essence_count';
+        return 'front_product_count';
     }
 
     /**
@@ -31,8 +31,9 @@ class FrontEssenceCount extends \backend\models\BaseModel
     public function rules()
     {
         return [
-            [['essence_id'], 'required'],
-            [['essence_id', 'type', 'pv', 'uv', 'r_click_total', 'r_apply_total', 'share_total'], 'integer']
+            [['product_id', 'date'], 'required'],
+            [['product_id', 'type', 'pv', 'uv', 'apply_total', 'share_total'], 'integer'],
+            [['date'], 'safe']
         ];
     }
 
@@ -43,13 +44,13 @@ class FrontEssenceCount extends \backend\models\BaseModel
     {
         return [
             'id' => 'ID',
-            'essence_id' => '攻略',
+            'product_id' => '产品id',
+            'date' => '日期',
             'type' => '前端',
-            'pv' => '浏览次数(pv)',
-            'uv' => '浏览人数(uv)',
-            'r_click_total' => '推荐产品点击量',
-            'r_apply_total' => '推荐产品申请量',
-            'share_total' => '分享次数',
+            'pv' => '详情页浏览量',
+            'uv' => '浏览人数',
+            'apply_total' => '申请量',
+            'share_total' => '被分享次数',
         ];
     }
 
@@ -93,11 +94,11 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
-		'essence_id' => array(
-                        'name' => 'essence_id',
+		'product_id' => array(
+                        'name' => 'product_id',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '攻略id',
+//                         'comment' => '产品id',
 //                         'dbType' => "int(11)",
                         'defaultValue' => '',
                         'enumValues' => null,
@@ -108,11 +109,34 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'size' => '11',
                         'type' => 'integer',
                         'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('essence_id'),
+                        'label'=>$this->getAttributeLabel('product_id'),
+                        'inputType' => 'text',
+                        'isEdit' => true,
+                        'isSearch' => false,
+                        'isDisplay' => true,
+                        'isSort' => true,
+//                         'udc'=>'',
+                    ),
+		'date' => array(
+                        'name' => 'date',
+                        'allowNull' => false,
+//                         'autoIncrement' => false,
+//                         'comment' => '日期',
+//                         'dbType' => "date",
+                        'defaultValue' => '',
+                        'enumValues' => null,
+                        'isPrimaryKey' => false,
+                        'phpType' => 'string',
+                        'precision' => '',
+                        'scale' => '',
+                        'size' => '',
+                        'type' => 'date',
+                        'unsigned' => false,
+                        'label'=>$this->getAttributeLabel('date'),
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => true,
-                        'isDisplay' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
@@ -120,7 +144,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'name' => 'type',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '前端类型 1:pc,2:微信,3:wap',
+//                         'comment' => '前端1:pc, 2:微信, 3:wap',
 //                         'dbType' => "tinyint(1)",
                         'defaultValue' => '1',
                         'enumValues' => null,
@@ -135,7 +159,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => true,
-                        'isDisplay' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
@@ -143,7 +167,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'name' => 'pv',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '当天攻略浏览次数',
+//                         'comment' => '产品详情页浏览次数',
 //                         'dbType' => "int(11)",
                         'defaultValue' => '0',
                         'enumValues' => null,
@@ -158,7 +182,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => false,
-                        'isDisplay' => false,
+                        'isDisplay' => true,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
@@ -166,7 +190,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'name' => 'uv',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '当天攻略浏览人数',
+//                         'comment' => '当天详情页浏览人数',
 //                         'dbType' => "int(11)",
                         'defaultValue' => '0',
                         'enumValues' => null,
@@ -185,11 +209,11 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
-		'r_click_total' => array(
-                        'name' => 'r_click_total',
+		'apply_total' => array(
+                        'name' => 'apply_total',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '推荐产品点击量',
+//                         'comment' => '当天产品申请量',
 //                         'dbType' => "int(11)",
                         'defaultValue' => '0',
                         'enumValues' => null,
@@ -200,30 +224,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'size' => '11',
                         'type' => 'integer',
                         'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('r_click_total'),
-                        'inputType' => 'text',
-                        'isEdit' => true,
-                        'isSearch' => false,
-                        'isDisplay' => true,
-                        'isSort' => true,
-//                         'udc'=>'',
-                    ),
-		'r_apply_total' => array(
-                        'name' => 'r_apply_total',
-                        'allowNull' => false,
-//                         'autoIncrement' => false,
-//                         'comment' => '推荐产品申请量',
-//                         'dbType' => "int(11)",
-                        'defaultValue' => '0',
-                        'enumValues' => null,
-                        'isPrimaryKey' => false,
-                        'phpType' => 'integer',
-                        'precision' => '11',
-                        'scale' => '',
-                        'size' => '11',
-                        'type' => 'integer',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('r_apply_total'),
+                        'label'=>$this->getAttributeLabel('apply_total'),
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => false,
@@ -235,15 +236,15 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'name' => 'share_total',
                         'allowNull' => false,
 //                         'autoIncrement' => false,
-//                         'comment' => '分享次数',
-//                         'dbType' => "int(11)",
+//                         'comment' => '当天产品分享次数',
+//                         'dbType' => "int(1)",
                         'defaultValue' => '0',
                         'enumValues' => null,
                         'isPrimaryKey' => false,
                         'phpType' => 'integer',
-                        'precision' => '11',
+                        'precision' => '1',
                         'scale' => '',
-                        'size' => '11',
+                        'size' => '1',
                         'type' => 'integer',
                         'unsigned' => false,
                         'label'=>$this->getAttributeLabel('share_total'),

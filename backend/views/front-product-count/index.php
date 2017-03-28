@@ -6,9 +6,9 @@ use yii\bootstrap\ActiveForm;
 use common\utils\CommonFun;
 use yii\helpers\Url;
 
-use backend\models\FrontEssenceCount;
+use backend\models\FrontProductCount;
 
-$modelLabel = new \backend\models\FrontEssenceCount();
+$modelLabel = new \backend\models\FrontProductCount();
 ?>
 
 <?php $this->beginBlock('header');  ?>
@@ -38,11 +38,11 @@ $modelLabel = new \backend\models\FrontEssenceCount();
             <!-- row start search-->
           	<div class="row">
           	<div class="col-sm-12">
-                <?php ActiveForm::begin(['id' => 'front-essence-count-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-essence-count/index')]); ?>     
+                <?php ActiveForm::begin(['id' => 'front-product-count-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-product-count/index')]); ?>     
                 
                   <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('essence_id')?>:</label>
-                      <input type="text" class="form-control" id="query[essence_id]" name="query[essence_id]"  value="<?=isset($query["essence_id"]) ? $query["essence_id"] : "" ?>">
+                      <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
+                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="<?=isset($query["date"]) ? $query["date"] : "" ?>">
                   </div>
 
                   <div class="form-group" style="margin: 5px;">
@@ -68,11 +68,10 @@ $modelLabel = new \backend\models\FrontEssenceCount();
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
 		      echo '<th><input id="data_table_check" type="checkbox"></th>';
               echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
-              echo '<th onclick="orderby(\'essence_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'essence_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('essence_id').'</th>';
-              echo '<th onclick="orderby(\'type\', \'desc\')" '.CommonFun::sortClass($orderby, 'type').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('type').'</th>';
+              echo '<th onclick="orderby(\'product_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'product_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('product_id').'</th>';
+              echo '<th onclick="orderby(\'pv\', \'desc\')" '.CommonFun::sortClass($orderby, 'pv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('pv').'</th>';
               echo '<th onclick="orderby(\'uv\', \'desc\')" '.CommonFun::sortClass($orderby, 'uv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('uv').'</th>';
-              echo '<th onclick="orderby(\'r_click_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'r_click_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('r_click_total').'</th>';
-              echo '<th onclick="orderby(\'r_apply_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'r_apply_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('r_apply_total').'</th>';
+              echo '<th onclick="orderby(\'apply_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'apply_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('apply_total').'</th>';
               echo '<th onclick="orderby(\'share_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'share_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('share_total').'</th>';
          
 			?>
@@ -87,12 +86,12 @@ $modelLabel = new \backend\models\FrontEssenceCount();
                 echo '<tr id="rowid_' . $model->id . '">';
                 echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
                 echo '  <td>' . $model->id . '</td>';
-                echo '  <td>' . $model->essence_id . '</td>';
-                echo '  <td>' . $model->type . '</td>';
-                //echo '  <td>' . $model->pv . '</td>';
+                echo '  <td>' . $model->product_id . '</td>';
+                //echo '  <td>' . $model->date . '</td>';
+                //echo '  <td>' . $model->type . '</td>';
+                echo '  <td>' . $model->pv . '</td>';
                 echo '  <td>' . $model->uv . '</td>';
-                echo '  <td>' . $model->r_click_total . '</td>';
-                echo '  <td>' . $model->r_apply_total . '</td>';
+                echo '  <td>' . $model->apply_total . '</td>';
                 echo '  <td>' . $model->share_total . '</td>';
                 echo '  <td class="center">';
                 echo '      <a id="view_btn" onclick="viewAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>查看</a>';
@@ -156,14 +155,22 @@ $modelLabel = new \backend\models\FrontEssenceCount();
 				<h3>Settings</h3>
 			</div>
 			<div class="modal-body">
-                <?php $form = ActiveForm::begin(["id" => "front-essence-count-form", "class"=>"form-horizontal", "action"=>Url::toRoute("front-essence-count/save")]); ?>                      
+                <?php $form = ActiveForm::begin(["id" => "front-product-count-form", "class"=>"form-horizontal", "action"=>Url::toRoute("front-product-count/save")]); ?>                      
                  
           <input type="hidden" class="form-control" id="id" name="id" />
 
-          <div id="essence_id_div" class="form-group">
-              <label for="essence_id" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("essence_id")?></label>
+          <div id="product_id_div" class="form-group">
+              <label for="product_id" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("product_id")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="essence_id" name="FrontEssenceCount[essence_id]" placeholder="必填" />
+                  <input type="text" class="form-control" id="product_id" name="FrontProductCount[product_id]" placeholder="必填" />
+              </div>
+              <div class="clearfix"></div>
+          </div>
+
+          <div id="date_div" class="form-group">
+              <label for="date" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("date")?></label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="date" name="FrontProductCount[date]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -171,7 +178,7 @@ $modelLabel = new \backend\models\FrontEssenceCount();
           <div id="type_div" class="form-group">
               <label for="type" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("type")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="type" name="FrontEssenceCount[type]" placeholder="必填" />
+                  <input type="text" class="form-control" id="type" name="FrontProductCount[type]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -179,7 +186,7 @@ $modelLabel = new \backend\models\FrontEssenceCount();
           <div id="pv_div" class="form-group">
               <label for="pv" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("pv")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="pv" name="FrontEssenceCount[pv]" placeholder="必填" />
+                  <input type="text" class="form-control" id="pv" name="FrontProductCount[pv]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -187,23 +194,15 @@ $modelLabel = new \backend\models\FrontEssenceCount();
           <div id="uv_div" class="form-group">
               <label for="uv" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("uv")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="uv" name="FrontEssenceCount[uv]" placeholder="必填" />
+                  <input type="text" class="form-control" id="uv" name="FrontProductCount[uv]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
 
-          <div id="r_click_total_div" class="form-group">
-              <label for="r_click_total" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("r_click_total")?></label>
+          <div id="apply_total_div" class="form-group">
+              <label for="apply_total" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("apply_total")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="r_click_total" name="FrontEssenceCount[r_click_total]" placeholder="必填" />
-              </div>
-              <div class="clearfix"></div>
-          </div>
-
-          <div id="r_apply_total_div" class="form-group">
-              <label for="r_apply_total" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("r_apply_total")?></label>
-              <div class="col-sm-10">
-                  <input type="text" class="form-control" id="r_apply_total" name="FrontEssenceCount[r_apply_total]" placeholder="必填" />
+                  <input type="text" class="form-control" id="apply_total" name="FrontProductCount[apply_total]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -211,7 +210,7 @@ $modelLabel = new \backend\models\FrontEssenceCount();
           <div id="share_total_div" class="form-group">
               <label for="share_total" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("share_total")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="share_total" name="FrontEssenceCount[share_total]" placeholder="必填" />
+                  <input type="text" class="form-control" id="share_total" name="FrontProductCount[share_total]" placeholder="必填" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -250,7 +249,7 @@ function orderby(field, op){
 	 window.location.href=url; 
  }
  function searchAction(){
-		$('#front-essence-count-search-form').submit();
+		$('#front-product-count-search-form').submit();
 	}
  function viewAction(id){
 		initModel(id, 'view', 'fun');
@@ -259,44 +258,44 @@ function orderby(field, op){
  function initEditSystemModule(data, type){
 	if(type == 'create'){
 		$("#id").val('');
-		$("#essence_id").val('');
+		$("#product_id").val('');
+		$("#date").val('');
 		$("#type").val('');
 		$("#pv").val('');
 		$("#uv").val('');
-		$("#r_click_total").val('');
-		$("#r_apply_total").val('');
+		$("#apply_total").val('');
 		$("#share_total").val('');
 		
 	}
 	else{
 		$("#id").val(data.id);
-    	$("#essence_id").val(data.essence_id);
+    	$("#product_id").val(data.product_id);
+    	$("#date").val(data.date);
     	$("#type").val(data.type);
     	$("#pv").val(data.pv);
     	$("#uv").val(data.uv);
-    	$("#r_click_total").val(data.r_click_total);
-    	$("#r_apply_total").val(data.r_apply_total);
+    	$("#apply_total").val(data.apply_total);
     	$("#share_total").val(data.share_total);
     	}
 	if(type == "view"){
       $("#id").attr({readonly:true,disabled:true});
-      $("#essence_id").attr({readonly:true,disabled:true});
+      $("#product_id").attr({readonly:true,disabled:true});
+      $("#date").attr({readonly:true,disabled:true});
       $("#type").attr({readonly:true,disabled:true});
       $("#pv").attr({readonly:true,disabled:true});
       $("#uv").attr({readonly:true,disabled:true});
-      $("#r_click_total").attr({readonly:true,disabled:true});
-      $("#r_apply_total").attr({readonly:true,disabled:true});
+      $("#apply_total").attr({readonly:true,disabled:true});
       $("#share_total").attr({readonly:true,disabled:true});
 	$('#edit_dialog_ok').addClass('hidden');
 	}
 	else{
       $("#id").attr({readonly:false,disabled:false});
-      $("#essence_id").attr({readonly:false,disabled:false});
+      $("#product_id").attr({readonly:false,disabled:false});
+      $("#date").attr({readonly:false,disabled:false});
       $("#type").attr({readonly:false,disabled:false});
       $("#pv").attr({readonly:false,disabled:false});
       $("#uv").attr({readonly:false,disabled:false});
-      $("#r_click_total").attr({readonly:false,disabled:false});
-      $("#r_apply_total").attr({readonly:false,disabled:false});
+      $("#apply_total").attr({readonly:false,disabled:false});
       $("#share_total").attr({readonly:false,disabled:false});
 		$('#edit_dialog_ok').removeClass('hidden');
 		}
@@ -307,7 +306,7 @@ function initModel(id, type, fun){
 	
 	$.ajax({
 		   type: "GET",
-		   url: "<?=Url::toRoute('front-essence-count/view')?>",
+		   url: "<?=Url::toRoute('front-product-count/view')?>",
 		   data: {"id":id},
 		   cache: false,
 		   dataType:"json",
@@ -345,7 +344,7 @@ function deleteAction(id){
 		admin_tool.confirm('请确认是否删除', function(){
 		    $.ajax({
 				   type: "GET",
-				   url: "<?=Url::toRoute('front-essence-count/delete')?>",
+				   url: "<?=Url::toRoute('front-product-count/delete')?>",
 				   data: {"ids":ids},
 				   cache: false,
 				   dataType:"json",
@@ -388,7 +387,7 @@ function getSelectedIdValues(formId)
 
 $('#edit_dialog_ok').click(function (e) {
     e.preventDefault();
-	$('#front-essence-count-form').submit();
+	$('#front-product-count-form').submit();
 });
 
 $('#create_btn').click(function (e) {
@@ -401,10 +400,10 @@ $('#delete_btn').click(function (e) {
     deleteAction('');
 });
 
-$('#front-essence-count-form').bind('submit', function(e) {
+$('#front-product-count-form').bind('submit', function(e) {
 	e.preventDefault();
 	var id = $("#id").val();
-	var action = id == "" ? "<?=Url::toRoute('front-essence-count/create')?>" : "<?=Url::toRoute('front-essence-count/update')?>";
+	var action = id == "" ? "<?=Url::toRoute('front-product-count/create')?>" : "<?=Url::toRoute('front-product-count/update')?>";
     $(this).ajaxSubmit({
     	type: "post",
     	dataType:"json",

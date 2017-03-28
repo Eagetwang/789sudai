@@ -25,9 +25,6 @@ $modelLabel = new \backend\models\FrontAdCount();
           <h3 class="box-title">数据列表</h3>
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
-                <button id="create_btn" type="button" class="btn btn-xs btn-primary">添&nbsp;&emsp;加</button>
-        			|
-        		<button id="delete_btn" type="button" class="btn btn-xs btn-danger">批量删除</button>
             </div>
           </div>
         </div>
@@ -78,7 +75,6 @@ $modelLabel = new \backend\models\FrontAdCount();
             <?php 
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
 		      echo '<th><input id="data_table_check" type="checkbox"></th>';
-              echo '<th onclick="orderby(\'date\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('date').'</th>';
               echo '<th onclick="orderby(\'ad_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'ad_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('ad_id').'</th>';
               echo '<th onclick="orderby(\'show_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'show_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('show_total').'</th>';
               echo '<th onclick="orderby(\'click_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'click_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('click_total').'</th>';
@@ -92,31 +88,30 @@ $modelLabel = new \backend\models\FrontAdCount();
             <tbody>
             
             <?php
-            foreach ($models as $model) {
-                echo '<tr id="rowid_' . $model->id . '">';
-                echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
-                echo '  <td>' . $model->date . '</td>';
-				foreach($ad as $v){
-					if($v['id']==$model->ad_id){
-						echo  '  <td>' . $v['name'] . '</td>';
+			if($ad_id == 0){
+				foreach($ad as $ad_model){
+					echo '<tr id="rowid_' . $ad_model->id . '">';
+					echo '  <td><label><input type="checkbox" value="' . $ad_model->id . '"></label></td>';
+					echo '  <td>' . $ad_model->name . '</td>';
+					echo '  <td>' . $show_total[$ad_model->id] . '</td>';
+					echo '  <td>' . $click_total[$ad_model->id] . '</td>';
+					echo '  <td>' . $uv[$ad_model->id] . '</td>';
+					echo '  <td>' . round(($click_total[$ad_model->id] / $uv[$ad_model->id])*100,3). '</td>';
+				}
+			}else{
+				echo '<tr id="rowid_' . $ad_id . '">';
+				echo '  <td><label><input type="checkbox" value="' . $ad_id . '"></label></td>';
+				foreach($ad as $ad_m){
+					if($ad_m['id'] == $ad_id){
+						echo '  <td>' . $ad_m['name'] . '</td>';
 					}
 				}
-                echo '  <td>' . $model->show_total . '</td>';
-                //echo '  <td>' . $model->date . '</td>';
-                //echo '  <td>' . $model->type . '</td>';
-                echo '  <td>' . $model->click_total . '</td>';
-                echo '  <td>' . $model->uv . '</td>';
-                echo '  <td>1</td>';
-                echo '</tr>';
-            }
-			echo '<tr id="rowid_total">';
-			echo '  <td><label><input type="checkbox" value="0"></label></td>';
-			echo '  <td>总计</td>';
-			echo '  <td>广告名称</td>';
-			echo '  <td>'.$show_total.'</td>';
-			echo '  <td>'.$click_total.'</td>';
-			echo '  <td>'.$uv.'</td>';
-			echo '  <td>'.'1'.'</td>';
+				echo '  <td>' . $show_total[$ad_id] . '</td>';
+				echo '  <td>' . $click_total[$ad_id] . '</td>';
+				echo '  <td>' . $uv[$ad_id] . '</td>';
+				echo '  <td>' . round(($click_total[$ad_id]/$uv[$ad_id])*100,3). '</td>';
+			}
+
             ?>
             
            

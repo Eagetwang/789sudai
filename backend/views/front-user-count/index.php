@@ -41,11 +41,6 @@ $modelLabel = new \backend\models\FrontUserCount();
                 <?php ActiveForm::begin(['id' => 'front-user-count-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-user-count/index')]); ?>     
                 
                   <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('id')?>:</label>
-                      <input type="text" class="form-control" id="query[id]" name="query[id]"  value="<?=isset($query["id"]) ? $query["id"] : "" ?>">
-                  </div>
-
-                  <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
                       <input type="text" class="form-control" id="query[date]" name="query[date]"  value="<?=isset($query["date"]) ? $query["date"] : "" ?>">
                   </div>

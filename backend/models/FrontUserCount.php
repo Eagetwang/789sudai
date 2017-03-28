@@ -85,7 +85,7 @@ class FrontUserCount extends \backend\models\BaseModel
                         'label'=>$this->getAttributeLabel('id'),
                         'inputType' => 'hidden',
                         'isEdit' => true,
-                        'isSearch' => true,
+                        'isSearch' => false,
                         'isDisplay' => true,
                         'isSort' => true,
 //                         'udc'=>'',
