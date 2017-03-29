@@ -86,7 +86,7 @@ $modelLabel = new \backend\models\FrontAdCount();
             </tr>
             </thead>
             <tbody>
-            
+
             <?php
 			foreach ($models as $model){
 				echo '<tr id="rowid_' . $model['ad_id']. '">';
