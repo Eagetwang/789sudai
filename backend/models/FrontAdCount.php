@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_ad_count".
@@ -232,5 +233,21 @@ class FrontAdCount extends \backend\models\BaseModel
                     ),
 		        );
         
+    }
+    //根据日期和广告id返回广告的各项数据和
+    public function getCount($ad_id=0,$date=[]){
+        $query = new Query();
+        $query= $query->groupBy('ad_id')
+            ->select(['ad_id','name','sum(show_total) as show_total','sum(click_total) as click_total','sum(uv) as uv'])
+            ->from('front_ad_count')
+            ->innerJoin('front_ad','front_ad_count.ad_id = front_ad.id ');
+        if($ad_id != 0){
+            $query = $query->where('ad_id='.$ad_id);
+        }
+        if($date){
+            $query = $query->where(['in','date',$date]);
+        }
+        return $query;
+
     }
 }

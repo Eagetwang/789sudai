@@ -88,28 +88,18 @@ $modelLabel = new \backend\models\FrontAdCount();
             <tbody>
             
             <?php
-			if($ad_id == 0){
-				foreach($ad as $ad_model){
-					echo '<tr id="rowid_' . $ad_model->id . '">';
-					echo '  <td><label><input type="checkbox" value="' . $ad_model->id . '"></label></td>';
-					echo '  <td>' . $ad_model->name . '</td>';
-					echo '  <td>' . $show_total[$ad_model->id] . '</td>';
-					echo '  <td>' . $click_total[$ad_model->id] . '</td>';
-					echo '  <td>' . $uv[$ad_model->id] . '</td>';
-					echo '  <td>' . round(($click_total[$ad_model->id] / $uv[$ad_model->id])*100,3). '</td>';
+			foreach ($models as $model){
+				echo '<tr id="rowid_' . $model['ad_id ']. '">';
+				echo '  <td><label><input type="checkbox" value="' . $model['ad_id']. '"></label></td>';
+				echo '  <td>' . $model['name']. '</td>';
+				echo '  <td>' . $model['show_total']. '</td>';
+				echo '  <td>' . $model['click_total'] . '</td>';
+				echo '  <td>' . $model['uv'] . '</td>';
+				if($model['click_total'] != 0){
+					echo '  <td>' . round(($model['click_total']/$model['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
 				}
-			}else{
-				echo '<tr id="rowid_' . $ad_id . '">';
-				echo '  <td><label><input type="checkbox" value="' . $ad_id . '"></label></td>';
-				foreach($ad as $ad_m){
-					if($ad_m['id'] == $ad_id){
-						echo '  <td>' . $ad_m['name'] . '</td>';
-					}
-				}
-				echo '  <td>' . $show_total[$ad_id] . '</td>';
-				echo '  <td>' . $click_total[$ad_id] . '</td>';
-				echo '  <td>' . $uv[$ad_id] . '</td>';
-				echo '  <td>' . round(($click_total[$ad_id]/$uv[$ad_id])*100,3). '</td>';
 			}
 
             ?>

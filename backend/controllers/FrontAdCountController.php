@@ -7,6 +7,7 @@ use Yii;
 use yii\data\Pagination;
 use backend\models\FrontAdCount;
 use yii\data\ActiveDataProvider;
+use yii\db\Query;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -26,8 +27,8 @@ class FrontAdCountController extends BaseController
     {
         $ad_model = new FrontAd();
         $ad = $ad_model->getAllAd();
-        $query = FrontAdCount::find();
-//        var_dump($query);exit;
+        $ad_c = new FrontAdCount();
+//        $query = FrontAdCount::find();
          $querys = Yii::$app->request->get('query');
         $ad_id = 0;
          $datemin = Yii::$app->request->get('date1');
@@ -37,20 +38,9 @@ class FrontAdCountController extends BaseController
             $querys['date'] = $date;
         }
 
-        if(count($querys) > 0){
-            $ad_id = $querys['ad_id'];
-            foreach($querys as $key=>$value){
-                if(empty($value)){
-                    unset($querys[$key]);
-                }
-            }
-            $query = $query->where($querys);
-        }else{
-            $query = $query->where(1);
-//            $query1 = $query->where(1)->sum('show_total');
-//            $query2 = $query->where(1)->sum('uv');
-//            var_dump($query1,$query2);exit;
-        }
+        $query = $ad_c->getCount($querys['ad_id'],$querys['date']);
+//        echo "<pre>";
+//        var_dump($query->all());
         $pagination = new Pagination([
             'totalCount' =>$query->count(), 
             'pageSize' => '10', 
@@ -61,31 +51,9 @@ class FrontAdCountController extends BaseController
         if(empty($orderby) == false){
             $query = $query->orderBy($orderby);
         }
-        $data = [];
         $show_total = array();
         $click_total = [];
         $uv = [];
-        $total = $query->all();
-        foreach($total as $value){
-            if(array_key_exists($value['ad_id'], $show_total)){
-                $show_total[$value['ad_id']] += $value['show_total'];
-            }else{
-                $show_total[$value['ad_id']] = $value['show_total'];
-            }
-            if(array_key_exists($value['ad_id'], $click_total)){
-                $click_total[$value['ad_id']] += $value['click_total'];
-            }else{
-                $click_total[$value['ad_id']] = $value['click_total'];
-            }
-            if(array_key_exists($value['ad_id'], $uv)){
-                $uv[$value['ad_id']] += $value['uv'];
-            }else{
-                $uv[$value['ad_id']] = $value['uv'];
-            }
-//            $click_total[$value['ad_id']] += $value['click_total'];
-//            $uv[$value['ad_id']] += $value['uv'];
-        }
-//        var_dump($show_total,$click_total,$uv);exit;
         $models = $query
         ->offset($pagination->offset)
         ->limit($pagination->limit)
