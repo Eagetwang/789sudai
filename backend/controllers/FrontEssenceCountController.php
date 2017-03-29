@@ -2,6 +2,8 @@
 
 namespace backend\controllers;
 
+use backend\models\FrontEssence;
+use backend\models\FrontIndex;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontEssenceCount;
@@ -23,6 +25,10 @@ class FrontEssenceCountController extends BaseController
      */
     public function actionIndex()
     {
+        $index_model = new FrontIndex();
+        $essence_model = new FrontEssence();
+        $indexs = $index_model->getAllIndex();
+        $essences = $essence_model->getAllEssence();
         $query = FrontEssenceCount::find();
          $querys = Yii::$app->request->get('query');
         if(count($querys) > 0){
@@ -64,6 +70,8 @@ class FrontEssenceCountController extends BaseController
         ->all();
         return $this->render('index', [
             'models'=>$models,
+            'indexs'=>$indexs,
+            'essences'=>$essences,
             'pages'=>$pagination,
             'query'=>$querys,
         ]);

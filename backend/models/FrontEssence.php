@@ -212,4 +212,7 @@ class FrontEssence extends \backend\models\BaseModel
     public function getById($id){
         return $this->find()->where(['id'=>$id])->one();
     }
+    public function getAllEssence(){
+        return $this->find()->where(1)->all();
+    }
 }

@@ -37,8 +37,11 @@ class FrontAdCountController extends BaseController
             $date = $this->getDates($datemin,$datemax);
             $querys['date'] = $date;
         }
-
-        $query = $ad_c->getCount($querys['ad_id'],$querys['date']);
+        if($querys && array_key_exists('date',$querys)) {
+            $query = $ad_c->getCount($querys['ad_id'], $querys['date']);
+        }else{
+            $query = $ad_c->getCount($querys['ad_id']);
+        }
 //        echo "<pre>";
 //        var_dump($query->all());
         $pagination = new Pagination([

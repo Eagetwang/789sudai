@@ -133,5 +133,7 @@ class FrontIndex extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getAllIndex(){
+        return $this->find()->where(1)->all();
+    }
 }

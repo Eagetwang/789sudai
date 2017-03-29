@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\FrontIndex;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontWebsiteCount;
@@ -23,28 +24,26 @@ class FrontWebsiteCountController extends BaseController
      */
     public function actionIndex()
     {
-        $query = FrontWebsiteCount::find();
+        $web_c = new FrontWebsiteCount();
+        $index_model = new FrontIndex();
+        $indexs = $index_model->getAllIndex();
          $querys = Yii::$app->request->get('query');
-        if(count($querys) > 0){
-            $condition = "";
-            $parame = array();
-            foreach($querys as $key=>$value){
-                $value = trim($value);
-                if(empty($value) == false){
-                    $parame[":{$key}"]=$value;
-                    if(empty($condition) == true){
-                        $condition = " {$key}=:{$key} ";
-                    }
-                    else{
-                        $condition = $condition . " AND {$key}=:{$key} ";
-                    }
-                }
-            }
-            if(count($parame) > 0){
-                $query = $query->where($condition, $parame);
-            }
+        $datemin = Yii::$app->request->get('date1');
+        $datemax = Yii::$app->request->get('date2');
+        if($datemax && $datemin){
+            $date = $this->getDates($datemin,$datemax);
+            $querys['date'] = $date;
         }
-
+        if($querys && array_key_exists('date',$querys)){
+            $query = $web_c->getCount($querys['type'],$querys['date']);
+        }else{
+            $query = $web_c->getCount($querys['type']);
+        }
+        if($querys && array_key_exists('date',$querys)){
+            $totals = $web_c->getTotal($querys['type'],$querys['date'])->all();
+        }else{
+            $totals = $web_c->getTotal($querys['type'])->all();
+        }
         $pagination = new Pagination([
             'totalCount' =>$query->count(), 
             'pageSize' => '10', 
@@ -64,6 +63,8 @@ class FrontWebsiteCountController extends BaseController
         ->all();
         return $this->render('index', [
             'models'=>$models,
+            'indexs'=>$indexs,
+            'totals'=>$totals,
             'pages'=>$pagination,
             'query'=>$querys,
         ]);
@@ -173,5 +174,16 @@ class FrontWebsiteCountController extends BaseController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    protected function getDates($start,$end){
+        $arr = array();
+        $dt_start = strtotime($start);
+        $dt_end = strtotime($end);
+        while ($dt_start<=$dt_end){
+            $arr[] = date('Y-m-d',$dt_start);
+//            echo date('Y-m-d',$dt_start)."\n";
+            $dt_start = strtotime('+1 day',$dt_start);
+        }
+        return $arr;
     }
 }

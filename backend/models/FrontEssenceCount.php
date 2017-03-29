@@ -8,6 +8,7 @@ use Yii;
  *
  * @property string $id
  * @property integer $essence_id
+ * @property string $date
  * @property integer $type
  * @property integer $pv
  * @property integer $uv
@@ -31,8 +32,9 @@ class FrontEssenceCount extends \backend\models\BaseModel
     public function rules()
     {
         return [
-            [['essence_id'], 'required'],
-            [['essence_id', 'type', 'pv', 'uv', 'r_click_total', 'r_apply_total', 'share_total'], 'integer']
+            [['essence_id', 'date'], 'required'],
+            [['essence_id', 'type', 'pv', 'uv', 'r_click_total', 'r_apply_total', 'share_total'], 'integer'],
+            [['date'], 'safe']
         ];
     }
 
@@ -44,6 +46,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
         return [
             'id' => 'ID',
             'essence_id' => '攻略',
+            'date' => '日期',
             'type' => '前端',
             'pv' => '浏览次数(pv)',
             'uv' => '浏览人数(uv)',
@@ -89,7 +92,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'inputType' => 'hidden',
                         'isEdit' => true,
                         'isSearch' => false,
-                        'isDisplay' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
@@ -109,6 +112,29 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'type' => 'integer',
                         'unsigned' => false,
                         'label'=>$this->getAttributeLabel('essence_id'),
+                        'inputType' => 'text',
+                        'isEdit' => true,
+                        'isSearch' => true,
+                        'isDisplay' => false,
+                        'isSort' => true,
+//                         'udc'=>'',
+                    ),
+		'date' => array(
+                        'name' => 'date',
+                        'allowNull' => false,
+//                         'autoIncrement' => false,
+//                         'comment' => '日期',
+//                         'dbType' => "datetime",
+                        'defaultValue' => '',
+                        'enumValues' => null,
+                        'isPrimaryKey' => false,
+                        'phpType' => 'string',
+                        'precision' => '',
+                        'scale' => '',
+                        'size' => '',
+                        'type' => 'datetime',
+                        'unsigned' => false,
+                        'label'=>$this->getAttributeLabel('date'),
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => true,
@@ -135,7 +161,7 @@ class FrontEssenceCount extends \backend\models\BaseModel
                         'inputType' => 'text',
                         'isEdit' => true,
                         'isSearch' => true,
-                        'isDisplay' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
