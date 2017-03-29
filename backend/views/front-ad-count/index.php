@@ -89,7 +89,7 @@ $modelLabel = new \backend\models\FrontAdCount();
             
             <?php
 			foreach ($models as $model){
-				echo '<tr id="rowid_' . $model['ad_id ']. '">';
+				echo '<tr id="rowid_' . $model['ad_id']. '">';
 				echo '  <td><label><input type="checkbox" value="' . $model['ad_id']. '"></label></td>';
 				echo '  <td>' . $model['name']. '</td>';
 				echo '  <td>' . $model['show_total']. '</td>';
