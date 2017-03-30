@@ -104,21 +104,24 @@ $modelLabel = new \backend\models\FrontWebsiteCount();
                 echo '  </td>';
                 echo '</tr>';
             }
-			foreach ($totals as $total) {
-				echo '<tr>';
-				//echo '  <td>' . $model->id . '</td>';
-				echo '  <td>' . '总计' . '</td>';
-				//echo '  <td>' . $model->type . '</td>';
-				echo '  <td>' . $total['pv'] . '</td>';
-				echo '  <td>' . $total['uv'] . '</td>';
-				echo '  <td>' . $total['register_total'] . '</td>';
-				echo '  <td>' . $total['look_total'] . '</td>';
-				echo '  <td>' . $total['apply_total'] . '</td>';
-				echo '  <td class="center">';
+			if($totals){
+				foreach ($totals as $total) {
+					echo '<tr>';
+					//echo '  <td>' . $model->id . '</td>';
+					echo '  <td>' . '总计' . '</td>';
+					//echo '  <td>' . $model->type . '</td>';
+					echo '  <td>' . $total['pv'] . '</td>';
+					echo '  <td>' . $total['uv'] . '</td>';
+					echo '  <td>' . $total['register_total'] . '</td>';
+					echo '  <td>' . $total['look_total'] . '</td>';
+					echo '  <td>' . $total['apply_total'] . '</td>';
+					echo '  <td class="center">';
 
-				echo '  </td>';
-				echo '</tr>';
+					echo '  </td>';
+					echo '</tr>';
+				}
 			}
+	
             ?>
             
            

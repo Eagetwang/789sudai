@@ -90,7 +90,9 @@ $modelLabel = new \backend\models\FrontEssenceCount();
               echo '<th onclick="orderby(\'date\', \'desc\')" '.CommonFun::sortClass($orderby, 'date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('date').'</th>';
               echo '<th onclick="orderby(\'uv\', \'desc\')" '.CommonFun::sortClass($orderby, 'uv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('uv').'</th>';
               echo '<th onclick="orderby(\'r_click_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'r_click_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('r_click_total').'</th>';
+			  echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >推荐转化率(%)</th>';
               echo '<th onclick="orderby(\'r_apply_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'r_apply_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('r_apply_total').'</th>';
+			echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >申请转化率(%)</th>';
               echo '<th onclick="orderby(\'share_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'share_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('share_total').'</th>';
          
 			?>
@@ -110,13 +112,40 @@ $modelLabel = new \backend\models\FrontEssenceCount();
                 //echo '  <td>' . $model->pv . '</td>';
                 echo '  <td>' . $model['uv'] . '</td>';
                 echo '  <td>' . $model['r_click_total'] . '</td>';
+				if($model['uv']){
+					echo '  <td>' . round(($model['r_click_total']/$model['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
+				}
                 echo '  <td>' . $model['r_apply_total']. '</td>';
+				if($model['uv']){
+					echo '  <td>' . round(($model['r_apply_total']/$model['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
+				}
                 echo '  <td>' . $model['share_total'] . '</td>';
                 echo '  <td class="center">';
 
                 echo '  </td>';
                 echo '</tr>';
             }
+			if($totals){
+				echo '  <td>' . '总计' . '</td>';
+				echo '  <td>' . $totals['uv'] . '</td>';
+				echo '  <td>' . $totals['r_click_total'] . '</td>';
+				if($totals['uv']){
+					echo '  <td>' . round(($totals['r_click_total']/$totals['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
+				}
+				echo '  <td>' . $totals['r_apply_total'] . '</td>';
+				if($totals['uv']){
+					echo '  <td>' . round(($totals['r_apply_total']/$totals['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
+				}
+				echo '  <td>' . $totals['share_total'] . '</td>';
+			}
             
             ?>
             

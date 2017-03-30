@@ -39,15 +39,18 @@ class FrontEssenceCountController extends BaseController
         }
         if($querys && array_key_exists('date',$querys)){
             $query = $ess_c->getCount($querys['essence_id'],$querys['type'],$querys['date']);
+            $totals = $ess_c->getTotal($querys['essence_id'],$querys['type'],$querys['date']);
         }else if($querys && array_key_exists('essence_id',$querys)){
 
             $query = $ess_c->getCount($querys['essence_id'],$querys['type']);
+            $totals = $ess_c->getTotal($querys['essence_id'],$querys['type']);
         }else{
             foreach ($essences as $essence){
                 $querys['essence_id'] = $essence['id'];
                 break;
             }
-            $query = $ess_c->getCount($querys['essence_id'],$querys['type']);
+            $query= $ess_c->getCount($querys['essence_id'],$querys['type']);
+            $totals = $ess_c->getTotal($querys['essence_id'],$querys['type']);
         }
 
         $pagination = new Pagination([
@@ -68,6 +71,7 @@ class FrontEssenceCountController extends BaseController
         ->all();
         return $this->render('index', [
             'models'=>$models,
+            'totals'=>$totals,
             'indexs'=>$indexs,
             'essences'=>$essences,
             'pages'=>$pagination,
