@@ -25,30 +25,29 @@ class FrontEssenceCountController extends BaseController
      */
     public function actionIndex()
     {
+        $ess_c = new FrontEssenceCount();
         $index_model = new FrontIndex();
         $essence_model = new FrontEssence();
         $indexs = $index_model->getAllIndex();
         $essences = $essence_model->getAllEssence();
-        $query = FrontEssenceCount::find();
-         $querys = Yii::$app->request->get('query');
-        if(count($querys) > 0){
-            $condition = "";
-            $parame = array();
-            foreach($querys as $key=>$value){
-                $value = trim($value);
-                if(empty($value) == false){
-                    $parame[":{$key}"]=$value;
-                    if(empty($condition) == true){
-                        $condition = " {$key}=:{$key} ";
-                    }
-                    else{
-                        $condition = $condition . " AND {$key}=:{$key} ";
-                    }
-                }
+        $querys = Yii::$app->request->get('query');
+        $datemin = Yii::$app->request->get('date1');
+        $datemax = Yii::$app->request->get('date2');
+        if($datemax && $datemin){
+            $date = FrontWebsiteCountController::getDates($datemin,$datemax);
+            $querys['date'] = $date;
+        }
+        if($querys && array_key_exists('date',$querys)){
+            $query = $ess_c->getCount($querys['essence_id'],$querys['type'],$querys['date']);
+        }else if($querys && array_key_exists('essence_id',$querys)){
+
+            $query = $ess_c->getCount($querys['essence_id'],$querys['type']);
+        }else{
+            foreach ($essences as $essence){
+                $querys['essence_id'] = $essence['id'];
+                break;
             }
-            if(count($parame) > 0){
-                $query = $query->where($condition, $parame);
-            }
+            $query = $ess_c->getCount($querys['essence_id'],$querys['type']);
         }
 
         $pagination = new Pagination([
@@ -62,8 +61,7 @@ class FrontEssenceCountController extends BaseController
         if(empty($orderby) == false){
             $query = $query->orderBy($orderby);
         }
-        
-        
+
         $models = $query
         ->offset($pagination->offset)
         ->limit($pagination->limit)

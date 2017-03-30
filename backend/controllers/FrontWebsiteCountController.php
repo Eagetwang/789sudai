@@ -175,7 +175,7 @@ class FrontWebsiteCountController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-    protected function getDates($start,$end){
+    static function getDates($start,$end){
         $arr = array();
         $dt_start = strtotime($start);
         $dt_end = strtotime($end);

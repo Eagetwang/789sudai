@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_essence_count".
@@ -283,5 +284,19 @@ class FrontEssenceCount extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getCount($essence_id=0,$type=0,$date=[]){
+        $query = new Query();
+        $query= $query->groupBy('date')
+            ->select(['date','sum(uv) as uv','sum(r_click_total) as r_click_total','sum(r_apply_total) as r_apply_total','sum(share_total) as share_total'])
+            ->from('front_essence_count')
+            ->where('essence_id='.$essence_id);
+        if($type != 0){
+            $query = $query->andWhere('type='.$type);
+        }
+        if($date){
+            $query = $query->andwhere(['in','date',$date]);
+        }
+        return $query;
+
+    }
 }

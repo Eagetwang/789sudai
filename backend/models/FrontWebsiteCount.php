@@ -265,10 +265,10 @@ class FrontWebsiteCount extends \backend\models\BaseModel
             ->select(['date','sum(pv) as pv','sum(uv) as uv','sum(register_total) as register_total','sum(look_total) as look_total','sum(apply_total) as apply_total'])
             ->from('front_website_count');
         if($type != 0){
-            $query = $query->where('type='.$type);
+            $query = $query->andwhere('type='.$type);
         }
         if($date){
-            $query = $query->where(['in','date',$date]);
+            $query = $query->andwhere(['in','date',$date]);
         }
         return $query;
 
@@ -278,10 +278,10 @@ class FrontWebsiteCount extends \backend\models\BaseModel
         $query= $query->select(['sum(pv) as pv','sum(uv) as uv','sum(register_total) as register_total','sum(look_total) as look_total','sum(apply_total) as apply_total'])
             ->from('front_website_count');
         if($type != 0){
-            $query = $query->where('type='.$type);
+            $query = $query->andwhere('type='.$type);
         }
         if($date){
-            $query = $query->where(['in','date',$date]);
+            $query = $query->andwhere(['in','date',$date]);
         }
         return $query;
     }

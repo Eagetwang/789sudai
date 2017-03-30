@@ -242,10 +242,10 @@ class FrontAdCount extends \backend\models\BaseModel
             ->from('front_ad_count')
             ->innerJoin('front_ad','front_ad_count.ad_id = front_ad.id ');
         if($ad_id != 0){
-            $query = $query->where('ad_id='.$ad_id);
+            $query = $query->andwhere('ad_id='.$ad_id);
         }
         if($date){
-            $query = $query->where(['in','date',$date]);
+            $query = $query->andwhere(['in','date',$date]);
         }
         return $query;
 

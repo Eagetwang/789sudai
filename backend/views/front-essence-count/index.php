@@ -105,13 +105,13 @@ $modelLabel = new \backend\models\FrontEssenceCount();
                 echo '<tr>';
                 //echo '  <td>' . $model->id . '</td>';
                 //echo '  <td>' . $model->essence_id . '</td>';
-                echo '  <td>' . $model->date . '</td>';
+                echo '  <td>' . $model['date'] . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
                 //echo '  <td>' . $model->pv . '</td>';
-                echo '  <td>' . $model->uv . '</td>';
-                echo '  <td>' . $model->r_click_total . '</td>';
-                echo '  <td>' . $model->r_apply_total . '</td>';
-                echo '  <td>' . $model->share_total . '</td>';
+                echo '  <td>' . $model['uv'] . '</td>';
+                echo '  <td>' . $model['r_click_total'] . '</td>';
+                echo '  <td>' . $model['r_apply_total']. '</td>';
+                echo '  <td>' . $model['share_total'] . '</td>';
                 echo '  <td class="center">';
 
                 echo '  </td>';
