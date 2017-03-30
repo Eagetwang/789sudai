@@ -61,6 +61,7 @@ class FrontAdCountController extends BaseController
         ->offset($pagination->offset)
         ->limit($pagination->limit)
         ->all();
+        
         return $this->render('index', [
             'models'=>$models,
             'pages'=>$pagination,
