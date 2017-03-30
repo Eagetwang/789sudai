@@ -25,9 +25,7 @@ $modelLabel = new \backend\models\FrontProductCount();
           <h3 class="box-title">数据列表</h3>
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
-                <button id="create_btn" type="button" class="btn btn-xs btn-primary">添&nbsp;&emsp;加</button>
-        			|
-        		<button id="delete_btn" type="button" class="btn btn-xs btn-danger">批量删除</button>
+
             </div>
           </div>
         </div>
@@ -42,12 +40,22 @@ $modelLabel = new \backend\models\FrontProductCount();
                 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
-                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="<?=isset($query["date"]) ? $query["date"] : "" ?>">
+					  <input class="form-control" name="date1" type="date" />
+					  <input class="form-control" name="date2" type="date" />
+<!--                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="--><?//=isset($query["date"]) ? $query["date"] : "" ?><!--">-->
                   </div>
 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('type')?>:</label>
-                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="<?=isset($query["type"]) ? $query["type"] : "" ?>">
+					  <select class="form-control" name="query[type]">
+						  <option value="0">全部</option>
+						  <?php
+						  foreach($indexs as $index){
+							  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+						  }
+						  ?>
+					  </select>
+<!--                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="--><?//=isset($query["type"]) ? $query["type"] : "" ?><!--">-->
                   </div>
               <div class="form-group">
               	<a onclick="searchAction()" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>搜索</a>
@@ -66,38 +74,36 @@ $modelLabel = new \backend\models\FrontProductCount();
             
             <?php 
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
-		      echo '<th><input id="data_table_check" type="checkbox"></th>';
-              echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
               echo '<th onclick="orderby(\'product_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'product_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('product_id').'</th>';
               echo '<th onclick="orderby(\'pv\', \'desc\')" '.CommonFun::sortClass($orderby, 'pv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('pv').'</th>';
               echo '<th onclick="orderby(\'uv\', \'desc\')" '.CommonFun::sortClass($orderby, 'uv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('uv').'</th>';
               echo '<th onclick="orderby(\'apply_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'apply_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('apply_total').'</th>';
+			  echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >申请转化率(%)</th>';
               echo '<th onclick="orderby(\'share_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'share_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('share_total').'</th>';
          
 			?>
-	
-            <th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >操作</th>
+
             </tr>
             </thead>
             <tbody>
             
             <?php
             foreach ($models as $model) {
-                echo '<tr id="rowid_' . $model->id . '">';
-                echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
-                echo '  <td>' . $model->id . '</td>';
-                echo '  <td>' . $model->product_id . '</td>';
+                echo '<tr>';
+                //echo '  <td>' . $model->id . '</td>';
+                echo '  <td>' . $model['p_name']. '</td>';
                 //echo '  <td>' . $model->date . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
-                echo '  <td>' . $model->pv . '</td>';
-                echo '  <td>' . $model->uv . '</td>';
-                echo '  <td>' . $model->apply_total . '</td>';
-                echo '  <td>' . $model->share_total . '</td>';
-                echo '  <td class="center">';
-                echo '      <a id="view_btn" onclick="viewAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>查看</a>';
-                echo '      <a id="edit_btn" onclick="editAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i>修改</a>';
-                echo '      <a id="delete_btn" onclick="deleteAction(' . $model->id . ')" class="btn btn-danger btn-sm" href="#"> <i class="glyphicon glyphicon-trash icon-white"></i>删除</a>';
-                echo '  </td>';
+                echo '  <td>' . $model['pv'] . '</td>';
+                echo '  <td>' . $model['uv'] . '</td>';
+                echo '  <td>' . $model['apply_total'] . '</td>';
+				if($model['uv']){
+					echo '  <td>' . round(($model['apply_total']/$model['uv'])*100,3) . '</td>';
+				}else{
+					echo '  <td>' . 0 . '</td>';
+				}
+                echo '  <td>' . $model['share_total'] . '</td>';
+
                 echo '</tr>';
             }
             

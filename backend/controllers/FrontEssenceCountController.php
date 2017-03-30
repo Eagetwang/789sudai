@@ -49,8 +49,8 @@ class FrontEssenceCountController extends BaseController
                 $querys['essence_id'] = $essence['id'];
                 break;
             }
-            $query= $ess_c->getCount($querys['essence_id'],$querys['type']);
-            $totals = $ess_c->getTotal($querys['essence_id'],$querys['type']);
+            $query= $ess_c->getCount($querys['essence_id']);
+            $totals = $ess_c->getTotal($querys['essence_id']);
         }
 
         $pagination = new Pagination([

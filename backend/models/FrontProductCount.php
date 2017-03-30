@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_product_count".
@@ -44,7 +45,7 @@ class FrontProductCount extends \backend\models\BaseModel
     {
         return [
             'id' => 'ID',
-            'product_id' => '产品id',
+            'product_id' => '产品名称',
             'date' => '日期',
             'type' => '前端',
             'pv' => '详情页浏览量',
@@ -90,7 +91,7 @@ class FrontProductCount extends \backend\models\BaseModel
                         'inputType' => 'hidden',
                         'isEdit' => true,
                         'isSearch' => false,
-                        'isDisplay' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
@@ -258,5 +259,19 @@ class FrontProductCount extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getCount($type=0,$date=[]){
+        $query = new Query();
+        $query= $query->groupBy('product_id')
+            ->select(['p_name','sum(pv) as pv','sum(uv) as uv','sum(front_product_count.apply_total) as apply_total','sum(share_total) as share_total'])
+            ->from('front_product_count')
+            ->innerJoin('front_product','front_product_count.product_id = front_product.id ');
+        if($type != 0){
+            $query = $query->andwhere('type='.$type);
+        }
+        if($date){
+            $query = $query->andwhere(['in','date',$date]);
+        }
+        return $query;
+
+    }
 }
