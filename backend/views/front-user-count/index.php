@@ -25,9 +25,6 @@ $modelLabel = new \backend\models\FrontUserCount();
           <h3 class="box-title">数据列表</h3>
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
-                <button id="create_btn" type="button" class="btn btn-xs btn-primary">添&nbsp;&emsp;加</button>
-        			|
-        		<button id="delete_btn" type="button" class="btn btn-xs btn-danger">批量删除</button>
             </div>
           </div>
         </div>
@@ -42,12 +39,22 @@ $modelLabel = new \backend\models\FrontUserCount();
                 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
-                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="<?=isset($query["date"]) ? $query["date"] : "" ?>">
+					  <input class="form-control" name="date1" type="date" />
+					  <input class="form-control" name="date2" type="date" />
+<!--                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="--><?//=isset($query["date"]) ? $query["date"] : "" ?><!--">-->
                   </div>
 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('type')?>:</label>
-                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="<?=isset($query["type"]) ? $query["type"] : "" ?>">
+					  <select class="form-control" name="query[type]">
+						  <option value="0">全部</option>
+						  <?php
+						  foreach($indexs as $index){
+							  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+						  }
+						  ?>
+					  </select>
+<!--                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="--><?//=isset($query["type"]) ? $query["type"] : "" ?><!--">-->
                   </div>
               <div class="form-group">
               	<a onclick="searchAction()" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>搜索</a>
@@ -66,28 +73,24 @@ $modelLabel = new \backend\models\FrontUserCount();
             
             <?php 
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
-		      echo '<th><input id="data_table_check" type="checkbox"></th>';
-              echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
               echo '<th onclick="orderby(\'date\', \'desc\')" '.CommonFun::sortClass($orderby, 'date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('date').'</th>';
-              echo '<th onclick="orderby(\'type\', \'desc\')" '.CommonFun::sortClass($orderby, 'type').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('type').'</th>';
               echo '<th onclick="orderby(\'register_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'register_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('register_total').'</th>';
               echo '<th onclick="orderby(\'login_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'login_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('login_total').'</th>';
               echo '<th onclick="orderby(\'login_user_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'login_user_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('login_user_total').'</th>';
          
 			?>
 	
-            <th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >操作</th>
+            <th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >活跃度(%)</th>
             </tr>
             </thead>
             <tbody>
             
             <?php
             foreach ($models as $model) {
-                echo '<tr id="rowid_' . $model->id . '">';
-                echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
-                echo '  <td>' . $model->id . '</td>';
+                echo '<tr>';
+                //echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->date . '</td>';
-                echo '  <td>' . $model->type . '</td>';
+                //echo '  <td>' . $model->type . '</td>';
                 echo '  <td>' . $model->register_total . '</td>';
                 echo '  <td>' . $model->login_total . '</td>';
                 echo '  <td>' . $model->login_user_total . '</td>';

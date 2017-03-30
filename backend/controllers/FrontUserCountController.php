@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use backend\models\FrontIndex;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontUserCount;
@@ -23,6 +24,8 @@ class FrontUserCountController extends BaseController
      */
     public function actionIndex()
     {
+        $index_model = new FrontIndex();
+        $indexs = $index_model->getAllIndex();
         $query = FrontUserCount::find();
          $querys = Yii::$app->request->get('query');
         if(count($querys) > 0){
@@ -66,6 +69,7 @@ class FrontUserCountController extends BaseController
             'models'=>$models,
             'pages'=>$pagination,
             'query'=>$querys,
+            'indexs'=>$indexs,
         ]);
     }
 
