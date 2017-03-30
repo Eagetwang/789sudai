@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_user_count".
@@ -208,5 +209,30 @@ class FrontUserCount extends \backend\models\BaseModel
 		        );
         
     }
- 
+    public function getCount($type=0,$date=[]){
+        $query = new Query();
+        $query= $query->groupBy('date')
+            ->select(['date','sum(register_total) as register_total','sum(login_total) as login_total','sum(login_user_total) as login_user_total'])
+            ->from('front_user_count');
+        if($type != 0){
+            $query = $query->andwhere('type='.$type);
+        }
+        if($date){
+            $query = $query->andwhere(['in','date',$date]);
+        }
+        return $query;
+
+    }
+    public function getTotal($type=0,$date=[]){
+        $query = new Query();
+        $query= $query->select(['date','sum(register_total) as register_total','sum(login_total) as login_total','sum(login_user_total) as login_user_total'])
+            ->from('front_user_count');
+        if($type != 0){
+            $query = $query->andwhere('type='.$type);
+        }
+        if($date){
+            $query = $query->andwhere(['in','date',$date]);
+        }
+        return $query;
+    }
 }

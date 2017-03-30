@@ -89,19 +89,27 @@ $modelLabel = new \backend\models\FrontUserCount();
             foreach ($models as $model) {
                 echo '<tr>';
                 //echo '  <td>' . $model->id . '</td>';
-                echo '  <td>' . $model->date . '</td>';
+                echo '  <td>' . $model['date'] . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
-                echo '  <td>' . $model->register_total . '</td>';
-                echo '  <td>' . $model->login_total . '</td>';
-                echo '  <td>' . $model->login_user_total . '</td>';
-                echo '  <td class="center">';
-                echo '      <a id="view_btn" onclick="viewAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>查看</a>';
-                echo '      <a id="edit_btn" onclick="editAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i>修改</a>';
-                echo '      <a id="delete_btn" onclick="deleteAction(' . $model->id . ')" class="btn btn-danger btn-sm" href="#"> <i class="glyphicon glyphicon-trash icon-white"></i>删除</a>';
-                echo '  </td>';
+                echo '  <td>' . $model['register_total'] . '</td>';
+                echo '  <td>' . $model['login_total'] . '</td>';
+                echo '  <td>' . $model['login_user_total'] . '</td>';
+             echo '<td>0</td>';
                 echo '</tr>';
             }
-            
+			if($totals) {
+				foreach ($totals as $total) {
+					echo '<tr>';
+					//echo '  <td>' . $model->id . '</td>';
+					echo '  <td>' . '总计' . '</td>';
+					//echo '  <td>' . $model->type . '</td>';
+					echo '  <td>' . $total['register_total'] . '</td>';
+					echo '  <td>' . $total['login_total'] . '</td>';
+					echo '  <td>' . $total['login_user_total'] . '</td>';
+					echo '<td>0</td>';
+					echo '</tr>';
+				}
+			}
             ?>
             
            

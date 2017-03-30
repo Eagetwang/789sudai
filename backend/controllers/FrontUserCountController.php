@@ -24,29 +24,26 @@ class FrontUserCountController extends BaseController
      */
     public function actionIndex()
     {
+        $user_c = new FrontUserCount();
         $index_model = new FrontIndex();
         $indexs = $index_model->getAllIndex();
         $query = FrontUserCount::find();
          $querys = Yii::$app->request->get('query');
-        if(count($querys) > 0){
-            $condition = "";
-            $parame = array();
-            foreach($querys as $key=>$value){
-                $value = trim($value);
-                if(empty($value) == false){
-                    $parame[":{$key}"]=$value;
-                    if(empty($condition) == true){
-                        $condition = " {$key}=:{$key} ";
-                    }
-                    else{
-                        $condition = $condition . " AND {$key}=:{$key} ";
-                    }
-                }
-            }
-            if(count($parame) > 0){
-                $query = $query->where($condition, $parame);
-            }
+        $datemin = Yii::$app->request->get('date1');
+        $datemax = Yii::$app->request->get('date2');
+        if($datemax && $datemin){
+            $date = FrontWebsiteCountController::getDates($datemin,$datemax);
+            $querys['date'] = $date;
         }
+        if($querys && array_key_exists('date',$querys)){
+            $query = $user_c->getCount($querys['type'],$querys['date']);
+            $totals = $user_c->getTotal($querys['type'],$querys['date'])->all();
+        }else{
+
+            $query = $user_c->getCount($querys['type']);
+            $totals = $user_c->getTotal($querys['type'])->all();
+        }
+
 
         $pagination = new Pagination([
             'totalCount' =>$query->count(), 
@@ -67,6 +64,7 @@ class FrontUserCountController extends BaseController
         ->all();
         return $this->render('index', [
             'models'=>$models,
+            'totals'=>$totals,
             'pages'=>$pagination,
             'query'=>$querys,
             'indexs'=>$indexs,
