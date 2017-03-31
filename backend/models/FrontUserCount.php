@@ -225,7 +225,7 @@ class FrontUserCount extends \backend\models\BaseModel
     }
     public function getTotal($type=0,$date=[]){
         $query = new Query();
-        $query= $query->select(['date','sum(register_total) as register_total','sum(login_total) as login_total','sum(login_user_total) as login_user_total'])
+        $query= $query->select(['sum(register_total) as register_total','sum(login_total) as login_total','sum(login_user_total) as login_user_total'])
             ->from('front_user_count');
         if($type != 0){
             $query = $query->andwhere('type='.$type);
