@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_product_log".
@@ -10,6 +11,7 @@ use Yii;
  * @property string $user_id
  * @property string $product_id
  * @property string $create_date
+ * @property integer $type
  */
 class FrontProductLog extends \backend\models\BaseModel
 {
@@ -28,7 +30,7 @@ class FrontProductLog extends \backend\models\BaseModel
     {
         return [
             [['id'], 'required'],
-            [['id'], 'integer'],
+            [['id', 'type'], 'integer'],
             [['create_date'], 'safe'],
             [['user_id', 'product_id'], 'string', 'max' => 20]
         ];
@@ -41,9 +43,10 @@ class FrontProductLog extends \backend\models\BaseModel
     {
         return [
             'id' => 'ID',
-            'user_id' => '用户id',
-            'product_id' => '产品id',
+            'user_id' => '用户',
+            'product_id' => '产品',
             'create_date' => '创建时间',
+            'type' => '前端',
         ];
     }
 
@@ -82,7 +85,7 @@ class FrontProductLog extends \backend\models\BaseModel
                         'label'=>$this->getAttributeLabel('id'),
                         'inputType' => 'hidden',
                         'isEdit' => true,
-                        'isSearch' => true,
+                        'isSearch' => false,
                         'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
@@ -151,13 +154,65 @@ class FrontProductLog extends \backend\models\BaseModel
                         'label'=>$this->getAttributeLabel('create_date'),
                         'inputType' => 'text',
                         'isEdit' => true,
-                        'isSearch' => false,
+                        'isSearch' => true,
                         'isDisplay' => true,
+                        'isSort' => true,
+//                         'udc'=>'',
+                    ),
+		'type' => array(
+                        'name' => 'type',
+                        'allowNull' => true,
+//                         'autoIncrement' => false,
+//                         'comment' => '前端',
+//                         'dbType' => "tinyint(1)",
+                        'defaultValue' => '1',
+                        'enumValues' => null,
+                        'isPrimaryKey' => false,
+                        'phpType' => 'integer',
+                        'precision' => '1',
+                        'scale' => '',
+                        'size' => '1',
+                        'type' => 'smallint',
+                        'unsigned' => false,
+                        'label'=>$this->getAttributeLabel('type'),
+                        'inputType' => 'text',
+                        'isEdit' => true,
+                        'isSearch' => true,
+                        'isDisplay' => false,
                         'isSort' => true,
 //                         'udc'=>'',
                     ),
 		        );
         
     }
- 
+    public function getLogByPid($product_id=0,$type=0,$date=[]){
+        $query = new Query();
+        $query= $query->select(['username','sex','front_product.create_date as create_date','p_name','phone'])
+            ->from('front_product_log')
+            ->innerJoin('front_product','front_product_log.product_id = front_product.id ')
+            ->innerJoin('front_user','front_product_log.user_id = front_user.id ')
+            ->where('product_id='.$product_id);
+        if($type != 0){
+            $query = $query->andWhere('type='.$type);
+        }
+        if($date){
+            $query = $query->andwhere(['in','date',$date]);
+        }
+        return $query;
+
+    }
+//    public function getTotal($product_id=0,$type=0,$date=[]){
+//        $query = new Query();
+//        $query= $query->select(['sum(uv) as uv','sum(r_click_total) as r_click_total','sum(r_apply_total) as r_apply_total','sum(share_total) as share_total'])
+//            ->from('front_essence_count')
+//            ->where('product_id='.$product_id);
+//        if($type != 0){
+//            $query = $query->andWhere('type='.$type);
+//        }
+//        if($date){
+//            $query = $query->andwhere(['in','date',$date]);
+//        }
+//        return $query->one();
+//
+//    }
 }

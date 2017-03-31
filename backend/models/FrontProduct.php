@@ -762,5 +762,7 @@ class FrontProduct extends \backend\models\BaseModel
 		        );
         
     }
- 
+ public function getAllProduct(){
+     return $this->find()->where(1)->all();
+ }
 }

@@ -25,9 +25,7 @@ $modelLabel = new \backend\models\FrontProductLog();
           <h3 class="box-title">数据列表</h3>
           <div class="box-tools">
             <div class="input-group input-group-sm" style="width: 150px;">
-                <button id="create_btn" type="button" class="btn btn-xs btn-primary">添&nbsp;&emsp;加</button>
-        			|
-        		<button id="delete_btn" type="button" class="btn btn-xs btn-danger">批量删除</button>
+
             </div>
           </div>
         </div>
@@ -41,13 +39,35 @@ $modelLabel = new \backend\models\FrontProductLog();
                 <?php ActiveForm::begin(['id' => 'front-product-log-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-product-log/index')]); ?>     
                 
                   <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('id')?>:</label>
-                      <input type="text" class="form-control" id="query[id]" name="query[id]"  value="<?=isset($query["id"]) ? $query["id"] : "" ?>">
+                      <label><?=$modelLabel->getAttributeLabel('product_id')?>:</label>
+					  <select class="form-control" name="query[product_id]">
+						  <?php
+						  foreach($products as $product){
+							  echo "<option value='".$product['id']."'>".$product['p_name']."</option>";
+						  }
+						  ?>
+					  </select>
+<!--                      <input type="text" class="form-control" id="query[product_id]" name="query[product_id]"  value="--><?//=isset($query["product_id"]) ? $query["product_id"] : "" ?><!--">-->
                   </div>
 
                   <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('product_id')?>:</label>
-                      <input type="text" class="form-control" id="query[product_id]" name="query[product_id]"  value="<?=isset($query["product_id"]) ? $query["product_id"] : "" ?>">
+                      <label><?=$modelLabel->getAttributeLabel('create_date')?>:</label>
+					  <input class="form-control" name="date1" type="date" />
+					  <input class="form-control" name="date2" type="date" />
+<!--                      <input type="text" class="form-control" id="query[create_date]" name="query[create_date]"  value="--><?//=isset($query["create_date"]) ? $query["create_date"] : "" ?><!--">-->
+                  </div>
+
+                  <div class="form-group" style="margin: 5px;">
+                      <label><?=$modelLabel->getAttributeLabel('type')?>:</label>
+					  <select class="form-control" name="query[type]">
+						  <option value="0">全部</option>
+						  <?php
+						  foreach($indexs as $index){
+							  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+						  }
+						  ?>
+					  </select>
+<!--                      <input type="text" class="form-control" id="query[type]" name="query[type]"  value="--><?//=isset($query["type"]) ? $query["type"] : "" ?><!--">-->
                   </div>
               <div class="form-group">
               	<a onclick="searchAction()" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>搜索</a>
@@ -66,30 +86,27 @@ $modelLabel = new \backend\models\FrontProductLog();
             
             <?php 
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
-		      echo '<th><input id="data_table_check" type="checkbox"></th>';
               echo '<th onclick="orderby(\'user_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'user_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('user_id').'</th>';
               echo '<th onclick="orderby(\'product_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'product_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('product_id').'</th>';
               echo '<th onclick="orderby(\'create_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'create_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('create_date').'</th>';
          
 			?>
 	
-            <th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >操作</th>
+<!--            <th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >操作</th>-->
             </tr>
             </thead>
             <tbody>
             
             <?php
             foreach ($models as $model) {
-                echo '<tr id="rowid_' . $model->id . '">';
-                echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
+                echo '<tr>';
                 //echo '  <td>' . $model->id . '</td>';
-                echo '  <td>' . $model->user_id . '</td>';
-                echo '  <td>' . $model->product_id . '</td>';
-                echo '  <td>' . $model->create_date . '</td>';
+                echo '  <td>' . $model['username'] . '</td>';
+                echo '  <td>' . $model['p_name'] . '</td>';
+                echo '  <td>' . $model['phone'] . '</td>';
+                //echo '  <td>' . $model->type . '</td>';
                 echo '  <td class="center">';
-                echo '      <a id="view_btn" onclick="viewAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>查看</a>';
-                echo '      <a id="edit_btn" onclick="editAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i>修改</a>';
-                echo '      <a id="delete_btn" onclick="deleteAction(' . $model->id . ')" class="btn btn-danger btn-sm" href="#"> <i class="glyphicon glyphicon-trash icon-white"></i>删除</a>';
+
                 echo '  </td>';
                 echo '</tr>';
             }
@@ -175,6 +192,14 @@ $modelLabel = new \backend\models\FrontProductLog();
               </div>
               <div class="clearfix"></div>
           </div>
+
+          <div id="type_div" class="form-group">
+              <label for="type" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("type")?></label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="type" name="FrontProductLog[type]" placeholder="" />
+              </div>
+              <div class="clearfix"></div>
+          </div>
                     
 
 			<?php ActiveForm::end(); ?>          
@@ -222,6 +247,7 @@ function orderby(field, op){
 		$("#user_id").val('');
 		$("#product_id").val('');
 		$("#create_date").val('');
+		$("#type").val('');
 		
 	}
 	else{
@@ -229,12 +255,14 @@ function orderby(field, op){
     	$("#user_id").val(data.user_id);
     	$("#product_id").val(data.product_id);
     	$("#create_date").val(data.create_date);
+    	$("#type").val(data.type);
     	}
 	if(type == "view"){
       $("#id").attr({readonly:true,disabled:true});
       $("#user_id").attr({readonly:true,disabled:true});
       $("#product_id").attr({readonly:true,disabled:true});
       $("#create_date").attr({readonly:true,disabled:true});
+      $("#type").attr({readonly:true,disabled:true});
 	$('#edit_dialog_ok').addClass('hidden');
 	}
 	else{
@@ -242,6 +270,7 @@ function orderby(field, op){
       $("#user_id").attr({readonly:false,disabled:false});
       $("#product_id").attr({readonly:false,disabled:false});
       $("#create_date").attr({readonly:false,disabled:false});
+      $("#type").attr({readonly:false,disabled:false});
 		$('#edit_dialog_ok').removeClass('hidden');
 		}
 		$('#edit_dialog').modal('show');
