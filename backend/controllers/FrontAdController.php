@@ -188,4 +188,15 @@ class FrontAdController extends BaseController
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    /**
+     * 前端banner接口
+     */
+    public function actionGetad(){
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $model = new FrontAd();
+        $res = $model->getAllAdByType($type);
+        var_dump($res);
+    }
 }

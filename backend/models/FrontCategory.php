@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_category".
@@ -214,5 +215,10 @@ class FrontCategory extends \backend\models\BaseModel
     }
     public function getNameByIds(){
 
+    }
+    public function getCate($type=1,$hot=0,$rec=0,$new=0){
+        $query = new Query();
+        $res = $query->from('front_category')->where(['category_id'=>$type,'new'=>$new,'hot'=>$hot,'recommend'=>$rec])->all();
+        return $res;
     }
 }

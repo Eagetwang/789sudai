@@ -76,7 +76,8 @@ $modelLabel = new \backend\models\FrontEssence();
               echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
               echo '<th onclick="orderby(\'title\', \'desc\')" '.CommonFun::sortClass($orderby, 'title').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('title').'</th>';
               echo '<th onclick="orderby(\'introduce\', \'desc\')" '.CommonFun::sortClass($orderby, 'introduce').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('introduce').'</th>';
-              echo '<th onclick="orderby(\'content\', \'desc\')" '.CommonFun::sortClass($orderby, 'content').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('content').'</th>';
+			echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >图片</th>';
+			echo '<th onclick="orderby(\'content\', \'desc\')" '.CommonFun::sortClass($orderby, 'content').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('content').'</th>';
               echo '<th onclick="orderby(\'update_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'update_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('update_date').'</th>';
               echo '<th onclick="orderby(\'cteate_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'cteate_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('cteate_date').'</th>';
          
@@ -94,6 +95,7 @@ $modelLabel = new \backend\models\FrontEssence();
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->title . '</td>';
                 echo '  <td>' . $model->introduce . '</td>';
+				echo '  <td><img style="width: 100px;height: 60px" src="' . $model->img . '"></img></td>';
 				echo "<input type='hidden' id='content_".$model->id."' value='".$model->content."'>";
 				echo '  <td>' . Html::a('点击查看', '#', [
 					'id' => 'create_'.$model->id ,

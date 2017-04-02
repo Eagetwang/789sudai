@@ -5,6 +5,7 @@ namespace backend\controllers;
 use app\models\UploadForm;
 use backend\models\FrontCategory;
 use backend\models\FrontIdentity;
+use dosamigos\qrcode\QrCode;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontProduct;
@@ -130,8 +131,7 @@ class FrontProductController extends BaseController
               $model->update_date = date('Y-m-d H:i:s');
               $model->create_user = Yii::$app->user->identity->uname;
               $model->create_date = date('Y-m-d H:i:s');
-        
-            if($model->validate() == true && $model->save()){
+            if($model->validate() == true && $id = $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');
                 echo json_encode($msg);
             }

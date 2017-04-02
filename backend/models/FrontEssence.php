@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_essence".
@@ -12,6 +13,8 @@ use Yii;
  * @property string $content
  * @property string $update_date
  * @property string $cteate_date
+ * @property string $img
+ * @property integer $read
  */
 class FrontEssence extends \backend\models\BaseModel
 {
@@ -31,7 +34,8 @@ class FrontEssence extends \backend\models\BaseModel
         return [
             [['title', 'content', 'update_date', 'cteate_date'], 'required'],
             [['update_date', 'cteate_date'], 'safe'],
-            [['title'], 'string', 'max' => 50],
+            [['title','img'], 'string', 'max' => 50],
+            [['read'], 'integer'],
             [['introduce', 'content'], 'string', 'max' => 15000]
         ];
     }
@@ -46,6 +50,7 @@ class FrontEssence extends \backend\models\BaseModel
             'title' => '标题',
             'introduce' => '简介',
             'content' => '内容',
+            'img' => 'logo',
             'update_date' => '更新时间',
             'cteate_date' => '创建时间',
         ];
@@ -214,5 +219,22 @@ class FrontEssence extends \backend\models\BaseModel
     }
     public function getAllEssence(){
         return $this->find()->where(1)->all();
+    }
+    //以下是接口方法
+    public function getEssence($rec = 0,$num = 0){
+        $query = new Query();
+        $query = $query->from('front_essence')->select('id,title,introduce,rec,img')->where('rec='.$rec);
+        if($num){
+            $query = $query->limit($num);
+        }
+        return $query->all();
+    }
+    public function getAllEss(){
+        $query = new Query();
+        return $query->from('front_essence')->select('id,title,introduce,rec,img')->all();
+    }
+    public function getEssBy($id){
+        $query = new Query();
+        return $query->from('front_essence')->where('id='.$id)->one();
     }
 }

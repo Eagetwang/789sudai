@@ -2,6 +2,11 @@
 
 namespace backend\controllers;
 
+use backend\models\FrontAd;
+use backend\models\FrontCategory;
+use backend\models\FrontEssence;
+use backend\models\FrontPlate;
+use backend\models\FrontProduct;
 use Yii;
 use yii\data\Pagination;
 use backend\models\Test;
@@ -9,11 +14,12 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use dosamigos\qrcode\QrCode;
 
 /**
  * TestController implements the CRUD actions for Test model.
  */
-class TestController extends BaseController
+class TestController extends Controller
 {
 	public $layout = "lte_main";
 
@@ -23,50 +29,7 @@ class TestController extends BaseController
      */
     public function actionIndex()
     {
-        $query = Test::find();
-         $querys = Yii::$app->request->get('query');
-        if(count($querys) > 0){
-            $condition = "";
-            $parame = array();
-            foreach($querys as $key=>$value){
-                $value = trim($value);
-                if(empty($value) == false){
-                    $parame[":{$key}"]=$value;
-                    if(empty($condition) == true){
-                        $condition = " {$key}=:{$key} ";
-                    }
-                    else{
-                        $condition = $condition . " AND {$key}=:{$key} ";
-                    }
-                }
-            }
-            if(count($parame) > 0){
-                $query = $query->where($condition, $parame);
-            }
-        }
-
-        $pagination = new Pagination([
-            'totalCount' =>$query->count(), 
-            'pageSize' => '10', 
-            'pageParam'=>'page', 
-            'pageSizeParam'=>'per-page']
-        );
-        
-        $orderby = Yii::$app->request->get('orderby', '');
-        if(empty($orderby) == false){
-            $query = $query->orderBy($orderby);
-        }
-        
-        
-        $models = $query
-        ->offset($pagination->offset)
-        ->limit($pagination->limit)
-        ->all();
-        return $this->render('index', [
-            'models'=>$models,
-            'pages'=>$pagination,
-            'query'=>$querys,
-        ]);
+        return $this->render('index');
     }
 
     /**
@@ -175,5 +138,136 @@ class TestController extends BaseController
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+    /**
+     * 前端banner接口
+     */
+    public function actionGetad(){
+        $model = new FrontAd();
+        $post = Yii::$app->request->post();
+        if(isset($post['type']) && $post['type']){
+            $ad = $model->getAllAdByType($post['type']);
+            $res['data'] = $ad;
+            $res['info'] = 0;
+        }else{
+            $res['data'] = '';
+            $res['info'] = 1;
+        }
+        echo json_encode($res);
+    }
+    /**
+     * 分类
+     */
+    public function actionGetCategory(){
+        $model = new FrontCategory();
+
+    }
+
+    /**
+     * 产品接口
+     */
+    public function actionGetProduct(){
+        $model = new FrontProduct();
+//        var_dump($model->getProduct(3));exit;
+        $post = Yii::$app->request->post();
+        $hot = $post['hot'];
+        $new = $post['new'];
+        $type = $post['type'];
+        $rec = $post['rec'];
+        $data = $model->getProduct($type,$hot,$rec,$new);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 根据id获取产品
+     */
+    public function actionGetProductBy(){
+        $model = new FrontProduct();
+        $post = Yii::$app->request->post();
+        $data = $model->getProductBy($post['id']);
+//        var_dump($data);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 根据分类获取所有产品
+     */
+    public function actionGetAllProduct(){
+        $model = new FrontProduct();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $data = $model->getProduct($type);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 推荐攻略
+     */
+    public function actionGetEssence(){
+        $model = new FrontEssence();
+//        var_dump($model->getEssence(1,2));exit;
+        $post = Yii::$app->request->post();
+        $rec = $post['rec'];
+        $num = $post['num'];
+        $data = $model->getEssence($rec,$num);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 所有攻略
+     */
+    public function actionGetAllEssence(){
+        $model = new FrontEssence();
+        $data = $model->getAllEss();
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 攻略详情
+     */
+    public function actionGetEssBy(){
+        $model = new FrontEssence();
+        $post = Yii::$app->request->post();
+        $data = $model->getEssBy($post['id']);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 所有版块
+     */
+    public function actionGetAllPlate(){
+        $model = new FrontPlate();
+        $data = $model->getAllPlate();
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 版块详情
+     */
+    public function actionGetPlateBy(){
+        $model = new FrontPlate();
+        $post = Yii::$app->request->post();
+        $data = $model->getPlateBy($post['id']);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        echo json_encode($res);
+    }
+    /**
+     * 二维码测试
+     */
+    public function actionEr(){
+        $png = QrCode::text('http://www.yii-china.com');
+    }
+    public function actionAa(){
+        $product = new FrontProduct();
+        $res = $product->getMaxId();
+        var_dump($res);
     }
 }

@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_ad".
@@ -162,4 +163,14 @@ class FrontAd extends \backend\models\BaseModel
  public function getAllAd(){
      return $this->find()->where(1)->all();
  }
+    /**
+     * 根据type返回数据
+     * @param $type
+     */
+    public function getAllAdByType($type){
+        $query = new Query();
+        $res = $query->from('front_ad')->where('ad_class='.$type)->all();
+        return $res;
+//        return $this->find()->where('ad_class='.$type)->asArray();
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use app\models\UploadForm;
 use Yii;
 use yii\data\Pagination;
 use backend\models\FrontEssence;
@@ -9,6 +10,7 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * FrontEssenceController implements the CRUD actions for FrontEssence model.
@@ -99,9 +101,19 @@ class FrontEssenceController extends BaseController
         ]);
     }
     public function actionAddEssence(){
+        $img_url = "";
+        $upload = new UploadForm();
         $model = new FrontEssence();
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()) {
+            $img_url = $upload->upload();
+        }else{
+            $msg = array('errno'=>2, 'msg'=>'图片格式错误');
+            echo json_encode($msg);
+        }
 //        var_dump(Yii::$app->request->post());exit;
         if ($model->load(Yii::$app->request->post())) {
+            $model->img = $img_url;
               $model->update_date = date('Y-m-d H:i:s');
             $model->cteate_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
@@ -128,10 +140,19 @@ class FrontEssenceController extends BaseController
      */
     public function actionUpdate()
     {
+        $img_url = "";
+        $upload = new UploadForm();
         $id = Yii::$app->request->post('id');
         $model = $this->findModel($id);
+        $upload->imageFile = UploadedFile::getInstance($upload,'imageFile');
+        if ($upload->imageFile && $upload->validate()) {
+            $img_url = $upload->upload();
+        }
         if ($model->load(Yii::$app->request->post())) {
 
+            if($img_url){
+                $model->img = $img_url;
+            }
               $model->update_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');

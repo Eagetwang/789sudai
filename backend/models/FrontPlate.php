@@ -2,6 +2,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\db\Query;
 
 /**
  * This is the model class for table "front_plate".
@@ -213,5 +214,15 @@ class FrontPlate extends \backend\models\BaseModel
     }
     public function getById($id){
         return $this->find()->where(['id'=>$id])->one();
+    }
+
+    //以下是接口方法
+    public function getAllPlate(){
+        $query = new Query();
+        return $query->from('front_plate')->select('id,title,introduce,img_url,create_date,read')->all();
+    }
+    public function getPlateBy($id){
+        $query = new Query();
+        return $query->from('front_plate')->where('id='.$id)->one();
     }
 }

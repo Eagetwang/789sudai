@@ -3,6 +3,15 @@
 $vendorDir = dirname(__DIR__);
 
 return array (
+    '2amigos/yii2-qrcode-helper' =>
+        array (
+            'name' => '2amigos/yii2-qrcode-helper',
+            'version' => '1.0.2.0',
+            'alias' =>
+                array (
+                    '@dosamigos/qrcode' => $vendorDir . '/2amigos/yii2-qrcode-helper/src',
+                ),
+        ),
   'yiisoft/yii2-swiftmailer' => 
   array (
     'name' => 'yiisoft/yii2-swiftmailer',

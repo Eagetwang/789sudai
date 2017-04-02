@@ -34,6 +34,14 @@ $modelLabel = new \backend\models\FrontEssence();
         </div>
         <div class="clearfix"></div>
     </div>
+    <div id="img_div" class="form-group">
+        <label for="img" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("img")?></label>
+        <div class="col-sm-10">
+            <input type="hidden" class="form-control" id="img" name="FrontPlate[img]" placeholder="" value='<?php if($essence) echo $essence['img'];?>'/>
+            <input type="file" name="UploadForm[imageFile]">
+        </div>
+        <div class="clearfix"></div>
+    </div>
 
     <div id="content_div" class="form-group">
         <label for="content" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("content")?></label>

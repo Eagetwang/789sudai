@@ -38,7 +38,7 @@ $modelLabel = new \backend\models\FrontPlate();
     <div id="img_url_div" class="form-group">
         <label for="img_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("img_url")?></label>
         <div class="col-sm-10">
-            <input type="hidden" class="form-control" id="img_url" name="FrontPlate[img_utl]" placeholder="" value='<?php if($plate) echo $plate['img_url'];?>'/>
+            <input type="hidden" class="form-control" id="img_url" name="FrontPlate[img_url]" placeholder="" value='<?php if($plate) echo $plate['img_url'];?>'/>
             <input type="file" name="UploadForm[imageFile]">
         </div>
         <div class="clearfix"></div>

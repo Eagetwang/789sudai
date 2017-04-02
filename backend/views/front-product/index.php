@@ -413,7 +413,20 @@ $modelLabel = new \backend\models\FrontProduct();
               </div>
               <div class="clearfix"></div>
           </div>
-
+                <div id="return_div" class="form-group">
+                    <label for="return" class="col-sm-2 control-label">还款方式</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="return" name="FrontProduct[return]" placeholder="必填" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+                <div id="check_div" class="form-group">
+                    <label for="check" class="col-sm-2 control-label">审核方式</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="check" name="FrontProduct[check]" placeholder="必填" />
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
           <div id="update_user_div" class="form-group">
               <label for="update_user" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("update_user")?></label>
               <div class="col-sm-10">
@@ -532,6 +545,8 @@ function orderby(field, op){
 		$("#link").val('');
 		$("#telephone").val('');
 		$("#success_rate").val('');
+		$("#check").val('');
+		$("#return").val('');
 		$("#update_user").val('');
 		$("#update_date").val('');
 		$("#create_user").val('');
@@ -634,6 +649,8 @@ function orderby(field, op){
     	$("#link").val(data.link);
     	$("#telephone").val(data.telephone);
     	$("#success_rate").val(data.success_rate);
+    	$("#check").val(data.check);
+    	$("#return").val(data.return);
     	$("#update_user").val(data.update_user);
     	$("#update_date").val(data.update_date);
     	$("#create_user").val(data.create_user);
@@ -694,6 +711,8 @@ function orderby(field, op){
       $("#link").attr({readonly:true,disabled:true});
       $("#telephone").attr({readonly:true,disabled:true});
       $("#success_rate").attr({readonly:true,disabled:true});
+      $("#check").attr({readonly:true,disabled:true});
+      $("#return").attr({readonly:true,disabled:true});
       $("#update_user").attr({readonly:true,disabled:true});
       $("#update_user").parent().parent().show();
       $("#update_date").attr({readonly:true,disabled:true});
@@ -748,6 +767,8 @@ function orderby(field, op){
       $("#link").attr({readonly:false,disabled:false});
       $("#telephone").attr({readonly:false,disabled:false});
       $("#success_rate").attr({readonly:false,disabled:false});
+      $("#check").attr({readonly:false,disabled:false});
+      $("#return").attr({readonly:false,disabled:false});
       $("#update_user").attr({readonly:false,disabled:false});
       $("#update_user").parent().parent().hide();
       $("#update_date").attr({readonly:false,disabled:false});
