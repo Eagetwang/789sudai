@@ -123,7 +123,11 @@ class FrontProductLogController extends BaseController
                 $objectPHPExcel->getActiveSheet()->setCellValue('C'.($n+4) ,$log['p_name']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('D'.($n+4) ,$log['phone']);
                 $objectPHPExcel->getActiveSheet()->setCellValue('E'.($n+4) ,$log['create_date']);
-                $objectPHPExcel->getActiveSheet()->setCellValue('F'.($n+4) ,$log['sex']);
+                if($log['sex'] == 'm'){
+                    $objectPHPExcel->getActiveSheet()->setCellValue('F'.($n+4) ,'男');
+                }else{
+                    $objectPHPExcel->getActiveSheet()->setCellValue('F'.($n+4) ,'女');
+                }
                 //设置边框
                 $currentRowNum = $n+4;
                 $objectPHPExcel->getActiveSheet()->getStyle('B'.($n+4).':G'.$currentRowNum )

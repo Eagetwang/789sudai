@@ -71,6 +71,7 @@ $modelLabel = new \backend\models\FrontProductLog();
                   </div>
               <div class="form-group">
               	<a onclick="searchAction()" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>搜索</a>
+              	<a onclick="excel()" class="btn btn-primary btn-sm" > 导出</a>
            	  </div>
                <?php ActiveForm::end(); ?> 
             </div>
@@ -88,6 +89,7 @@ $modelLabel = new \backend\models\FrontProductLog();
               $orderby = isset($_GET['orderby']) ? $_GET['orderby'] : '';
               echo '<th onclick="orderby(\'user_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'user_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('user_id').'</th>';
               echo '<th onclick="orderby(\'product_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'product_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('product_id').'</th>';
+			echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >电话</th>';
               echo '<th onclick="orderby(\'create_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'create_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('create_date').'</th>';
          
 			?>
@@ -104,6 +106,7 @@ $modelLabel = new \backend\models\FrontProductLog();
                 echo '  <td>' . $model['username'] . '</td>';
                 echo '  <td>' . $model['p_name'] . '</td>';
                 echo '  <td>' . $model['phone'] . '</td>';
+                echo '  <td>' . $model['create_date'] . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
                 echo '  <td class="center">';
 
@@ -237,6 +240,11 @@ function orderby(field, op){
  function searchAction(){
 		$('#front-product-log-search-form').submit();
 	}
+function excel(){
+	var url = window.location.href+'&excel=1';
+	console.log(url);
+	window.location.href = url;
+}
  function viewAction(id){
 		initModel(id, 'view', 'fun');
 	}
