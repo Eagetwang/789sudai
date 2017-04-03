@@ -223,7 +223,7 @@ class FrontEssence extends \backend\models\BaseModel
     //以下是接口方法
     public function getEssence($rec = 0,$num = 0){
         $query = new Query();
-        $query = $query->from('front_essence')->select('id,title,introduce,rec,img')->where('rec='.$rec);
+        $query = $query->from('front_essence')->select('id,title,introduce,rec,img,read')->where('rec='.$rec);
         if($num){
             $query = $query->limit($num);
         }
@@ -231,7 +231,7 @@ class FrontEssence extends \backend\models\BaseModel
     }
     public function getAllEss(){
         $query = new Query();
-        return $query->from('front_essence')->select('id,title,introduce,rec,img')->all();
+        return $query->from('front_essence')->select('id,title,introduce,rec,img,read')->all();
     }
     public function getEssBy($id){
         $query = new Query();
