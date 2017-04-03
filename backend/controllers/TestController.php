@@ -3,10 +3,15 @@
 namespace backend\controllers;
 
 use backend\models\FrontAd;
+use backend\models\FrontAdCount;
 use backend\models\FrontCategory;
 use backend\models\FrontEssence;
+use backend\models\FrontEssenceCount;
 use backend\models\FrontPlate;
 use backend\models\FrontProduct;
+use backend\models\FrontProductCount;
+use backend\models\FrontProductLog;
+use backend\models\FrontWebsiteCount;
 use Yii;
 use yii\data\Pagination;
 use backend\models\Test;
@@ -180,6 +185,23 @@ class TestController extends Controller
         echo json_encode($res);
     }
     /**
+     * 产品分页数据
+     */
+    public function actionGetProductPage(){
+        $model = new FrontProduct();
+//        $res = $model->getProductPage(3,0,5);
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $page = $post['page'];
+        $num = $post['num'];
+        $count = $model->getCountByType($type);
+        $data = $model->getProductPage($type,$page,$num);
+        $res['data'] = $data;
+        $res['info'] = 0;
+        $res['total'] = $count;
+        echo json_encode($res);
+    }
+    /**
      * 根据id获取产品
      */
     public function actionGetProductBy(){
@@ -265,9 +287,80 @@ class TestController extends Controller
     public function actionEr(){
         $png = QrCode::text('http://www.yii-china.com');
     }
-    public function actionAa(){
-        $product = new FrontProduct();
-        $res = $product->getMaxId();
-        var_dump($res);
+
+    /**
+     * 广告统计接口
+     */
+    public function actionAdCount(){
+        $model = new FrontAdCount();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $ad_id = $post['ad_id'];
+        $date = $post['date'];
+        $show = $post['show'];
+        $click = $post['click'];
+        $uv = $post['uv'];
+        $model->saveAdCount($type,$ad_id,$date,$show,$click,$uv);
+    }
+
+    /**
+     * 网站统计接口
+     */
+    public function actionWebCount(){
+        $model = new FrontWebsiteCount();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $date = $post['date'];
+        $pv = $post['pv'];
+        $uv = $post['uv'];
+        $reg = $post['reg'];
+        $look = $post['look'];
+        $apply = $post['apply'];
+        $model->addWebCount($type,$date,$pv,$uv,$reg,$look,$apply);
+    }
+
+    /**
+     * 攻略统计
+     */
+    public function actionEssCount(){
+        $model = new FrontEssenceCount();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $date = $post['date'];
+        $ess_id = $post['ess_id'];
+        $pv = $post['pv'];
+        $uv = $post['uv'];
+        $click = $post['click'];
+        $share = $post['share'];
+        $apply = $post['apply'];
+        $model->addEssCount($type,$date,$ess_id,$pv,$uv,$click,$apply,$share);
+    }
+
+    /**
+     * 产品效果统计
+     */
+    public function actionProductCount(){
+       $model =  new FrontProductCount();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $date = $post['date'];
+        $p_id = $post['p_id'];
+        $pv = $post['pv'];
+        $uv = $post['uv'];
+        $share = $post['share'];
+        $apply = $post['apply'];
+        $model->addProCount($type,$date,$p_id,$pv,$uv,$apply,$share);
+    }
+
+    /**
+     * 产品申请统计
+     */
+    public function actionProductLog(){
+        $model = new FrontProductLog();
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $u_id = $post['u_id'];
+        $p_id = $post['p_id'];
+        $model->addProLog($type,$u_id,$p_id);
     }
 }

@@ -1,6 +1,7 @@
 <?php
 namespace backend\models;
 
+use dosamigos\qrcode\QrCode;
 use Yii;
 use yii\db\Query;
 
@@ -794,10 +795,34 @@ class FrontProduct extends \backend\models\BaseModel
         if($rec){
             $query = $query->andWhere('recommend='.$rec);
         }
-        return $query->all();
+        return $query->orderBy('id desc')->all();
     }
     public function getProductBy($id){
         $query = new Query();
         return $query->from('front_product')->where('id='.$id)->one();
+    }
+    //分页查询
+    public function getProductPage($type,$page,$num){
+        $query = new Query();
+        $query->from('front_product')
+            ->andWhere('category_id like"%'.$type.'%"');
+        $count = $query->count();
+        if($page){
+            $offset = ($page-1)*$num;
+        }else{
+            $offset = $count -($count % $num);
+        }
+        $query->limit($num)
+             ->offset($offset)
+             ->orderBy('id desc');
+        return $query->all();
+    }
+    //根据分类获取count
+    public function getCountByType($type){
+        $query = new Query();
+        $res = $query->from('front_product')
+            ->andWhere('category_id like"%'.$type.'%"')
+            ->count();
+        return $res;
     }
 }

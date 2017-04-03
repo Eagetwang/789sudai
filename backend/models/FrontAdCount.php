@@ -250,4 +250,34 @@ class FrontAdCount extends \backend\models\BaseModel
         return $query;
 
     }
+
+    //以下是接口方法
+    /**
+     * 根据日期和类型更新或插入数据
+     * @param string $type 前端类型
+     * @param int $ad_id 广告id
+     * @param string $date 日期只要年月日如(2017-03-22)
+     * @param int $show 广告位的展示
+     * @param int $click 点击量
+     * @param int $uv 展示uv
+     * @return bool
+     */
+    public function saveAdCount($type,$ad_id,$date,$show=0,$click=0,$uv=0){
+        $model = FrontAdCount::findOne(['type'=>$type,'date'=>$date,'ad_id'=>$ad_id]);
+        if($model){
+            $model->click_total += $click;
+            $model->show_total += $show;
+            $model->uv += $uv;
+            $res = $model->save();
+        }else{
+            $this->date = $date;
+            $this->type = $type;
+            $this->ad_id = $ad_id;
+            $this->click_total = $click;
+            $this->show_total = $show;
+            $this->uv = $uv;
+            $res = $this->save();
+        }
+        return $res;
+    }
 }

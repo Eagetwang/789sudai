@@ -274,4 +274,39 @@ class FrontProductCount extends \backend\models\BaseModel
         return $query;
 
     }
+
+    //以下是接口方法
+
+    /**
+     * 产品效果统计
+     * @param string $type 前端类型
+     * @param string $date 日期，日期只要年月日如(2017-03-22)
+     * @param int $p_id 产品id
+     * @param int $pv pv 详情页浏览量
+     * @param int $uv uv 浏览人数
+     * @param int $apply 申请量
+     * @param int $share 被分享次数
+     * @return bool
+     */
+    public function addProCount($type,$date,$p_id,$pv=0,$uv=0,$apply=0,$share=0){
+        $model = FrontProductCount::findOne(['type'=>$type,'date'=>$date,'product_id'=>$p_id]);
+        if($model){
+            $model->pv += $pv;
+            $model->uv += $uv;
+            $model->share_total +=$share;
+            $model->apply_total +=$apply;
+            $res = $model->save();
+        }else{
+            $this->type = $type;
+            $this->date = $date;
+            $this->product_id = $p_id;
+            $this->pv = $pv;
+            $this->uv = $uv;
+            $this->share_total = $share;
+            $this->apply_total = $apply;
+            $res = $this->save();
+        }
+        return $res;
+    }
+
 }

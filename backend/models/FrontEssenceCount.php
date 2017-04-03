@@ -313,4 +313,41 @@ class FrontEssenceCount extends \backend\models\BaseModel
         return $query->one();
 
     }
+
+    //以下是接口方法
+
+    /**
+     * 攻略统计
+     * @param string $type 前端类型
+     * @param string $date 日期，日期只要年月日如(2017-03-22)
+     * @param int $ess_id 攻略id
+     * @param int $pv pv
+     * @param int $uv uv
+     * @param int $click 推荐产品点击量
+     * @param int $apply 推荐产品申请量
+     * @param int $share 分享次数
+     * @return bool
+     */
+    public function addEssCount($type,$date,$ess_id,$pv=0,$uv=0,$click =0,$apply=0,$share=0){
+        $model = FrontEssenceCount::findOne(['type'=>$type,'date'=>$date,'essence_id'=>$ess_id]);
+        if($model){
+            $model->pv += $pv;
+            $model->uv += $uv;
+            $model->r_click_total += $click;
+            $model->share_total +=$share;
+            $model->r_apply_total +=$apply;
+            $res = $model->save();
+        }else{
+            $this->type = $type;
+            $this->date = $date;
+            $this->essence_id = $ess_id;
+            $this->pv = $pv;
+            $this->uv = $uv;
+            $this->r_click_total = $click;
+            $this->share_total = $share;
+            $this->r_apply_total = $apply;
+            $res = $this->save();
+        }
+        return $res;
+    }
 }

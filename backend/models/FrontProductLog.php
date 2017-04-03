@@ -12,6 +12,7 @@ use yii\db\Query;
  * @property string $product_id
  * @property string $create_date
  * @property integer $type
+ * @property string $date
  */
 class FrontProductLog extends \backend\models\BaseModel
 {
@@ -31,7 +32,7 @@ class FrontProductLog extends \backend\models\BaseModel
         return [
             [['id'], 'required'],
             [['id', 'type'], 'integer'],
-            [['create_date'], 'safe'],
+            [['create_date','date'], 'safe'],
             [['user_id', 'product_id'], 'string', 'max' => 20]
         ];
     }
@@ -50,7 +51,7 @@ class FrontProductLog extends \backend\models\BaseModel
         ];
     }
 
-  /**
+    /**
      * 返回数据库字段信息，仅在生成CRUD时使用，如不需要生成CRUD，请注释或删除该getTableColumnInfo()代码
      * COLUMN_COMMENT可用key如下:
      * label - 显示的label
@@ -67,123 +68,123 @@ class FrontProductLog extends \backend\models\BaseModel
      */
     public function getTableColumnInfo(){
         return array(
-        'id' => array(
-                        'name' => 'id',
-                        'allowNull' => false,
+            'id' => array(
+                'name' => 'id',
+                'allowNull' => false,
 //                         'autoIncrement' => false,
 //                         'comment' => '',
 //                         'dbType' => "bigint(20)",
-                        'defaultValue' => '',
-                        'enumValues' => null,
-                        'isPrimaryKey' => true,
-                        'phpType' => 'string',
-                        'precision' => '20',
-                        'scale' => '',
-                        'size' => '20',
-                        'type' => 'bigint',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('id'),
-                        'inputType' => 'hidden',
-                        'isEdit' => true,
-                        'isSearch' => false,
-                        'isDisplay' => false,
-                        'isSort' => true,
+                'defaultValue' => '',
+                'enumValues' => null,
+                'isPrimaryKey' => true,
+                'phpType' => 'string',
+                'precision' => '20',
+                'scale' => '',
+                'size' => '20',
+                'type' => 'bigint',
+                'unsigned' => false,
+                'label'=>$this->getAttributeLabel('id'),
+                'inputType' => 'hidden',
+                'isEdit' => true,
+                'isSearch' => false,
+                'isDisplay' => false,
+                'isSort' => true,
 //                         'udc'=>'',
-                    ),
-		'user_id' => array(
-                        'name' => 'user_id',
-                        'allowNull' => true,
+            ),
+            'user_id' => array(
+                'name' => 'user_id',
+                'allowNull' => true,
 //                         'autoIncrement' => false,
 //                         'comment' => '用户id',
 //                         'dbType' => "varchar(20)",
-                        'defaultValue' => '',
-                        'enumValues' => null,
-                        'isPrimaryKey' => false,
-                        'phpType' => 'string',
-                        'precision' => '20',
-                        'scale' => '',
-                        'size' => '20',
-                        'type' => 'string',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('user_id'),
-                        'inputType' => 'text',
-                        'isEdit' => true,
-                        'isSearch' => false,
-                        'isDisplay' => true,
-                        'isSort' => true,
+                'defaultValue' => '',
+                'enumValues' => null,
+                'isPrimaryKey' => false,
+                'phpType' => 'string',
+                'precision' => '20',
+                'scale' => '',
+                'size' => '20',
+                'type' => 'string',
+                'unsigned' => false,
+                'label'=>$this->getAttributeLabel('user_id'),
+                'inputType' => 'text',
+                'isEdit' => true,
+                'isSearch' => false,
+                'isDisplay' => true,
+                'isSort' => true,
 //                         'udc'=>'',
-                    ),
-		'product_id' => array(
-                        'name' => 'product_id',
-                        'allowNull' => true,
+            ),
+            'product_id' => array(
+                'name' => 'product_id',
+                'allowNull' => true,
 //                         'autoIncrement' => false,
 //                         'comment' => '产品id',
 //                         'dbType' => "varchar(20)",
-                        'defaultValue' => '',
-                        'enumValues' => null,
-                        'isPrimaryKey' => false,
-                        'phpType' => 'string',
-                        'precision' => '20',
-                        'scale' => '',
-                        'size' => '20',
-                        'type' => 'string',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('product_id'),
-                        'inputType' => 'text',
-                        'isEdit' => true,
-                        'isSearch' => true,
-                        'isDisplay' => true,
-                        'isSort' => true,
+                'defaultValue' => '',
+                'enumValues' => null,
+                'isPrimaryKey' => false,
+                'phpType' => 'string',
+                'precision' => '20',
+                'scale' => '',
+                'size' => '20',
+                'type' => 'string',
+                'unsigned' => false,
+                'label'=>$this->getAttributeLabel('product_id'),
+                'inputType' => 'text',
+                'isEdit' => true,
+                'isSearch' => true,
+                'isDisplay' => true,
+                'isSort' => true,
 //                         'udc'=>'',
-                    ),
-		'create_date' => array(
-                        'name' => 'create_date',
-                        'allowNull' => true,
+            ),
+            'create_date' => array(
+                'name' => 'create_date',
+                'allowNull' => true,
 //                         'autoIncrement' => false,
 //                         'comment' => '创建时间',
 //                         'dbType' => "datetime",
-                        'defaultValue' => '',
-                        'enumValues' => null,
-                        'isPrimaryKey' => false,
-                        'phpType' => 'string',
-                        'precision' => '',
-                        'scale' => '',
-                        'size' => '',
-                        'type' => 'datetime',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('create_date'),
-                        'inputType' => 'text',
-                        'isEdit' => true,
-                        'isSearch' => true,
-                        'isDisplay' => true,
-                        'isSort' => true,
+                'defaultValue' => '',
+                'enumValues' => null,
+                'isPrimaryKey' => false,
+                'phpType' => 'string',
+                'precision' => '',
+                'scale' => '',
+                'size' => '',
+                'type' => 'datetime',
+                'unsigned' => false,
+                'label'=>$this->getAttributeLabel('create_date'),
+                'inputType' => 'text',
+                'isEdit' => true,
+                'isSearch' => true,
+                'isDisplay' => true,
+                'isSort' => true,
 //                         'udc'=>'',
-                    ),
-		'type' => array(
-                        'name' => 'type',
-                        'allowNull' => true,
+            ),
+            'type' => array(
+                'name' => 'type',
+                'allowNull' => true,
 //                         'autoIncrement' => false,
 //                         'comment' => '前端',
 //                         'dbType' => "tinyint(1)",
-                        'defaultValue' => '1',
-                        'enumValues' => null,
-                        'isPrimaryKey' => false,
-                        'phpType' => 'integer',
-                        'precision' => '1',
-                        'scale' => '',
-                        'size' => '1',
-                        'type' => 'smallint',
-                        'unsigned' => false,
-                        'label'=>$this->getAttributeLabel('type'),
-                        'inputType' => 'text',
-                        'isEdit' => true,
-                        'isSearch' => true,
-                        'isDisplay' => false,
-                        'isSort' => true,
+                'defaultValue' => '1',
+                'enumValues' => null,
+                'isPrimaryKey' => false,
+                'phpType' => 'integer',
+                'precision' => '1',
+                'scale' => '',
+                'size' => '1',
+                'type' => 'smallint',
+                'unsigned' => false,
+                'label'=>$this->getAttributeLabel('type'),
+                'inputType' => 'text',
+                'isEdit' => true,
+                'isSearch' => true,
+                'isDisplay' => false,
+                'isSort' => true,
 //                         'udc'=>'',
-                    ),
-		        );
-        
+            ),
+        );
+
     }
     public function getLogByPid($product_id=0,$type=0,$date=[]){
         $query = new Query();
@@ -215,4 +216,22 @@ class FrontProductLog extends \backend\models\BaseModel
 //        return $query->one();
 //
 //    }
+
+    //以下是接口方法
+
+    /**
+     * 产品申请统计
+     * @param string $type 前端类型
+     * @param int $u_id 用户id
+     * @param int $p_id 产品id
+     * @return bool
+     */
+    public function addProLog($type,$u_id,$p_id){
+        $this->type = $type;
+        $this->user_id = $u_id;
+        $this->product_id = $p_id;
+        $this->create_date = date('Y-m-d h:i:s');
+        $this->date = date('Y-m-d');
+        return $this->save(false);
+    }
 }

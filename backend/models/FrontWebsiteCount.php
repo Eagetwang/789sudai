@@ -285,4 +285,38 @@ class FrontWebsiteCount extends \backend\models\BaseModel
         }
         return $query;
     }
+    //以下是接口方法
+
+    /**
+     * 网站统计
+     * @param string $type 前端类型
+     * @param string $date 日期，日期只要年月日如(2017-03-22)
+     * @param int $pv pv
+     * @param int $uv uv
+     * @param int $reg 用户注册量
+     * @param int $look 产品查看量
+     * @param int $apply 产品申请量
+     * @return bool
+     */
+    public function addWebCount($type,$date,$pv=0,$uv=0,$reg=0,$look=0,$apply=0){
+        $model = FrontWebsiteCount::findOne(['type'=>$type,'date'=>$date]);
+        if($model){
+            $model->pv += $pv;
+            $model->uv += $uv;
+            $model->register_total += $reg;
+            $model->look_total +=$look;
+            $model->apply_total +=$apply;
+            $res = $model->save();
+        }else{
+            $this->type = $type;
+            $this->date = $date;
+            $this->pv = $pv;
+            $this->uv = $uv;
+            $this->register_total = $reg;
+            $this->look_total = $look;
+            $this->apply_total = $apply;
+            $res = $this->save();
+        }
+        return $res;
+    }
 }
