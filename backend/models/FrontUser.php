@@ -17,8 +17,6 @@ use Yii;
  * @property string $sex
  * @property string $update_date
  * @property string $create_date
- * @property string $create_user
- * @property string $update_user
  */
 class FrontUser extends \backend\models\BaseModel
 {
@@ -36,14 +34,13 @@ class FrontUser extends \backend\models\BaseModel
     public function rules()
     {
         return [
-            [['password', 'phone', 'update_date', 'create_date', 'create_user'], 'required'],
+            [['password', 'phone', 'update_date', 'create_date',], 'required'],
             [['update_date', 'create_date'], 'safe'],
             [['username', 'domain_account'], 'string', 'max' => 100],
             [['password'], 'string', 'max' => 200],
             [['auth_key', 'last_ip'], 'string', 'max' => 50],
             [['is_online', 'sex'], 'string', 'max' => 1],
             [['phone'], 'string', 'max' => 11],
-            [['create_user', 'update_user'], 'string', 'max' => 20]
         ];
     }
 
@@ -64,8 +61,6 @@ class FrontUser extends \backend\models\BaseModel
             'sex' => '性别',
             'update_date' => '更新时间',
             'create_date' => '创建时间',
-            'create_user' => '创建人',
-            'update_user' => '更新人',
         ];
     }
 
@@ -342,5 +337,42 @@ class FrontUser extends \backend\models\BaseModel
 		        );
         
     }
- 
+
+    //以下是接口方法
+    /**
+     * 用户注册
+     * @param $name
+     * @param $pwd
+     * @param $phone
+     * @return int|string
+     */
+    static function insertOne($name,$pwd,$phone){
+        $model = new FrontUser();
+        $model->username = $name;
+        $model->password = md5($pwd);
+        $model->phone = $phone;
+        $model->update_date = date('Y-m-d h:i:s');
+        $model->create_date = date('Y-m-d h:i:s');
+        if($model->save()){
+            return $model->id;
+        }else{
+            return 0;
+        }
+    }
+
+
+    static function updatePwd($phone,$pwd){
+        $model = FrontUser::findOne(
+            [
+                'phone'=>$phone
+            ]
+        );
+        if($model){
+            $model->password = md5($pwd);
+            $model->save();
+            return $model->id;
+        }else{
+            return -1;
+        }
+    }
 }

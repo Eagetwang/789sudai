@@ -11,6 +11,7 @@ use backend\models\FrontPlate;
 use backend\models\FrontProduct;
 use backend\models\FrontProductCount;
 use backend\models\FrontProductLog;
+use backend\models\FrontUser;
 use backend\models\FrontWebsiteCount;
 use Yii;
 use yii\data\Pagination;
@@ -309,6 +310,7 @@ class TestController extends Controller
     public function actionWebCount(){
         $model = new FrontWebsiteCount();
         $post = Yii::$app->request->post();
+//        $model->addWebCount(1,date('Y-m-d'),1,1,1,1,1);
         $type = $post['type'];
         $date = $post['date'];
         $pv = $post['pv'];
@@ -316,7 +318,11 @@ class TestController extends Controller
         $reg = $post['reg'];
         $look = $post['look'];
         $apply = $post['apply'];
-        $model->addWebCount($type,$date,$pv,$uv,$reg,$look,$apply);
+        if($model->addWebCount($type,$date,$pv,$uv,$reg,$look,$apply)){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 
     /**
@@ -362,5 +368,34 @@ class TestController extends Controller
         $u_id = $post['u_id'];
         $p_id = $post['p_id'];
         $model->addProLog($type,$u_id,$p_id);
+    }
+
+    /**
+     * 用户注册接口
+     */
+    public function actionUserReg(){
+        $post = Yii::$app->request->post();
+        $name = $post['name'];
+        $pwd = $post['pwd'];
+        $phone = $post['phone'];
+        $model = FrontUser::findOne(['phone'=>$phone]);
+        if(!$model){
+            echo FrontUser::insertOne($name,$pwd,$phone);
+        }else{
+            echo -1;
+        }
+    }
+
+    /**
+     * 用户修改密码
+     */
+    public function actionUserUpdate(){
+        $post = Yii::$app->request->post();
+        $phone = $post['phone'];
+        $pwd = $post['pwd'];
+        echo FrontUser::updatePwd($phone,$pwd);
+//        $phone = '18200392044';
+//        $pwd = '888888';
+//        echo FrontUser::updatePwd($phone,$pwd);
     }
 }

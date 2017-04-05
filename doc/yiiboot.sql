@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50553
 File Encoding         : 65001
 
-Date: 2017-03-28 23:52:44
+Date: 2017-04-04 13:19:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -34,7 +34,7 @@ CREATE TABLE `admin_log` (
   KEY `index_create_date` (`create_date`),
   KEY `index_create_index` (`create_user`),
   KEY `index_url` (`url`)
-) ENGINE=InnoDB AUTO_INCREMENT=2110 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2685 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_log
@@ -2148,6 +2148,581 @@ INSERT INTO `admin_log` VALUES ('2106', 'front-ad-count', 'index', 'front-ad-cou
 INSERT INTO `admin_log` VALUES ('2107', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-28 15:42:31');
 INSERT INTO `admin_log` VALUES ('2108', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-28 15:43:15');
 INSERT INTO `admin_log` VALUES ('2109', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-28 15:44:43');
+INSERT INTO `admin_log` VALUES ('2110', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:16:11');
+INSERT INTO `admin_log` VALUES ('2111', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:17:57');
+INSERT INTO `admin_log` VALUES ('2112', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:18:29');
+INSERT INTO `admin_log` VALUES ('2113', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:20:10');
+INSERT INTO `admin_log` VALUES ('2114', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:22:45');
+INSERT INTO `admin_log` VALUES ('2115', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:22:49');
+INSERT INTO `admin_log` VALUES ('2116', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:37:41');
+INSERT INTO `admin_log` VALUES ('2117', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:37:45');
+INSERT INTO `admin_log` VALUES ('2118', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:38:18');
+INSERT INTO `admin_log` VALUES ('2119', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:38:20');
+INSERT INTO `admin_log` VALUES ('2120', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:41:35');
+INSERT INTO `admin_log` VALUES ('2121', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:42:42');
+INSERT INTO `admin_log` VALUES ('2122', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:43:46');
+INSERT INTO `admin_log` VALUES ('2123', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:45:42');
+INSERT INTO `admin_log` VALUES ('2124', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 14:46:35');
+INSERT INTO `admin_log` VALUES ('2125', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:46:38');
+INSERT INTO `admin_log` VALUES ('2126', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 14:54:50');
+INSERT INTO `admin_log` VALUES ('2127', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:03:41');
+INSERT INTO `admin_log` VALUES ('2128', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:03:43');
+INSERT INTO `admin_log` VALUES ('2129', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:08:49');
+INSERT INTO `admin_log` VALUES ('2130', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:09:26');
+INSERT INTO `admin_log` VALUES ('2131', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:10:38');
+INSERT INTO `admin_log` VALUES ('2132', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:11:10');
+INSERT INTO `admin_log` VALUES ('2133', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:14:02');
+INSERT INTO `admin_log` VALUES ('2134', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:14:59');
+INSERT INTO `admin_log` VALUES ('2135', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:15:16');
+INSERT INTO `admin_log` VALUES ('2136', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:15:51');
+INSERT INTO `admin_log` VALUES ('2137', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:16:00');
+INSERT INTO `admin_log` VALUES ('2138', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:16:02');
+INSERT INTO `admin_log` VALUES ('2139', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:16:26');
+INSERT INTO `admin_log` VALUES ('2140', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:18:18');
+INSERT INTO `admin_log` VALUES ('2141', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:19:21');
+INSERT INTO `admin_log` VALUES ('2142', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:21:05');
+INSERT INTO `admin_log` VALUES ('2143', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:22:54');
+INSERT INTO `admin_log` VALUES ('2144', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:23:03');
+INSERT INTO `admin_log` VALUES ('2145', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:23:22');
+INSERT INTO `admin_log` VALUES ('2146', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:25:09');
+INSERT INTO `admin_log` VALUES ('2147', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:25:12');
+INSERT INTO `admin_log` VALUES ('2148', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:26:36');
+INSERT INTO `admin_log` VALUES ('2149', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:26:40');
+INSERT INTO `admin_log` VALUES ('2150', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:26:43');
+INSERT INTO `admin_log` VALUES ('2151', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:26:46');
+INSERT INTO `admin_log` VALUES ('2152', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:27:39');
+INSERT INTO `admin_log` VALUES ('2153', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:27:43');
+INSERT INTO `admin_log` VALUES ('2154', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:27:48');
+INSERT INTO `admin_log` VALUES ('2155', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:30:17');
+INSERT INTO `admin_log` VALUES ('2156', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:30:34');
+INSERT INTO `admin_log` VALUES ('2157', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:31:29');
+INSERT INTO `admin_log` VALUES ('2158', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:02');
+INSERT INTO `admin_log` VALUES ('2159', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:04');
+INSERT INTO `admin_log` VALUES ('2160', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:13');
+INSERT INTO `admin_log` VALUES ('2161', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:15');
+INSERT INTO `admin_log` VALUES ('2162', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:18');
+INSERT INTO `admin_log` VALUES ('2163', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:30');
+INSERT INTO `admin_log` VALUES ('2164', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:34');
+INSERT INTO `admin_log` VALUES ('2165', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:37');
+INSERT INTO `admin_log` VALUES ('2166', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:39');
+INSERT INTO `admin_log` VALUES ('2167', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:32:41');
+INSERT INTO `admin_log` VALUES ('2168', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:33:09');
+INSERT INTO `admin_log` VALUES ('2169', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:33:12');
+INSERT INTO `admin_log` VALUES ('2170', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:33:14');
+INSERT INTO `admin_log` VALUES ('2171', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 15:33:32');
+INSERT INTO `admin_log` VALUES ('2172', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:33:34');
+INSERT INTO `admin_log` VALUES ('2173', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:34:16');
+INSERT INTO `admin_log` VALUES ('2174', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:34:34');
+INSERT INTO `admin_log` VALUES ('2175', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:37:41');
+INSERT INTO `admin_log` VALUES ('2176', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:37:50');
+INSERT INTO `admin_log` VALUES ('2177', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:38:26');
+INSERT INTO `admin_log` VALUES ('2178', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:38:39');
+INSERT INTO `admin_log` VALUES ('2179', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:39:06');
+INSERT INTO `admin_log` VALUES ('2180', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:41:06');
+INSERT INTO `admin_log` VALUES ('2181', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:42:04');
+INSERT INTO `admin_log` VALUES ('2182', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:43:17');
+INSERT INTO `admin_log` VALUES ('2183', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:43:32');
+INSERT INTO `admin_log` VALUES ('2184', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:48:17');
+INSERT INTO `admin_log` VALUES ('2185', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:48:28');
+INSERT INTO `admin_log` VALUES ('2186', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 15:48:38');
+INSERT INTO `admin_log` VALUES ('2187', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:48:52');
+INSERT INTO `admin_log` VALUES ('2188', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-29 15:50:03');
+INSERT INTO `admin_log` VALUES ('2189', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:50:05');
+INSERT INTO `admin_log` VALUES ('2190', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:55:47');
+INSERT INTO `admin_log` VALUES ('2191', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:57:47');
+INSERT INTO `admin_log` VALUES ('2192', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:58:29');
+INSERT INTO `admin_log` VALUES ('2193', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:58:45');
+INSERT INTO `admin_log` VALUES ('2194', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 15:59:50');
+INSERT INTO `admin_log` VALUES ('2195', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:00:14');
+INSERT INTO `admin_log` VALUES ('2196', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:00:27');
+INSERT INTO `admin_log` VALUES ('2197', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:01:54');
+INSERT INTO `admin_log` VALUES ('2198', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:02:00');
+INSERT INTO `admin_log` VALUES ('2199', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:02:08');
+INSERT INTO `admin_log` VALUES ('2200', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:04:20');
+INSERT INTO `admin_log` VALUES ('2201', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:05:56');
+INSERT INTO `admin_log` VALUES ('2202', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:10:09');
+INSERT INTO `admin_log` VALUES ('2203', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-29 16:11:18');
+INSERT INTO `admin_log` VALUES ('2204', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-29 16:11:20');
+INSERT INTO `admin_log` VALUES ('2205', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:11:22');
+INSERT INTO `admin_log` VALUES ('2206', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-29 16:14:25');
+INSERT INTO `admin_log` VALUES ('2207', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-29 16:15:01');
+INSERT INTO `admin_log` VALUES ('2208', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 12:45:04');
+INSERT INTO `admin_log` VALUES ('2209', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 12:46:21');
+INSERT INTO `admin_log` VALUES ('2210', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 12:53:40');
+INSERT INTO `admin_log` VALUES ('2211', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 12:53:55');
+INSERT INTO `admin_log` VALUES ('2212', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 12:58:08');
+INSERT INTO `admin_log` VALUES ('2213', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:01:03');
+INSERT INTO `admin_log` VALUES ('2214', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:01:12');
+INSERT INTO `admin_log` VALUES ('2215', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:01:17');
+INSERT INTO `admin_log` VALUES ('2216', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:01:21');
+INSERT INTO `admin_log` VALUES ('2217', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:01:29');
+INSERT INTO `admin_log` VALUES ('2218', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:02:08');
+INSERT INTO `admin_log` VALUES ('2219', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:02:11');
+INSERT INTO `admin_log` VALUES ('2220', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:02:19');
+INSERT INTO `admin_log` VALUES ('2221', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:02:26');
+INSERT INTO `admin_log` VALUES ('2222', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:03:54');
+INSERT INTO `admin_log` VALUES ('2223', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:05:33');
+INSERT INTO `admin_log` VALUES ('2224', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:05:52');
+INSERT INTO `admin_log` VALUES ('2225', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:06:04');
+INSERT INTO `admin_log` VALUES ('2226', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:06:13');
+INSERT INTO `admin_log` VALUES ('2227', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-30 13:07:45');
+INSERT INTO `admin_log` VALUES ('2228', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:07:52');
+INSERT INTO `admin_log` VALUES ('2229', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:10:51');
+INSERT INTO `admin_log` VALUES ('2230', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:11:22');
+INSERT INTO `admin_log` VALUES ('2231', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:12:28');
+INSERT INTO `admin_log` VALUES ('2232', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:15:58');
+INSERT INTO `admin_log` VALUES ('2233', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:17:30');
+INSERT INTO `admin_log` VALUES ('2234', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:23:34');
+INSERT INTO `admin_log` VALUES ('2235', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-30 13:23:37');
+INSERT INTO `admin_log` VALUES ('2236', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-30 13:23:41');
+INSERT INTO `admin_log` VALUES ('2237', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:26:46');
+INSERT INTO `admin_log` VALUES ('2238', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:26:57');
+INSERT INTO `admin_log` VALUES ('2239', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:28:02');
+INSERT INTO `admin_log` VALUES ('2240', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:28:15');
+INSERT INTO `admin_log` VALUES ('2241', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:30:09');
+INSERT INTO `admin_log` VALUES ('2242', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:30:35');
+INSERT INTO `admin_log` VALUES ('2243', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:31:49');
+INSERT INTO `admin_log` VALUES ('2244', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:32:15');
+INSERT INTO `admin_log` VALUES ('2245', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:33:52');
+INSERT INTO `admin_log` VALUES ('2246', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:34:07');
+INSERT INTO `admin_log` VALUES ('2247', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:35:31');
+INSERT INTO `admin_log` VALUES ('2248', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:37:36');
+INSERT INTO `admin_log` VALUES ('2249', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:38:05');
+INSERT INTO `admin_log` VALUES ('2250', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:38:53');
+INSERT INTO `admin_log` VALUES ('2251', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:10');
+INSERT INTO `admin_log` VALUES ('2252', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:49');
+INSERT INTO `admin_log` VALUES ('2253', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:52');
+INSERT INTO `admin_log` VALUES ('2254', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:55');
+INSERT INTO `admin_log` VALUES ('2255', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:57');
+INSERT INTO `admin_log` VALUES ('2256', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:39:58');
+INSERT INTO `admin_log` VALUES ('2257', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-30 13:40:07');
+INSERT INTO `admin_log` VALUES ('2258', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-30 13:40:11');
+INSERT INTO `admin_log` VALUES ('2259', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:40:13');
+INSERT INTO `admin_log` VALUES ('2260', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:07');
+INSERT INTO `admin_log` VALUES ('2261', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:10');
+INSERT INTO `admin_log` VALUES ('2262', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:12');
+INSERT INTO `admin_log` VALUES ('2263', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:16');
+INSERT INTO `admin_log` VALUES ('2264', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:22');
+INSERT INTO `admin_log` VALUES ('2265', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:26');
+INSERT INTO `admin_log` VALUES ('2266', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:31');
+INSERT INTO `admin_log` VALUES ('2267', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:40');
+INSERT INTO `admin_log` VALUES ('2268', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-30 13:43:43');
+INSERT INTO `admin_log` VALUES ('2269', 'admin-module', 'index', 'admin-module/index', '菜单用户权限', '菜单管理', '一级菜单查看', 'Unknown', 'admin', '2017-03-30 13:52:19');
+INSERT INTO `admin_log` VALUES ('2270', 'admin-menu', 'index', 'admin-menu/index', '菜单用户权限', '菜单管理', '二级菜单查看', 'Unknown', 'admin', '2017-03-30 13:52:23');
+INSERT INTO `admin_log` VALUES ('2271', 'admin-right', 'index', 'admin-right/index', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-30 13:52:25');
+INSERT INTO `admin_log` VALUES ('2272', 'admin-menu', 'index', 'admin-menu/index', '菜单用户权限', '菜单管理', '二级菜单查看', 'Unknown', 'admin', '2017-03-30 13:52:28');
+INSERT INTO `admin_log` VALUES ('2273', 'admin-menu', 'create', 'admin-menu/create', '菜单用户权限', '菜单管理', '二级菜单添加', 'Unknown', 'admin', '2017-03-30 13:53:35');
+INSERT INTO `admin_log` VALUES ('2274', 'admin-menu', 'index', 'admin-menu/index', '菜单用户权限', '菜单管理', '二级菜单查看', 'Unknown', 'admin', '2017-03-30 13:53:36');
+INSERT INTO `admin_log` VALUES ('2275', 'admin-right', 'index', 'admin-right/index', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-30 13:53:41');
+INSERT INTO `admin_log` VALUES ('2276', 'admin-right', 'right-action', 'admin-right/right-action', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-30 13:53:44');
+INSERT INTO `admin_log` VALUES ('2277', 'admin-right', 'create', 'admin-right/create', '菜单用户权限', '菜单管理', '路由添加', 'Unknown', 'admin', '2017-03-30 13:53:53');
+INSERT INTO `admin_log` VALUES ('2278', 'admin-right', 'index', 'admin-right/index', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-30 13:53:55');
+INSERT INTO `admin_log` VALUES ('2279', 'admin-role', 'index', 'admin-role/index', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-03-30 13:53:57');
+INSERT INTO `admin_log` VALUES ('2280', 'admin-role', 'get-all-rights', 'admin-role/get-all-rights', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-03-30 13:54:00');
+INSERT INTO `admin_log` VALUES ('2281', 'admin-role', 'save-rights', 'admin-role/save-rights', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_log` VALUES ('2282', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-30 13:54:30');
+INSERT INTO `admin_log` VALUES ('2283', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-03-31 13:10:37');
+INSERT INTO `admin_log` VALUES ('2284', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 13:10:39');
+INSERT INTO `admin_log` VALUES ('2285', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-03-31 13:10:43');
+INSERT INTO `admin_log` VALUES ('2286', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-31 13:10:45');
+INSERT INTO `admin_log` VALUES ('2287', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-31 13:10:47');
+INSERT INTO `admin_log` VALUES ('2288', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 13:11:03');
+INSERT INTO `admin_log` VALUES ('2289', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 13:57:23');
+INSERT INTO `admin_log` VALUES ('2290', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 13:58:15');
+INSERT INTO `admin_log` VALUES ('2291', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:01:27');
+INSERT INTO `admin_log` VALUES ('2292', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:01:48');
+INSERT INTO `admin_log` VALUES ('2293', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:02:38');
+INSERT INTO `admin_log` VALUES ('2294', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:10:49');
+INSERT INTO `admin_log` VALUES ('2295', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:11:12');
+INSERT INTO `admin_log` VALUES ('2296', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:15:03');
+INSERT INTO `admin_log` VALUES ('2297', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:17:02');
+INSERT INTO `admin_log` VALUES ('2298', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:19:54');
+INSERT INTO `admin_log` VALUES ('2299', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:20:20');
+INSERT INTO `admin_log` VALUES ('2300', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-31 14:21:59');
+INSERT INTO `admin_log` VALUES ('2301', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-03-31 14:22:02');
+INSERT INTO `admin_log` VALUES ('2302', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-03-31 14:22:05');
+INSERT INTO `admin_log` VALUES ('2303', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:22:14');
+INSERT INTO `admin_log` VALUES ('2304', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-03-31 14:40:20');
+INSERT INTO `admin_log` VALUES ('2305', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:43:49');
+INSERT INTO `admin_log` VALUES ('2306', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:44:10');
+INSERT INTO `admin_log` VALUES ('2307', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:47:52');
+INSERT INTO `admin_log` VALUES ('2308', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:48:54');
+INSERT INTO `admin_log` VALUES ('2309', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:49:02');
+INSERT INTO `admin_log` VALUES ('2310', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:49:21');
+INSERT INTO `admin_log` VALUES ('2311', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:50:00');
+INSERT INTO `admin_log` VALUES ('2312', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:56:29');
+INSERT INTO `admin_log` VALUES ('2313', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:56:37');
+INSERT INTO `admin_log` VALUES ('2314', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:56:45');
+INSERT INTO `admin_log` VALUES ('2315', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:56:55');
+INSERT INTO `admin_log` VALUES ('2316', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:56:59');
+INSERT INTO `admin_log` VALUES ('2317', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:57:04');
+INSERT INTO `admin_log` VALUES ('2318', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:57:22');
+INSERT INTO `admin_log` VALUES ('2319', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:57:29');
+INSERT INTO `admin_log` VALUES ('2320', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:57:36');
+INSERT INTO `admin_log` VALUES ('2321', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:58:01');
+INSERT INTO `admin_log` VALUES ('2322', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:58:04');
+INSERT INTO `admin_log` VALUES ('2323', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 14:58:08');
+INSERT INTO `admin_log` VALUES ('2324', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:14:34');
+INSERT INTO `admin_log` VALUES ('2325', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:16:16');
+INSERT INTO `admin_log` VALUES ('2326', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:16:59');
+INSERT INTO `admin_log` VALUES ('2327', 'admin-role', 'index', 'admin-role/index', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-03-31 15:17:03');
+INSERT INTO `admin_log` VALUES ('2328', 'admin-role', 'get-all-rights', 'admin-role/get-all-rights', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-03-31 15:17:06');
+INSERT INTO `admin_log` VALUES ('2329', 'admin-module', 'index', 'admin-module/index', '菜单用户权限', '菜单管理', '一级菜单查看', 'Unknown', 'admin', '2017-03-31 15:17:10');
+INSERT INTO `admin_log` VALUES ('2330', 'admin-menu', 'index', 'admin-menu/index', '菜单用户权限', '菜单管理', '二级菜单查看', 'Unknown', 'admin', '2017-03-31 15:17:15');
+INSERT INTO `admin_log` VALUES ('2331', 'admin-right', 'index', 'admin-right/index', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-31 15:17:18');
+INSERT INTO `admin_log` VALUES ('2332', 'admin-right', 'view', 'admin-right/view', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-31 15:17:21');
+INSERT INTO `admin_log` VALUES ('2333', 'admin-right', 'update', 'admin-right/update', '菜单用户权限', '菜单管理', '路由添加', 'Unknown', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_log` VALUES ('2334', 'admin-right', 'index', 'admin-right/index', '菜单用户权限', '菜单管理', '路由查看', 'Unknown', 'admin', '2017-03-31 15:17:26');
+INSERT INTO `admin_log` VALUES ('2335', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:17:29');
+INSERT INTO `admin_log` VALUES ('2336', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:17:38');
+INSERT INTO `admin_log` VALUES ('2337', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:17:49');
+INSERT INTO `admin_log` VALUES ('2338', 'front-product-log', 'excel', 'front-product-log/excel', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:17:55');
+INSERT INTO `admin_log` VALUES ('2339', 'front-product-log', 'excel', 'front-product-log/excel', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:18:53');
+INSERT INTO `admin_log` VALUES ('2340', 'front-product-log', 'excel', 'front-product-log/excel', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:21:03');
+INSERT INTO `admin_log` VALUES ('2341', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:21:06');
+INSERT INTO `admin_log` VALUES ('2342', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:23:21');
+INSERT INTO `admin_log` VALUES ('2343', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:24:14');
+INSERT INTO `admin_log` VALUES ('2344', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:27:54');
+INSERT INTO `admin_log` VALUES ('2345', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:28:08');
+INSERT INTO `admin_log` VALUES ('2346', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:28:20');
+INSERT INTO `admin_log` VALUES ('2347', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:28:38');
+INSERT INTO `admin_log` VALUES ('2348', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:31:25');
+INSERT INTO `admin_log` VALUES ('2349', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:33:04');
+INSERT INTO `admin_log` VALUES ('2350', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:33:27');
+INSERT INTO `admin_log` VALUES ('2351', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:36:51');
+INSERT INTO `admin_log` VALUES ('2352', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:38:08');
+INSERT INTO `admin_log` VALUES ('2353', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:45:49');
+INSERT INTO `admin_log` VALUES ('2354', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:45:56');
+INSERT INTO `admin_log` VALUES ('2355', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:46:52');
+INSERT INTO `admin_log` VALUES ('2356', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:47:14');
+INSERT INTO `admin_log` VALUES ('2357', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:47:18');
+INSERT INTO `admin_log` VALUES ('2358', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:48:25');
+INSERT INTO `admin_log` VALUES ('2359', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:48:30');
+INSERT INTO `admin_log` VALUES ('2360', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:49:18');
+INSERT INTO `admin_log` VALUES ('2361', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-03-31 15:51:57');
+INSERT INTO `admin_log` VALUES ('2362', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:11:19');
+INSERT INTO `admin_log` VALUES ('2363', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:11:32');
+INSERT INTO `admin_log` VALUES ('2364', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:11:37');
+INSERT INTO `admin_log` VALUES ('2365', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:11:40');
+INSERT INTO `admin_log` VALUES ('2366', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:11:46');
+INSERT INTO `admin_log` VALUES ('2367', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:12:03');
+INSERT INTO `admin_log` VALUES ('2368', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:18:25');
+INSERT INTO `admin_log` VALUES ('2369', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:21:49');
+INSERT INTO `admin_log` VALUES ('2370', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:21:54');
+INSERT INTO `admin_log` VALUES ('2371', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-02 02:21:55');
+INSERT INTO `admin_log` VALUES ('2372', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-02 02:21:56');
+INSERT INTO `admin_log` VALUES ('2373', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:21:58');
+INSERT INTO `admin_log` VALUES ('2374', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:23:02');
+INSERT INTO `admin_log` VALUES ('2375', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:23:19');
+INSERT INTO `admin_log` VALUES ('2376', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:24:31');
+INSERT INTO `admin_log` VALUES ('2377', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:24:34');
+INSERT INTO `admin_log` VALUES ('2378', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:24:46');
+INSERT INTO `admin_log` VALUES ('2379', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:28:07');
+INSERT INTO `admin_log` VALUES ('2380', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:28:58');
+INSERT INTO `admin_log` VALUES ('2381', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:29:06');
+INSERT INTO `admin_log` VALUES ('2382', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:29:17');
+INSERT INTO `admin_log` VALUES ('2383', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:34:06');
+INSERT INTO `admin_log` VALUES ('2384', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:37:21');
+INSERT INTO `admin_log` VALUES ('2385', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:37:39');
+INSERT INTO `admin_log` VALUES ('2386', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:37:51');
+INSERT INTO `admin_log` VALUES ('2387', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:41:14');
+INSERT INTO `admin_log` VALUES ('2388', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:41:33');
+INSERT INTO `admin_log` VALUES ('2389', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:42:25');
+INSERT INTO `admin_log` VALUES ('2390', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:42:40');
+INSERT INTO `admin_log` VALUES ('2391', 'admin-module', 'index', 'admin-module/index', '菜单用户权限', '菜单管理', '一级菜单查看', '192.168.1.3', 'admin', '2017-04-02 02:45:58');
+INSERT INTO `admin_log` VALUES ('2392', 'admin-user', 'index', 'admin-user/index', '菜单用户权限', '用户管理', '用户操作', '192.168.1.3', 'admin', '2017-04-02 02:46:11');
+INSERT INTO `admin_log` VALUES ('2393', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:46:16');
+INSERT INTO `admin_log` VALUES ('2394', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:46:17');
+INSERT INTO `admin_log` VALUES ('2395', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:46:43');
+INSERT INTO `admin_log` VALUES ('2396', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:46:46');
+INSERT INTO `admin_log` VALUES ('2397', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:46:58');
+INSERT INTO `admin_log` VALUES ('2398', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:46:59');
+INSERT INTO `admin_log` VALUES ('2399', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:47:01');
+INSERT INTO `admin_log` VALUES ('2400', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', '192.168.1.3', 'admin', '2017-04-02 02:47:13');
+INSERT INTO `admin_log` VALUES ('2401', 'front-user', 'index', 'front-user/index', '前端管理', '用户列表', '操作', '192.168.1.3', 'admin', '2017-04-02 02:47:43');
+INSERT INTO `admin_log` VALUES ('2402', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', '192.168.1.3', 'admin', '2017-04-02 02:47:48');
+INSERT INTO `admin_log` VALUES ('2403', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', '192.168.1.3', 'admin', '2017-04-02 02:47:52');
+INSERT INTO `admin_log` VALUES ('2404', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:48:17');
+INSERT INTO `admin_log` VALUES ('2405', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:48:21');
+INSERT INTO `admin_log` VALUES ('2406', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:48:38');
+INSERT INTO `admin_log` VALUES ('2407', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:49:01');
+INSERT INTO `admin_log` VALUES ('2408', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:49:44');
+INSERT INTO `admin_log` VALUES ('2409', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:50:30');
+INSERT INTO `admin_log` VALUES ('2410', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:50:46');
+INSERT INTO `admin_log` VALUES ('2411', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:51:05');
+INSERT INTO `admin_log` VALUES ('2412', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:51:09');
+INSERT INTO `admin_log` VALUES ('2413', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:51:30');
+INSERT INTO `admin_log` VALUES ('2414', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-02 02:53:50');
+INSERT INTO `admin_log` VALUES ('2415', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-02 02:53:53');
+INSERT INTO `admin_log` VALUES ('2416', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-04-02 02:53:57');
+INSERT INTO `admin_log` VALUES ('2417', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-02 02:53:59');
+INSERT INTO `admin_log` VALUES ('2418', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:54:01');
+INSERT INTO `admin_log` VALUES ('2419', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:54:09');
+INSERT INTO `admin_log` VALUES ('2420', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:56:34');
+INSERT INTO `admin_log` VALUES ('2421', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-02 02:56:38');
+INSERT INTO `admin_log` VALUES ('2422', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 02:56:57');
+INSERT INTO `admin_log` VALUES ('2423', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 02:57:05');
+INSERT INTO `admin_log` VALUES ('2424', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-02 02:57:08');
+INSERT INTO `admin_log` VALUES ('2425', 'admin-module', 'index', 'admin-module/index', '菜单用户权限', '菜单管理', '一级菜单查看', 'Unknown', 'admin', '2017-04-02 03:14:49');
+INSERT INTO `admin_log` VALUES ('2426', 'admin-role', 'index', 'admin-role/index', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-04-02 03:14:52');
+INSERT INTO `admin_log` VALUES ('2427', 'admin-role', 'get-all-rights', 'admin-role/get-all-rights', '菜单用户权限', '角色管理', '分配权限', 'Unknown', 'admin', '2017-04-02 03:14:54');
+INSERT INTO `admin_log` VALUES ('2428', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-02 03:40:13');
+INSERT INTO `admin_log` VALUES ('2429', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-02 03:40:19');
+INSERT INTO `admin_log` VALUES ('2430', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:17:07');
+INSERT INTO `admin_log` VALUES ('2431', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:17:24');
+INSERT INTO `admin_log` VALUES ('2432', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:17:54');
+INSERT INTO `admin_log` VALUES ('2433', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:19:22');
+INSERT INTO `admin_log` VALUES ('2434', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:20:13');
+INSERT INTO `admin_log` VALUES ('2435', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:22:14');
+INSERT INTO `admin_log` VALUES ('2436', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:23:42');
+INSERT INTO `admin_log` VALUES ('2437', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:24:04');
+INSERT INTO `admin_log` VALUES ('2438', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:24:31');
+INSERT INTO `admin_log` VALUES ('2439', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:26:24');
+INSERT INTO `admin_log` VALUES ('2440', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:27:02');
+INSERT INTO `admin_log` VALUES ('2441', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 04:28:16');
+INSERT INTO `admin_log` VALUES ('2442', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 05:45:56');
+INSERT INTO `admin_log` VALUES ('2443', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 05:57:30');
+INSERT INTO `admin_log` VALUES ('2444', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:58:18');
+INSERT INTO `admin_log` VALUES ('2445', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:58:22');
+INSERT INTO `admin_log` VALUES ('2446', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:58:30');
+INSERT INTO `admin_log` VALUES ('2447', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:58:31');
+INSERT INTO `admin_log` VALUES ('2448', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:59:16');
+INSERT INTO `admin_log` VALUES ('2449', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:59:43');
+INSERT INTO `admin_log` VALUES ('2450', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:59:50');
+INSERT INTO `admin_log` VALUES ('2451', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 05:59:51');
+INSERT INTO `admin_log` VALUES ('2452', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 06:19:16');
+INSERT INTO `admin_log` VALUES ('2453', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 06:19:24');
+INSERT INTO `admin_log` VALUES ('2454', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:49:17');
+INSERT INTO `admin_log` VALUES ('2455', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:49:22');
+INSERT INTO `admin_log` VALUES ('2456', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:52:12');
+INSERT INTO `admin_log` VALUES ('2457', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:52:20');
+INSERT INTO `admin_log` VALUES ('2458', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:52:21');
+INSERT INTO `admin_log` VALUES ('2459', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 06:53:10');
+INSERT INTO `admin_log` VALUES ('2460', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:03:19');
+INSERT INTO `admin_log` VALUES ('2461', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:04:15');
+INSERT INTO `admin_log` VALUES ('2462', 'front-user', 'index', 'front-user/index', '前端管理', '用户列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:08:58');
+INSERT INTO `admin_log` VALUES ('2463', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:09:04');
+INSERT INTO `admin_log` VALUES ('2464', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:09:23');
+INSERT INTO `admin_log` VALUES ('2465', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:09:30');
+INSERT INTO `admin_log` VALUES ('2466', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:09:31');
+INSERT INTO `admin_log` VALUES ('2467', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:11:46');
+INSERT INTO `admin_log` VALUES ('2468', 'front-user', 'index', 'front-user/index', '前端管理', '用户列表', '操作', '192.168.1.3', 'admin', '2017-04-02 07:12:19');
+INSERT INTO `admin_log` VALUES ('2469', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', '192.168.1.3', 'admin', '2017-04-02 07:12:23');
+INSERT INTO `admin_log` VALUES ('2470', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', '192.168.1.3', 'admin', '2017-04-02 07:13:11');
+INSERT INTO `admin_log` VALUES ('2471', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', '192.168.1.3', 'admin', '2017-04-02 07:13:22');
+INSERT INTO `admin_log` VALUES ('2472', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', '192.168.1.3', 'admin', '2017-04-02 07:13:38');
+INSERT INTO `admin_log` VALUES ('2473', 'front-category', 'index', 'front-category/index', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:14:52');
+INSERT INTO `admin_log` VALUES ('2474', 'front-category', 'delete', 'front-category/delete', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:14:59');
+INSERT INTO `admin_log` VALUES ('2475', 'front-category', 'index', 'front-category/index', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:01');
+INSERT INTO `admin_log` VALUES ('2476', 'front-category', 'view', 'front-category/view', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:04');
+INSERT INTO `admin_log` VALUES ('2477', 'front-category', 'update', 'front-category/update', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:08');
+INSERT INTO `admin_log` VALUES ('2478', 'front-category', 'index', 'front-category/index', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:09');
+INSERT INTO `admin_log` VALUES ('2479', 'front-identity', 'index', 'front-identity/index', '分类管理', '身份类别', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:55');
+INSERT INTO `admin_log` VALUES ('2480', 'penngo-word', 'index', 'penngo-word/index', '分类管理', '敏感词', '操作', '192.168.1.3', 'admin', '2017-04-02 07:15:59');
+INSERT INTO `admin_log` VALUES ('2481', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', '192.168.1.3', 'admin', '2017-04-02 07:32:55');
+INSERT INTO `admin_log` VALUES ('2482', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', '192.168.1.3', 'admin', '2017-04-02 07:33:06');
+INSERT INTO `admin_log` VALUES ('2483', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', '192.168.1.3', 'admin', '2017-04-02 07:33:11');
+INSERT INTO `admin_log` VALUES ('2484', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 07:53:10');
+INSERT INTO `admin_log` VALUES ('2485', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 07:53:20');
+INSERT INTO `admin_log` VALUES ('2486', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 08:11:15');
+INSERT INTO `admin_log` VALUES ('2487', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 08:44:42');
+INSERT INTO `admin_log` VALUES ('2488', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 08:44:45');
+INSERT INTO `admin_log` VALUES ('2489', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:44:48');
+INSERT INTO `admin_log` VALUES ('2490', 'front-plate', 'add-plate', 'front-plate/add-plate', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:45:01');
+INSERT INTO `admin_log` VALUES ('2491', 'front-plate', 'add-plate', 'front-plate/add-plate', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:45:12');
+INSERT INTO `admin_log` VALUES ('2492', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:45:44');
+INSERT INTO `admin_log` VALUES ('2493', 'front-plate', 'add-plate', 'front-plate/add-plate', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:45:55');
+INSERT INTO `admin_log` VALUES ('2494', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:45:57');
+INSERT INTO `admin_log` VALUES ('2495', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 08:46:04');
+INSERT INTO `admin_log` VALUES ('2496', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 08:47:30');
+INSERT INTO `admin_log` VALUES ('2497', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:47:35');
+INSERT INTO `admin_log` VALUES ('2498', 'front-plate', 'add-plate', 'front-plate/add-plate', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:47:46');
+INSERT INTO `admin_log` VALUES ('2499', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 08:47:48');
+INSERT INTO `admin_log` VALUES ('2500', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 08:47:51');
+INSERT INTO `admin_log` VALUES ('2501', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:50:52');
+INSERT INTO `admin_log` VALUES ('2502', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:50:56');
+INSERT INTO `admin_log` VALUES ('2503', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:53:00');
+INSERT INTO `admin_log` VALUES ('2504', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 08:53:02');
+INSERT INTO `admin_log` VALUES ('2505', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 08:53:05');
+INSERT INTO `admin_log` VALUES ('2506', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:54:12');
+INSERT INTO `admin_log` VALUES ('2507', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:54:16');
+INSERT INTO `admin_log` VALUES ('2508', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 08:57:35');
+INSERT INTO `admin_log` VALUES ('2509', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 08:59:30');
+INSERT INTO `admin_log` VALUES ('2510', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:02:34');
+INSERT INTO `admin_log` VALUES ('2511', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:02:37');
+INSERT INTO `admin_log` VALUES ('2512', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:04:56');
+INSERT INTO `admin_log` VALUES ('2513', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:04:59');
+INSERT INTO `admin_log` VALUES ('2514', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:05:26');
+INSERT INTO `admin_log` VALUES ('2515', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:05:27');
+INSERT INTO `admin_log` VALUES ('2516', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:06:04');
+INSERT INTO `admin_log` VALUES ('2517', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:08:17');
+INSERT INTO `admin_log` VALUES ('2518', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:08:19');
+INSERT INTO `admin_log` VALUES ('2519', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:08:24');
+INSERT INTO `admin_log` VALUES ('2520', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:08:25');
+INSERT INTO `admin_log` VALUES ('2521', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:08:27');
+INSERT INTO `admin_log` VALUES ('2522', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:12:38');
+INSERT INTO `admin_log` VALUES ('2523', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:12:47');
+INSERT INTO `admin_log` VALUES ('2524', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:12:48');
+INSERT INTO `admin_log` VALUES ('2525', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:12:51');
+INSERT INTO `admin_log` VALUES ('2526', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:15:52');
+INSERT INTO `admin_log` VALUES ('2527', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:15:55');
+INSERT INTO `admin_log` VALUES ('2528', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:00');
+INSERT INTO `admin_log` VALUES ('2529', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:01');
+INSERT INTO `admin_log` VALUES ('2530', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:03');
+INSERT INTO `admin_log` VALUES ('2531', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:11');
+INSERT INTO `admin_log` VALUES ('2532', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:18');
+INSERT INTO `admin_log` VALUES ('2533', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:16:19');
+INSERT INTO `admin_log` VALUES ('2534', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:18:00');
+INSERT INTO `admin_log` VALUES ('2535', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:18:02');
+INSERT INTO `admin_log` VALUES ('2536', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:18:10');
+INSERT INTO `admin_log` VALUES ('2537', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:18:11');
+INSERT INTO `admin_log` VALUES ('2538', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 09:18:14');
+INSERT INTO `admin_log` VALUES ('2539', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 09:23:52');
+INSERT INTO `admin_log` VALUES ('2540', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:29:39');
+INSERT INTO `admin_log` VALUES ('2541', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 09:36:08');
+INSERT INTO `admin_log` VALUES ('2542', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 09:36:15');
+INSERT INTO `admin_log` VALUES ('2543', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 09:39:10');
+INSERT INTO `admin_log` VALUES ('2544', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:39:13');
+INSERT INTO `admin_log` VALUES ('2545', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:39:36');
+INSERT INTO `admin_log` VALUES ('2546', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:39:55');
+INSERT INTO `admin_log` VALUES ('2547', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:41:45');
+INSERT INTO `admin_log` VALUES ('2548', 'front-essence', 'add-essence', 'front-essence/add-essence', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:42:00');
+INSERT INTO `admin_log` VALUES ('2549', 'front-essence', 'add-essence', 'front-essence/add-essence', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:42:11');
+INSERT INTO `admin_log` VALUES ('2550', 'front-essence', 'add-essence', 'front-essence/add-essence', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:42:27');
+INSERT INTO `admin_log` VALUES ('2551', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:43:07');
+INSERT INTO `admin_log` VALUES ('2552', 'front-essence', 'add-essence', 'front-essence/add-essence', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:43:20');
+INSERT INTO `admin_log` VALUES ('2553', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:43:56');
+INSERT INTO `admin_log` VALUES ('2554', 'front-essence', 'add-essence', 'front-essence/add-essence', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:44:07');
+INSERT INTO `admin_log` VALUES ('2555', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:44:09');
+INSERT INTO `admin_log` VALUES ('2556', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:44:12');
+INSERT INTO `admin_log` VALUES ('2557', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 09:44:24');
+INSERT INTO `admin_log` VALUES ('2558', 'front-plate', 'index', 'front-plate/index', '前端管理', '板块', '操作', 'Unknown', 'admin', '2017-04-02 09:45:45');
+INSERT INTO `admin_log` VALUES ('2559', 'front-plate', 'create', 'front-plate/create', '前端管理', '添加板块', '操作', 'Unknown', 'admin', '2017-04-02 09:45:53');
+INSERT INTO `admin_log` VALUES ('2560', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:46:03');
+INSERT INTO `admin_log` VALUES ('2561', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:46:06');
+INSERT INTO `admin_log` VALUES ('2562', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:47:22');
+INSERT INTO `admin_log` VALUES ('2563', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:47:26');
+INSERT INTO `admin_log` VALUES ('2564', 'front-essence', 'update', 'front-essence/update', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:47:36');
+INSERT INTO `admin_log` VALUES ('2565', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:47:37');
+INSERT INTO `admin_log` VALUES ('2566', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:47:41');
+INSERT INTO `admin_log` VALUES ('2567', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:48:58');
+INSERT INTO `admin_log` VALUES ('2568', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:00');
+INSERT INTO `admin_log` VALUES ('2569', 'front-essence', 'update', 'front-essence/update', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:10');
+INSERT INTO `admin_log` VALUES ('2570', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:12');
+INSERT INTO `admin_log` VALUES ('2571', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:49:15');
+INSERT INTO `admin_log` VALUES ('2572', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:20');
+INSERT INTO `admin_log` VALUES ('2573', 'front-essence', 'update', 'front-essence/update', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:28');
+INSERT INTO `admin_log` VALUES ('2574', 'front-essence', 'create', 'front-essence/create', '前端管理', '添加精华', '添加', 'Unknown', 'admin', '2017-04-02 09:49:29');
+INSERT INTO `admin_log` VALUES ('2575', 'front-essence', 'index', 'front-essence/index', '前端管理', '精华', '操作', 'Unknown', 'admin', '2017-04-02 09:49:31');
+INSERT INTO `admin_log` VALUES ('2576', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 09:52:42');
+INSERT INTO `admin_log` VALUES ('2577', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:17:33');
+INSERT INTO `admin_log` VALUES ('2578', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:17:41');
+INSERT INTO `admin_log` VALUES ('2579', 'site', 'error', 'site/error', null, null, null, '192.168.1.3', 'admin', '2017-04-02 10:17:41');
+INSERT INTO `admin_log` VALUES ('2580', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 10:20:37');
+INSERT INTO `admin_log` VALUES ('2581', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:23:26');
+INSERT INTO `admin_log` VALUES ('2582', 'front-product', 'update', 'front-product/update', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:24:32');
+INSERT INTO `admin_log` VALUES ('2583', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:24:33');
+INSERT INTO `admin_log` VALUES ('2584', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-02 10:26:51');
+INSERT INTO `admin_log` VALUES ('2585', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 10:44:14');
+INSERT INTO `admin_log` VALUES ('2586', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 10:44:46');
+INSERT INTO `admin_log` VALUES ('2587', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 10:44:54');
+INSERT INTO `admin_log` VALUES ('2588', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:00:16');
+INSERT INTO `admin_log` VALUES ('2589', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 11:00:17');
+INSERT INTO `admin_log` VALUES ('2590', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:00:45');
+INSERT INTO `admin_log` VALUES ('2591', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:01:44');
+INSERT INTO `admin_log` VALUES ('2592', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:01:45');
+INSERT INTO `admin_log` VALUES ('2593', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:02:32');
+INSERT INTO `admin_log` VALUES ('2594', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:02:59');
+INSERT INTO `admin_log` VALUES ('2595', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 11:02:59');
+INSERT INTO `admin_log` VALUES ('2596', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:05:27');
+INSERT INTO `admin_log` VALUES ('2597', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:05:55');
+INSERT INTO `admin_log` VALUES ('2598', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 11:05:55');
+INSERT INTO `admin_log` VALUES ('2599', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:07:05');
+INSERT INTO `admin_log` VALUES ('2600', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:07:34');
+INSERT INTO `admin_log` VALUES ('2601', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 11:07:34');
+INSERT INTO `admin_log` VALUES ('2602', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:15:38');
+INSERT INTO `admin_log` VALUES ('2603', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:16:08');
+INSERT INTO `admin_log` VALUES ('2604', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:16:19');
+INSERT INTO `admin_log` VALUES ('2605', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:19:42');
+INSERT INTO `admin_log` VALUES ('2606', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:20:14');
+INSERT INTO `admin_log` VALUES ('2607', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-02 11:20:48');
+INSERT INTO `admin_log` VALUES ('2608', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:28:51');
+INSERT INTO `admin_log` VALUES ('2609', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:29:25');
+INSERT INTO `admin_log` VALUES ('2610', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:30:13');
+INSERT INTO `admin_log` VALUES ('2611', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:30:35');
+INSERT INTO `admin_log` VALUES ('2612', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:31:09');
+INSERT INTO `admin_log` VALUES ('2613', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:31:41');
+INSERT INTO `admin_log` VALUES ('2614', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:33:24');
+INSERT INTO `admin_log` VALUES ('2615', 'front-product', 'create', 'front-product/create', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:33:51');
+INSERT INTO `admin_log` VALUES ('2616', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', 'Unknown', 'admin', '2017-04-02 11:43:49');
+INSERT INTO `admin_log` VALUES ('2617', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-03 02:28:54');
+INSERT INTO `admin_log` VALUES ('2618', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 02:28:58');
+INSERT INTO `admin_log` VALUES ('2619', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:01');
+INSERT INTO `admin_log` VALUES ('2620', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:03');
+INSERT INTO `admin_log` VALUES ('2621', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:06');
+INSERT INTO `admin_log` VALUES ('2622', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:09');
+INSERT INTO `admin_log` VALUES ('2623', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:13');
+INSERT INTO `admin_log` VALUES ('2624', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:29:27');
+INSERT INTO `admin_log` VALUES ('2625', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:30:58');
+INSERT INTO `admin_log` VALUES ('2626', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:32:04');
+INSERT INTO `admin_log` VALUES ('2627', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:36:04');
+INSERT INTO `admin_log` VALUES ('2628', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:36:35');
+INSERT INTO `admin_log` VALUES ('2629', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:37:11');
+INSERT INTO `admin_log` VALUES ('2630', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:37:32');
+INSERT INTO `admin_log` VALUES ('2631', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:38:19');
+INSERT INTO `admin_log` VALUES ('2632', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:39:26');
+INSERT INTO `admin_log` VALUES ('2633', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 02:59:52');
+INSERT INTO `admin_log` VALUES ('2634', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:01:12');
+INSERT INTO `admin_log` VALUES ('2635', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:06:29');
+INSERT INTO `admin_log` VALUES ('2636', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:13:21');
+INSERT INTO `admin_log` VALUES ('2637', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:13:23');
+INSERT INTO `admin_log` VALUES ('2638', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:15:54');
+INSERT INTO `admin_log` VALUES ('2639', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:16:13');
+INSERT INTO `admin_log` VALUES ('2640', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:17:59');
+INSERT INTO `admin_log` VALUES ('2641', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:05');
+INSERT INTO `admin_log` VALUES ('2642', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:19');
+INSERT INTO `admin_log` VALUES ('2643', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:24');
+INSERT INTO `admin_log` VALUES ('2644', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:47');
+INSERT INTO `admin_log` VALUES ('2645', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:50');
+INSERT INTO `admin_log` VALUES ('2646', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 03:19:54');
+INSERT INTO `admin_log` VALUES ('2647', 'front-category', 'index', 'front-category/index', '分类管理', '产品类别管理', '操作', '192.168.1.3', 'admin', '2017-04-03 03:28:06');
+INSERT INTO `admin_log` VALUES ('2648', 'front-identity', 'index', 'front-identity/index', '分类管理', '身份类别', '操作', '192.168.1.3', 'admin', '2017-04-03 03:28:09');
+INSERT INTO `admin_log` VALUES ('2649', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', '192.168.1.3', 'admin', '2017-04-03 03:28:19');
+INSERT INTO `admin_log` VALUES ('2650', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:51:37');
+INSERT INTO `admin_log` VALUES ('2651', 'front-ad', 'view', 'front-ad/view', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:51:41');
+INSERT INTO `admin_log` VALUES ('2652', 'front-ad', 'update', 'front-ad/update', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:51:56');
+INSERT INTO `admin_log` VALUES ('2653', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:51:58');
+INSERT INTO `admin_log` VALUES ('2654', 'front-ad', 'view', 'front-ad/view', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:01');
+INSERT INTO `admin_log` VALUES ('2655', 'front-ad', 'update', 'front-ad/update', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:11');
+INSERT INTO `admin_log` VALUES ('2656', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:12');
+INSERT INTO `admin_log` VALUES ('2657', 'front-ad', 'view', 'front-ad/view', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:14');
+INSERT INTO `admin_log` VALUES ('2658', 'front-ad', 'update', 'front-ad/update', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:22');
+INSERT INTO `admin_log` VALUES ('2659', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', 'Unknown', 'admin', '2017-04-03 03:52:23');
+INSERT INTO `admin_log` VALUES ('2660', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-03 06:00:57');
+INSERT INTO `admin_log` VALUES ('2661', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-03 06:01:09');
+INSERT INTO `admin_log` VALUES ('2662', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-03 06:55:40');
+INSERT INTO `admin_log` VALUES ('2663', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-03 06:59:26');
+INSERT INTO `admin_log` VALUES ('2664', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-03 06:59:31');
+INSERT INTO `admin_log` VALUES ('2665', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-03 07:05:39');
+INSERT INTO `admin_log` VALUES ('2666', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 07:26:42');
+INSERT INTO `admin_log` VALUES ('2667', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 07:29:19');
+INSERT INTO `admin_log` VALUES ('2668', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 07:29:34');
+INSERT INTO `admin_log` VALUES ('2669', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 07:29:45');
+INSERT INTO `admin_log` VALUES ('2670', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-04-03 07:38:27');
+INSERT INTO `admin_log` VALUES ('2671', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 07:38:33');
+INSERT INTO `admin_log` VALUES ('2672', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 07:42:54');
+INSERT INTO `admin_log` VALUES ('2673', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 07:43:01');
+INSERT INTO `admin_log` VALUES ('2674', 'site', 'error', 'site/error', null, null, null, 'Unknown', 'admin', '2017-04-03 07:47:32');
+INSERT INTO `admin_log` VALUES ('2675', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 07:50:13');
+INSERT INTO `admin_log` VALUES ('2676', 'front-ad-count', 'index', 'front-ad-count/index', '统计管理', '广告统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:01');
+INSERT INTO `admin_log` VALUES ('2677', 'front-website-count', 'index', 'front-website-count/index', '统计管理', '网站统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:04');
+INSERT INTO `admin_log` VALUES ('2678', 'front-essence-count', 'index', 'front-essence-count/index', '统计管理', '攻略统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:06');
+INSERT INTO `admin_log` VALUES ('2679', 'front-user-count', 'index', 'front-user-count/index', '统计管理', '用户统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:09');
+INSERT INTO `admin_log` VALUES ('2680', 'front-product-count', 'index', 'front-product-count/index', '统计管理', '效果统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:11');
+INSERT INTO `admin_log` VALUES ('2681', 'front-product-log', 'index', 'front-product-log/index', '统计管理', '产品申请统计', '操作', 'Unknown', 'admin', '2017-04-03 08:21:13');
+INSERT INTO `admin_log` VALUES ('2682', 'front-ad', 'index', 'front-ad/index', '前端管理', '广告', '操作', '192.168.1.3', 'admin', '2017-04-03 08:54:13');
+INSERT INTO `admin_log` VALUES ('2683', 'front-product', 'index', 'front-product/index', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-03 08:54:49');
+INSERT INTO `admin_log` VALUES ('2684', 'front-product', 'view', 'front-product/view', '产品管理', '产品列表', '操作', '192.168.1.3', 'admin', '2017-04-03 08:55:00');
 
 -- ----------------------------
 -- Table structure for admin_menu
@@ -2174,7 +2749,7 @@ CREATE TABLE `admin_menu` (
   UNIQUE KEY `index_code` (`code`),
   KEY `fk_module_id` (`module_id`),
   CONSTRAINT `fk_module_id` FOREIGN KEY (`module_id`) REFERENCES `admin_module` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_menu
@@ -2198,6 +2773,7 @@ INSERT INTO `admin_menu` VALUES ('18', 'website_count', '网站统计', '5', '�
 INSERT INTO `admin_menu` VALUES ('19', 'essence_count', '攻略统计', '5', '攻略统计', '攻略统计', '3', '攻略统计', 'front-essence-count/index', 'index', 'backend\\controllers\\FrontEssenceCountController', 'n', 'admin', '2017-03-27 14:55:45', 'admin', '2017-03-27 14:55:45');
 INSERT INTO `admin_menu` VALUES ('20', 'user_count', '用户统计', '5', '用户统计', '用户统计', '4', '用户统计', 'front-user-count/index', 'index', 'backend\\controllers\\FrontUserCountController', 'n', 'admin', '2017-03-27 15:00:22', 'admin', '2017-03-27 15:00:22');
 INSERT INTO `admin_menu` VALUES ('21', 'product_count', '效果统计', '5', '效果统计', '产品效果统计', '5', '效果统计', 'front-product-count/index', 'index', 'backend\\controllers\\FrontProductCountController', 'n', 'admin', '2017-03-28 14:16:08', 'admin', '2017-03-28 14:16:08');
+INSERT INTO `admin_menu` VALUES ('22', 'product_log', '产品申请统计', '5', '产品申请统计', '产品申请统计', '6', '产品申请统计', 'front-product-log/index', 'index', 'backend\\controllers\\FrontProductLogController', 'n', 'admin', '2017-03-30 13:53:35', 'admin', '2017-03-30 13:53:35');
 
 -- ----------------------------
 -- Table structure for admin_message
@@ -2268,7 +2844,7 @@ CREATE TABLE `admin_right` (
   KEY `FK_admin_right` (`menu_id`),
   KEY `index_menu_id` (`menu_id`),
   CONSTRAINT `FK_admin_right` FOREIGN KEY (`menu_id`) REFERENCES `admin_menu` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=39 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_right
@@ -2302,6 +2878,7 @@ INSERT INTO `admin_right` VALUES ('35', '18', '操作', '操作', '操作', '1',
 INSERT INTO `admin_right` VALUES ('36', '19', '操作', '操作', '操作', '1', 'n', 'admin', '2017-03-27 14:56:05', 'admin', '2017-03-27 14:56:05');
 INSERT INTO `admin_right` VALUES ('37', '20', '操作', '操作', '操作', '1', 'n', 'admin', '2017-03-27 15:00:46', 'admin', '2017-03-27 15:00:46');
 INSERT INTO `admin_right` VALUES ('38', '21', '操作', '操作', '操作', '1', 'n', 'admin', '2017-03-28 14:16:30', 'admin', '2017-03-28 14:16:30');
+INSERT INTO `admin_right` VALUES ('39', '22', '操作', '操作', '操作', '1', 'n', 'admin', '2017-03-30 13:53:54', 'admin', '2017-03-31 15:17:25');
 
 -- ----------------------------
 -- Table structure for admin_right_url
@@ -2321,7 +2898,7 @@ CREATE TABLE `admin_right_url` (
   KEY `FK_admin_right_url` (`right_id`),
   KEY `index_right_id` (`right_id`),
   CONSTRAINT `FK_admin_right_url` FOREIGN KEY (`right_id`) REFERENCES `admin_right` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=223 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=234 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_right_url
@@ -2439,6 +3016,12 @@ INSERT INTO `admin_right_url` VALUES ('219', '38', 'front-product-count/view', '
 INSERT INTO `admin_right_url` VALUES ('220', '38', 'front-product-count/create', 'front-product-count', 'create', 'admin', '2017-03-28 14:16:30', 'admin', '2017-03-28 14:16:30');
 INSERT INTO `admin_right_url` VALUES ('221', '38', 'front-product-count/update', 'front-product-count', 'update', 'admin', '2017-03-28 14:16:30', 'admin', '2017-03-28 14:16:30');
 INSERT INTO `admin_right_url` VALUES ('222', '38', 'front-product-count/delete', 'front-product-count', 'delete', 'admin', '2017-03-28 14:16:30', 'admin', '2017-03-28 14:16:30');
+INSERT INTO `admin_right_url` VALUES ('228', '39', 'front-product-log/index', 'front-product-log', 'index', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_right_url` VALUES ('229', '39', 'front-product-log/view', 'front-product-log', 'view', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_right_url` VALUES ('230', '39', 'front-product-log/create', 'front-product-log', 'create', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_right_url` VALUES ('231', '39', 'front-product-log/update', 'front-product-log', 'update', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_right_url` VALUES ('232', '39', 'front-product-log/delete', 'front-product-log', 'delete', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
+INSERT INTO `admin_right_url` VALUES ('233', '39', 'front-product-log/excel', 'front-product-log', 'excel', 'admin', '2017-03-31 15:17:25', 'admin', '2017-03-31 15:17:25');
 
 -- ----------------------------
 -- Table structure for admin_role
@@ -2480,7 +3063,7 @@ CREATE TABLE `admin_role_right` (
   KEY `index_role_id` (`role_id`),
   KEY `index_right_id` (`right_id`),
   CONSTRAINT `admin_role_right_ibfk_1` FOREIGN KEY (`right_id`) REFERENCES `admin_right` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=495 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=525 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of admin_role_right
@@ -2499,35 +3082,36 @@ INSERT INTO `admin_role_right` VALUES ('122', '2', '5', null, 'test', '2016-08-1
 INSERT INTO `admin_role_right` VALUES ('123', '2', '6', null, 'test', '2016-08-16 16:02:57', 'test', '2016-08-16 16:02:57');
 INSERT INTO `admin_role_right` VALUES ('124', '2', '7', null, 'test', '2016-08-16 16:02:57', 'test', '2016-08-16 16:02:57');
 INSERT INTO `admin_role_right` VALUES ('125', '2', '8', null, 'test', '2016-08-16 16:02:57', 'test', '2016-08-16 16:02:57');
-INSERT INTO `admin_role_right` VALUES ('466', '1', '13', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('467', '1', '14', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('468', '1', '15', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('469', '1', '16', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('470', '1', '17', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('471', '1', '18', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('472', '1', '19', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('473', '1', '20', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('474', '1', '21', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('475', '1', '4', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('476', '1', '5', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('477', '1', '6', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('478', '1', '7', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('479', '1', '8', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('480', '1', '22', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('481', '1', '24', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('482', '1', '25', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('483', '1', '27', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('484', '1', '28', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('485', '1', '29', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('486', '1', '30', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('487', '1', '32', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('488', '1', '33', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('489', '1', '34', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('490', '1', '35', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('491', '1', '36', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('492', '1', '37', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('493', '1', '38', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
-INSERT INTO `admin_role_right` VALUES ('494', '1', '26', null, 'admin', '2017-03-28 14:16:42', 'admin', '2017-03-28 14:16:42');
+INSERT INTO `admin_role_right` VALUES ('495', '1', '13', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('496', '1', '14', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('497', '1', '15', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('498', '1', '16', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('499', '1', '17', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('500', '1', '18', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('501', '1', '19', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('502', '1', '20', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('503', '1', '21', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('504', '1', '4', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('505', '1', '5', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('506', '1', '6', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('507', '1', '7', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('508', '1', '8', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('509', '1', '22', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('510', '1', '24', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('511', '1', '25', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('512', '1', '27', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('513', '1', '28', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('514', '1', '29', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('515', '1', '30', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('516', '1', '32', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('517', '1', '33', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('518', '1', '34', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('519', '1', '35', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('520', '1', '36', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('521', '1', '37', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('522', '1', '38', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('523', '1', '39', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
+INSERT INTO `admin_role_right` VALUES ('524', '1', '26', null, 'admin', '2017-03-30 13:54:09', 'admin', '2017-03-30 13:54:09');
 
 -- ----------------------------
 -- Table structure for admin_user
@@ -2596,9 +3180,9 @@ CREATE TABLE `front_ad` (
 -- ----------------------------
 -- Records of front_ad
 -- ----------------------------
-INSERT INTO `front_ad` VALUES ('1', '首页广告', '../../common/uploads/14901704707964.jpg', 'https://www.baidu.com/', '1');
-INSERT INTO `front_ad` VALUES ('2', '移动端产品页', '../../common/uploads/14902563786458.jpg', 'http://www.sina.com', '2');
-INSERT INTO `front_ad` VALUES ('3', 'PC端', '../../common/uploads/14903265341142.jpg', 'http://www.taobao.com', '3');
+INSERT INTO `front_ad` VALUES ('1', '首页广告', 'http://192.168.1.4/789sudai/common/uploads/14911915172066.jpg', 'https://www.baidu.com/', '1');
+INSERT INTO `front_ad` VALUES ('2', '移动端产品页', '/789sudai/common/uploads/14911915315612.jpg', 'http://www.sina.com', '2');
+INSERT INTO `front_ad` VALUES ('3', 'PC端', 'http://192.168.1.4/789sudai/common/uploads/14911915422077.jpg', 'http://www.taobao.com', '3');
 
 -- ----------------------------
 -- Table structure for front_ad_count
@@ -2613,7 +3197,7 @@ CREATE TABLE `front_ad_count` (
   `click_total` int(11) NOT NULL COMMENT '当天广告点击量',
   `uv` int(11) NOT NULL COMMENT '展示页uv',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='广告统计';
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='广告统计';
 
 -- ----------------------------
 -- Records of front_ad_count
@@ -2621,6 +3205,7 @@ CREATE TABLE `front_ad_count` (
 INSERT INTO `front_ad_count` VALUES ('1', '1', '1', '2017-03-22', '1', '1', '1');
 INSERT INTO `front_ad_count` VALUES ('2', '2', '5', '2017-03-24', '1', '5', '5');
 INSERT INTO `front_ad_count` VALUES ('3', '1', '55', '2017-03-23', '2', '5', '5');
+INSERT INTO `front_ad_count` VALUES ('7', '1', '2', '2017-03-25', '1', '1', '1');
 INSERT INTO `front_ad_count` VALUES ('6', '3', '5', '2017-03-28', '1', '167', '5373');
 
 -- ----------------------------
@@ -2640,10 +3225,9 @@ CREATE TABLE `front_category` (
 -- ----------------------------
 -- Records of front_category
 -- ----------------------------
-INSERT INTO `front_category` VALUES ('3', '学生贷1', 'admin', 'admin', '2017-03-16 03:44:24', '2017-03-22 08:16:43');
+INSERT INTO `front_category` VALUES ('3', '学生贷', 'admin', 'admin', '2017-03-16 03:44:24', '2017-04-02 07:15:08');
 INSERT INTO `front_category` VALUES ('4', '工薪贷', 'admin', 'admin', '2017-03-16 03:44:42', '2017-03-16 03:44:42');
 INSERT INTO `front_category` VALUES ('5', '信用贷', 'admin', 'admin', '2017-03-16 03:45:02', '2017-03-16 03:45:02');
-INSERT INTO `front_category` VALUES ('6', 'aa', 'admin', 'admin', '2017-03-20 08:24:14', '2017-03-20 08:24:14');
 
 -- ----------------------------
 -- Table structure for front_essence
@@ -2656,17 +3240,21 @@ CREATE TABLE `front_essence` (
   `content` varchar(15000) NOT NULL COMMENT '内容',
   `update_date` datetime NOT NULL COMMENT '更新时间',
   `cteate_date` datetime NOT NULL COMMENT '创建时间',
+  `rec` tinyint(4) DEFAULT '0' COMMENT '推荐',
+  `img` varchar(255) DEFAULT NULL COMMENT '图片',
+  `read` int(10) DEFAULT '0' COMMENT '阅读量',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='精华(攻略)表';
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COMMENT='精华(攻略)表';
 
 -- ----------------------------
 -- Records of front_essence
 -- ----------------------------
-INSERT INTO `front_essence` VALUES ('1', '简单借款1', '简单借款的申请流程', '<p>111111111111111test111aa</p>', '2017-03-21 06:43:47', '2017-03-21 06:43:47');
-INSERT INTO `front_essence` VALUES ('2', 'a', 'a', '<p>a</p>', '2017-03-20 09:19:22', '2017-03-20 09:19:22');
-INSERT INTO `front_essence` VALUES ('3', 'a', 'a', '<p><img src=\"/ueditor/php/upload/image/20170320/1490001611611266.jpg\" title=\"1490001611611266.jpg\" alt=\"1490001611611266.jpg\" width=\"100\" height=\"50\" border=\"0\" vspace=\"0\" style=\"width: 100px; height: 50px;\"/></p>', '2017-03-21 08:53:20', '2017-03-21 08:53:20');
-INSERT INTO `front_essence` VALUES ('4', 'a', 'a', '<p>aaaaaaaaaaaa<br/></p><p>aaaaaa</p>', '2017-03-21 08:49:57', '2017-03-21 08:49:57');
-INSERT INTO `front_essence` VALUES ('5', '测试', 'success', '<p><span style=\"color: rgb(79, 129, 189);\">一、借款条件</span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">1、年龄：18-30周岁；4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。</span><br/></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\"><br/></span></span></p><p><span style=\"color: rgb(79, 129, 189);\">二、申请资料</span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">1、身份证；</span><br/></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">2、手机实名认证；</span></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">3、芝麻分认证；</span></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">4、银行卡绑定。<br/></span></span></p>', '2017-03-21 08:53:46', '2017-03-21 08:53:46');
+INSERT INTO `front_essence` VALUES ('1', '简单借款1', '简单借款的申请流程', '<p>111111111111111test111aa</p>', '2017-03-21 06:43:47', '2017-03-21 06:43:47', '0', null, '0');
+INSERT INTO `front_essence` VALUES ('2', 'a', 'a', '<p>a</p>', '2017-03-20 09:19:22', '2017-03-20 09:19:22', '0', null, '0');
+INSERT INTO `front_essence` VALUES ('3', 'a', 'a', '<p><img src=\"/ueditor/php/upload/image/20170320/1490001611611266.jpg\" title=\"1490001611611266.jpg\" alt=\"1490001611611266.jpg\" width=\"100\" height=\"50\" border=\"0\" vspace=\"0\" style=\"width: 100px; height: 50px;\"/></p>', '2017-03-21 08:53:20', '2017-03-21 08:53:20', '1', null, '0');
+INSERT INTO `front_essence` VALUES ('4', 'a', 'a', '<p>aaaaaaaaaaaa<br/></p><p>aaaaaa</p>', '2017-03-21 08:49:57', '2017-03-21 08:49:57', '1', null, '0');
+INSERT INTO `front_essence` VALUES ('5', '测试', 'success', '<p><span style=\"color: rgb(79, 129, 189);\">一、借款条件</span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">1、年龄：18-30周岁；4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。4、银行卡绑定。</span><br/></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\"><br/></span></span></p><p><span style=\"color: rgb(79, 129, 189);\">二、申请资料</span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">1、身份证；</span><br/></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">2、手机实名认证；</span></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">3、芝麻分认证；</span></span></p><p><span style=\"color: rgb(79, 129, 189);\"><span style=\"color: rgb(0, 0, 0);\">4、银行卡绑定。<br/></span></span></p>', '2017-04-02 09:49:28', '2017-03-21 08:53:46', '1', '/789sudai/common/uploads/14911265684638.jpg', '0');
+INSERT INTO `front_essence` VALUES ('6', 'hhh', 'hhhh', '<p>hhh</p>', '2017-04-02 09:49:11', '2017-04-02 09:44:08', '0', '/789sudai/common/uploads/14911265515043.jpg', '0');
 
 -- ----------------------------
 -- Table structure for front_essence_count
@@ -2675,6 +3263,7 @@ DROP TABLE IF EXISTS `front_essence_count`;
 CREATE TABLE `front_essence_count` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `essence_id` int(11) NOT NULL COMMENT '攻略id',
+  `date` date NOT NULL COMMENT '日期',
   `type` tinyint(1) NOT NULL DEFAULT '1' COMMENT '前端类型 1:pc,2:微信,3:wap',
   `pv` int(11) NOT NULL DEFAULT '0' COMMENT '当天攻略浏览次数',
   `uv` int(11) NOT NULL DEFAULT '0' COMMENT '当天攻略浏览人数',
@@ -2682,12 +3271,18 @@ CREATE TABLE `front_essence_count` (
   `r_apply_total` int(11) NOT NULL DEFAULT '0' COMMENT '推荐产品申请量',
   `share_total` int(11) NOT NULL DEFAULT '0' COMMENT '分享次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='攻略统计表';
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='攻略统计表';
 
 -- ----------------------------
 -- Records of front_essence_count
 -- ----------------------------
-INSERT INTO `front_essence_count` VALUES ('1', '1', '1', '1', '1', '1', '1', '1');
+INSERT INTO `front_essence_count` VALUES ('1', '1', '2017-03-30', '1', '1', '1', '1', '1', '1');
+INSERT INTO `front_essence_count` VALUES ('2', '1', '2017-03-29', '1', '0', '0', '0', '0', '0');
+INSERT INTO `front_essence_count` VALUES ('3', '2', '2017-03-31', '1', '0', '0', '0', '0', '0');
+INSERT INTO `front_essence_count` VALUES ('4', '3', '2017-03-29', '1', '0', '0', '0', '0', '0');
+INSERT INTO `front_essence_count` VALUES ('5', '4', '2017-03-27', '1', '0', '0', '0', '0', '0');
+INSERT INTO `front_essence_count` VALUES ('6', '5', '2017-03-30', '2', '1', '1', '1', '1', '1');
+INSERT INTO `front_essence_count` VALUES ('7', '5', '2017-03-30', '1', '1', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for front_identity
@@ -2741,16 +3336,19 @@ CREATE TABLE `front_plate` (
   `update_date` datetime NOT NULL COMMENT '更新时间',
   `create_date` datetime NOT NULL COMMENT '创建时间',
   `img_url` varchar(255) DEFAULT NULL COMMENT '图片',
+  `read` int(10) DEFAULT '0' COMMENT '阅读量',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='板块(干货)表';
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COMMENT='板块(干货)表';
 
 -- ----------------------------
 -- Records of front_plate
 -- ----------------------------
-INSERT INTO `front_plate` VALUES ('3', '板块', '板块测试', '<p>1】板块</p><p>2.。。精华123</p>', '2017-03-22 07:41:53', '2017-03-21 09:46:15', '../../common/uploads/14901684977691.jpg');
-INSERT INTO `front_plate` VALUES ('2', 'aa', 'aa', '<p>aaggg</p>', '2017-03-22 07:42:10', '2017-03-21 09:40:25', '../../common/uploads/14901685304629.jpg');
-INSERT INTO `front_plate` VALUES ('4', '你的信用污点是这么来的', '你的信用污点是这么来的...', '<p>asdasd<br/></p><p>sadasdaas</p><p><br/></p><p>sadasdas</p><p><br/></p><p>aaaaa</p><p>sss巴巴大师肯德基</p>', '2017-03-22 07:42:28', '2017-03-21 09:59:55', '../../common/uploads/14901685485289.jpg');
-INSERT INTO `front_plate` VALUES ('5', 'aa', 'aa', '<p>aaa</p>', '2017-03-22 07:33:51', '2017-03-22 07:33:51', '../../common/uploads/14901680318839.jpg');
+INSERT INTO `front_plate` VALUES ('3', '板块', '板块测试', '<p>1】板块</p><p>2.。。精华123</p>', '2017-03-22 07:41:53', '2017-03-21 09:46:15', '../../common/uploads/14901684977691.jpg', '0');
+INSERT INTO `front_plate` VALUES ('2', 'aa', 'aa', '<p>aaggg</p>', '2017-03-22 07:42:10', '2017-03-21 09:40:25', '../../common/uploads/14901685304629.jpg', '0');
+INSERT INTO `front_plate` VALUES ('4', '你的信用污点是这么来的', '你的信用污点是这么来的...', '<p>asdasd<br/></p><p>sadasdaas</p><p><br/></p><p>sadasdas</p><p><br/></p><p>aaaaa</p><p>sss巴巴大师肯德基</p>', '2017-03-22 07:42:28', '2017-03-21 09:59:55', '../../common/uploads/14901685485289.jpg', '0');
+INSERT INTO `front_plate` VALUES ('5', 'aa', 'aa', '<p>aaa</p>', '2017-03-22 07:33:51', '2017-03-22 07:33:51', '../../common/uploads/14901680318839.jpg', '0');
+INSERT INTO `front_plate` VALUES ('6', 'aa', 'aaaa', '<p>aaa</p>', '2017-04-02 08:45:56', '2017-04-02 08:45:56', '/common/uploads/14911227556755.jpg', '0');
+INSERT INTO `front_plate` VALUES ('7', 'hhh', 'hhh', '<p>hhh</p>', '2017-04-02 08:47:47', '2017-04-02 08:47:47', '/789sudai/common/uploads/14911228672828.jpg', '0');
 
 -- ----------------------------
 -- Table structure for front_product
@@ -2785,15 +3383,28 @@ CREATE TABLE `front_product` (
   `update_date` datetime NOT NULL COMMENT '更新时间',
   `create_user` varchar(20) NOT NULL COMMENT '创建人',
   `create_date` datetime NOT NULL COMMENT '创建时间',
+  `return` varchar(255) DEFAULT NULL COMMENT '还款方式',
+  `check` varchar(255) DEFAULT NULL COMMENT '审核方式',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8 COMMENT='产品表';
+) ENGINE=MyISAM AUTO_INCREMENT=27 DEFAULT CHARSET=utf8 COMMENT='产品表';
 
 -- ----------------------------
 -- Records of front_product
 -- ----------------------------
-INSERT INTO `front_product` VALUES ('14', '现金贷', '3', '4', '1', '0', '0', '0', '1-1元', '1-1岁', '1', '1%-1%日', '1-1', '12', '1', '1', '1', '1', '../../common/uploads/14899893613524.jpg', '1', '1', '1', '1', '1', 'admin', '2017-03-20 06:01:04', 'admin', '2017-03-20 05:56:01');
-INSERT INTO `front_product` VALUES ('13', '快贷', '2', '3,4,5', '1', '1', '1', '1', '1000-2000元', '15-20岁', '3,4', '2%-3%日', '1月-2月', '15天', 'as', 'as', 'as', 'as', '../../common/uploads/14898052692597.jpg', 'sa', 'as', 'sa', 'sa', '5', 'admin', '2017-03-18 02:47:49', 'admin', '2017-03-17 11:01:09');
-INSERT INTO `front_product` VALUES ('12', '货上钱', '3', '3,5', '1', '0', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-03-18 02:37:28', 'admin', '2017-03-17 10:09:16');
+INSERT INTO `front_product` VALUES ('17', '货上钱', '3', '3,5', '1', '1', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa123123123', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-04-02 09:16:18', 'admin', '2017-03-17 10:09:16', null, null);
+INSERT INTO `front_product` VALUES ('16', '货上钱', '3', '3,5', '1', '1', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-04-02 09:18:10', 'admin', '2017-03-17 10:09:16', null, null);
+INSERT INTO `front_product` VALUES ('14', '现金贷', '3', '3', '0', '0', '1', '0', '1-1元', '1-1岁', '1', '1%-1%日', '1-1', '12', '1', '1', '1', '1', '../../common/uploads/14899893613524.jpg', '1', '1', '1', '1', '1', 'admin', '2017-04-02 05:59:50', 'admin', '2017-03-20 05:56:01', null, null);
+INSERT INTO `front_product` VALUES ('15', '货上钱', '3', '3,5', '1', '1', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-03-18 02:37:28', 'admin', '2017-03-17 10:09:16', null, null);
+INSERT INTO `front_product` VALUES ('13', '快贷', '2', '3,4,5', '1', '1', '1', '1', '1000-2000元', '15-20岁', '3,4', '2%-3%日', '1月-2月', '15天', 'zz', 'xy', 'sb', 'zy', '../../common/uploads/14898052692597.jpg', 'ms', 'as', 'lianjie', '热线', '5', 'admin', '2017-04-02 10:24:32', 'admin', '2017-03-17 11:01:09', null, null);
+INSERT INTO `front_product` VALUES ('12', '货上钱', '3', '3,5', '1', '0', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-03-18 02:37:28', 'admin', '2017-03-17 10:09:16', null, null);
+INSERT INTO `front_product` VALUES ('18', '货上钱', '3', '3,5', '1', '0', '0', '1', '10-100元', '20-30岁', '1,2,4', '1%-2%日', '1天-1月天', '10天', 'aaa', 'aaa', 'aaa', 'aaa', '../../common/uploads/14897453563146.jpg', 'aaa', '1000', 'www.baidu.com', '8008800', '5', 'admin', '2017-03-18 02:37:28', 'admin', '2017-03-17 10:09:16', null, null);
+INSERT INTO `front_product` VALUES ('20', 'aa', '1', '3', '0', '0', '0', '0', '1-1元', '1-1岁', '2', '1%-1%日', '1-1', '1', '1', '1', '1', '1', '/789sudai/common/uploads/14911308163396.jpg', '1', '11', '1', '1', '11', 'admin', '2017-04-02 11:00:17', 'admin', '2017-04-02 11:00:17', null, null);
+INSERT INTO `front_product` VALUES ('21', '1', '1', '3', '1', '0', '1', '0', '1-1元', '1-1岁', '1', '1%-1%日', '1-1', '1', '1', '1', '1', '1', '/789sudai/common/uploads/14911309043509.jpg', '1', '1', '1', '1', '1', 'admin', '2017-04-02 11:01:44', 'admin', '2017-04-02 11:01:44', null, null);
+INSERT INTO `front_product` VALUES ('22', '1', '1', '3', '1', '0', '1', '0', '1-1元', '1-1岁', '1', '1%-%日', '1-1', '1', '1', '1', '1', '1', '/789sudai/common/uploads/14911309793015.jpg', '1', '1', '1', '1', '1', 'admin', '2017-04-02 11:02:59', 'admin', '2017-04-02 11:02:59', null, null);
+INSERT INTO `front_product` VALUES ('23', '1', '1', '3', '0', '0', '0', '0', '1-元', '1-岁', '1', '1%-%日', '1-', '1', '1', '11', '1', '1', '/789sudai/common/uploads/14911311551276.jpg', '1', '11', '1', '1', '1', 'admin', '2017-04-02 11:05:55', 'admin', '2017-04-02 11:05:55', null, null);
+INSERT INTO `front_product` VALUES ('24', '1', '1', '3', '0', '0', '1', '0', '1-元', '1-岁', '1', '1%-%日', '1-', '1', '1', '1', '1', '1', '/789sudai/common/uploads/14911312543730.jpg', '1', '11', '1', '1', '1', 'admin', '2017-04-02 11:07:34', 'admin', '2017-04-02 11:07:34', null, null);
+INSERT INTO `front_product` VALUES ('25', '1', '1', '3', '0', '0', '0', '0', '1-元', '1-岁', '1', '1%-%日', '1-', '1', '1', '1', '11', '1', '/789sudai/common/uploads/14911317687828.jpg', '1', '1', '11', '1', '1', 'admin', '2017-04-02 11:16:08', 'admin', '2017-04-02 11:16:08', null, null);
+INSERT INTO `front_product` VALUES ('26', '1', '1', '3', '0', '0', '0', '0', '1-元', '1-岁', '1', '1%-%日', '1-', '1', '1', '1', '11', '1', '/789sudai/common/uploads/14911317792006.jpg', '1', '1', '11', '1', '1', 'admin', '2017-04-02 11:16:19', 'admin', '2017-04-02 11:16:19', null, null);
 
 -- ----------------------------
 -- Table structure for front_product_count
@@ -2809,28 +3420,41 @@ CREATE TABLE `front_product_count` (
   `apply_total` int(11) NOT NULL DEFAULT '0' COMMENT '当天产品申请量',
   `share_total` int(1) NOT NULL DEFAULT '0' COMMENT '当天产品分享次数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='产品统计表';
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='产品统计表';
 
 -- ----------------------------
 -- Records of front_product_count
 -- ----------------------------
-INSERT INTO `front_product_count` VALUES ('1', '1', '0000-00-00', '1', '1', '1', '1', '1');
+INSERT INTO `front_product_count` VALUES ('1', '12', '2017-03-30', '1', '1', '1', '1', '1');
+INSERT INTO `front_product_count` VALUES ('2', '13', '2017-03-29', '1', '0', '0', '0', '0');
+INSERT INTO `front_product_count` VALUES ('3', '14', '2017-03-31', '1', '1', '1', '1', '1');
+INSERT INTO `front_product_count` VALUES ('4', '14', '2017-03-31', '2', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for front_product_log
 -- ----------------------------
 DROP TABLE IF EXISTS `front_product_log`;
 CREATE TABLE `front_product_log` (
-  `id` bigint(20) NOT NULL,
-  `user_id` varchar(20) DEFAULT NULL COMMENT '用户id',
-  `product_id` varchar(20) DEFAULT NULL COMMENT '产品id',
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL COMMENT '用户id',
+  `product_id` int(11) DEFAULT NULL COMMENT '产品id',
   `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  `type` tinyint(1) DEFAULT '1' COMMENT '前端',
+  `date` date DEFAULT NULL COMMENT '日期',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='用户申请产品记录表';
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COMMENT='用户申请产品记录表';
 
 -- ----------------------------
 -- Records of front_product_log
 -- ----------------------------
+INSERT INTO `front_product_log` VALUES ('1', '1', '12', '2017-03-31 22:14:18', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('2', '2', '13', '2017-03-31 22:14:27', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('3', '3', '14', '2017-03-31 22:14:34', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('4', '1', '13', '2017-03-31 22:14:46', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('5', '1', '14', '2017-03-30 22:56:14', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('6', '3', '13', '2017-04-02 10:21:36', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('7', '2', '13', '2017-04-02 10:24:09', '1', '2017-04-03');
+INSERT INTO `front_product_log` VALUES ('9', '1', '1', '2017-04-03 08:36:02', '1', null);
 
 -- ----------------------------
 -- Table structure for front_user
@@ -2849,12 +3473,14 @@ CREATE TABLE `front_user` (
   `update_date` datetime NOT NULL COMMENT '更新时间',
   `create_date` datetime NOT NULL COMMENT '创建时间',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='前台用户表';
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COMMENT='前台用户表';
 
 -- ----------------------------
 -- Records of front_user
 -- ----------------------------
-INSERT INTO `front_user` VALUES ('1', '张三', '123456', null, null, 'n', null, '1820000000', 'm', '2017-03-20 14:32:08', '2017-03-20 14:32:11');
+INSERT INTO `front_user` VALUES ('1', '张三', '123456', null, null, 'n', null, '18200000000', 'm', '2017-03-20 14:32:08', '2017-03-20 14:32:11');
+INSERT INTO `front_user` VALUES ('2', '李四', '123456', null, null, 'n', null, '18288888888', 'm', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `front_user` VALUES ('3', '王五', '123456', null, null, 'n', null, '18266666666', 'm', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for front_user_count
@@ -2868,12 +3494,16 @@ CREATE TABLE `front_user_count` (
   `login_total` int(11) NOT NULL DEFAULT '0' COMMENT '当天登录次数',
   `login_user_total` int(11) NOT NULL DEFAULT '0' COMMENT '当天登录人数',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='用户统计';
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='用户统计';
 
 -- ----------------------------
 -- Records of front_user_count
 -- ----------------------------
-INSERT INTO `front_user_count` VALUES ('1', '0000-00-00', '1', '1', '1', '1');
+INSERT INTO `front_user_count` VALUES ('1', '2017-03-30', '1', '1', '1', '1');
+INSERT INTO `front_user_count` VALUES ('2', '2017-03-29', '1', '2', '2', '2');
+INSERT INTO `front_user_count` VALUES ('3', '2017-03-31', '1', '60', '60', '60');
+INSERT INTO `front_user_count` VALUES ('4', '2017-03-28', '1', '1043', '8016', '3305');
+INSERT INTO `front_user_count` VALUES ('5', '2017-03-30', '2', '500', '1000', '800');
 
 -- ----------------------------
 -- Table structure for front_website_count
@@ -2889,12 +3519,16 @@ CREATE TABLE `front_website_count` (
   `look_total` int(11) NOT NULL DEFAULT '0' COMMENT '产品查看量',
   `apply_total` int(11) NOT NULL DEFAULT '0' COMMENT '产品申请量',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='网站统计';
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COMMENT='网站统计';
 
 -- ----------------------------
 -- Records of front_website_count
 -- ----------------------------
-INSERT INTO `front_website_count` VALUES ('1', '0000-00-00', '1', '1', '1', '1', '1', '1');
+INSERT INTO `front_website_count` VALUES ('1', '2017-03-29', '1', '1', '1', '1', '1', '1');
+INSERT INTO `front_website_count` VALUES ('2', '2017-03-30', '1', '0', '10', '0', '0', '0');
+INSERT INTO `front_website_count` VALUES ('3', '2017-03-28', '1', '0', '0', '0', '0', '0');
+INSERT INTO `front_website_count` VALUES ('4', '2017-03-29', '2', '12', '12', '12', '12', '12');
+INSERT INTO `front_website_count` VALUES ('5', '2017-03-30', '2', '1', '1', '1', '1', '1');
 
 -- ----------------------------
 -- Table structure for penngo_word
@@ -2913,6 +3547,12 @@ CREATE TABLE `penngo_word` (
 -- ----------------------------
 -- Records of penngo_word
 -- ----------------------------
+
+-- ----------------------------
+-- View structure for v_user_pro
+-- ----------------------------
+DROP VIEW IF EXISTS `v_user_pro`;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `v_user_pro` AS select `front_user`.`username` AS `username`,`front_product_log`.`user_id` AS `user_id`,`front_product_log`.`product_id` AS `product_id`,`front_product_log`.`create_date` AS `create_date`,`front_product_log`.`id` AS `id`,`front_product`.`p_name` AS `p_name`,`front_user`.`phone` AS `phone` from ((`front_product_log` join `front_user` on((`front_product_log`.`user_id` = `front_user`.`id`))) join `front_product` on((`front_product_log`.`product_id` = `front_product`.`id`))) ;
 DROP TRIGGER IF EXISTS `tri_adInsert`;
 DELIMITER ;;
 CREATE TRIGGER `tri_adInsert` AFTER INSERT ON `front_ad` FOR EACH ROW begin
