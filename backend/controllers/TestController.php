@@ -339,7 +339,11 @@ class TestController extends Controller
         $click = $post['click'];
         $share = $post['share'];
         $apply = $post['apply'];
-        $model->addEssCount($type,$date,$ess_id,$pv,$uv,$click,$apply,$share);
+        if($model->addEssCount($type,$date,$ess_id,$pv,$uv,$click,$apply,$share)){
+            echo 1;
+        }else{
+            echo json_encode($post);
+        }
     }
 
     /**
