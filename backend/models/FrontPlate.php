@@ -13,6 +13,7 @@ use yii\db\Query;
  * @property string $content
  * @property string $update_date
  * @property string $create_date
+ * @property integer $read
  */
 class FrontPlate extends \backend\models\BaseModel
 {
@@ -34,6 +35,7 @@ class FrontPlate extends \backend\models\BaseModel
             [['update_date', 'create_date'], 'safe'],
             [['title'], 'string', 'max' => 50],
             [['introduce'], 'string', 'max' => 255],
+            [['read'], 'integer'],
             [['content'], 'string', 'max' => 15000]
         ];
     }
@@ -224,5 +226,10 @@ class FrontPlate extends \backend\models\BaseModel
     public function getPlateBy($id){
         $query = new Query();
         return $query->from('front_plate')->where('id='.$id)->one();
+    }
+    static function addPlateRead($id){
+        $model = FrontPlate::findOne(['id'=>$id]);
+        $model->read += 1;
+        return $model->save();
     }
 }

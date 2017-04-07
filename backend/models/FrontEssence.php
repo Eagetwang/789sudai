@@ -237,4 +237,12 @@ class FrontEssence extends \backend\models\BaseModel
         $query = new Query();
         return $query->from('front_essence')->where('id='.$id)->one();
     }
+
+    //下面是接口方法
+
+    static function addEssRead($id){
+        $model = FrontEssence::findOne(['id'=>$id]);
+        $model->read += 1;
+        return $model->save();
+    }
 }

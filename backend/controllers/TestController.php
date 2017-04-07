@@ -417,4 +417,17 @@ class TestController extends Controller
         $uv = $post['uv'];
         $model->addUserCount($type,$date,$reg,$pv,$uv);
     }
+    /**
+     * 干货/攻略阅读统计
+     */
+    public function actionReadCount(){
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $id = $post['id'];
+        if($type == 1){
+            echo FrontEssence::addEssRead($id) ? 1 : 0;
+        }else{
+            echo FrontPlate::addPlateRead($id)? 2 : 0;
+        }
+    }
 }

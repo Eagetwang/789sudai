@@ -781,7 +781,7 @@ class FrontProduct extends \backend\models\BaseModel
         $c['recommend'] = $rec;
 //        return $c;
         $query = new Query();
-        $query = $query->from('front_product');
+        $query = $query->from('front_product')->andWhere('status=1');
         if($type){
             $query = $query->andWhere('category_id like"%'.$type.'%"');
         }
@@ -804,6 +804,7 @@ class FrontProduct extends \backend\models\BaseModel
     public function getProductPage($type,$page,$num){
         $query = new Query();
         $query->from('front_product')
+            ->andWhere('status=1')
             ->andWhere('category_id like"%'.$type.'%"');
         $count = $query->count();
         if($page){
