@@ -38,7 +38,6 @@ use yii\db\Query;
  * @property string $create_date
  * @property string $return
  * @property string $check
- * @property string $code
  */
 class FrontProduct extends \backend\models\BaseModel
 {
@@ -61,7 +60,7 @@ class FrontProduct extends \backend\models\BaseModel
             [['update_date', 'create_date'], 'safe'],
             [['p_name', 'limit', 'age', 'identity_id', 'money_rate', 'term', 'handle_time', 'apply_total', 'telephone'], 'string', 'max' => 100],
             [['category_id'], 'string', 'max' => 50],
-            [['aptitude', 'credit', 'materials', 'prompt', 'logo_url', 'describe', 'link','return','check','code'], 'string', 'max' => 255],
+            [['aptitude', 'credit', 'materials', 'prompt', 'logo_url', 'describe', 'link','return','check'], 'string', 'max' => 255],
             [['update_user', 'create_user'], 'string', 'max' => 20]
         ];
     }
