@@ -235,4 +235,31 @@ class FrontUserCount extends \backend\models\BaseModel
         }
         return $query;
     }
+
+    /**
+     * 用户统计
+     * @param $type
+     * @param $date
+     * @param int $reg 当天新注册
+     * @param int $pv 当天登录次数
+     * @param int $uv 当天登录人数
+     * @return bool
+     */
+    public function addUserCount($type,$date,$reg=0,$pv=0,$uv=0){
+        $model = FrontUserCount::findOne(['type'=>$type,'date'=>$date]);
+        if($model){
+            $model->register_total += $reg;
+            $model->login_total +=$pv;
+            $model->login_user_total += $uv;
+            $res = $model->save();
+        }else{
+            $this->type = $type;
+            $this->date = $date;
+            $this->register_total = $reg;
+            $this->login_total = $pv;
+            $this->login_user_total = $uv;
+            $res = $this->save();
+        }
+        return $res;
+    }
 }

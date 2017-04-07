@@ -94,7 +94,11 @@ $modelLabel = new \backend\models\FrontUserCount();
                 echo '  <td>' . $model['register_total'] . '</td>';
                 echo '  <td>' . $model['login_total'] . '</td>';
                 echo '  <td>' . $model['login_user_total'] . '</td>';
-             echo '<td>0</td>';
+				if($model['login_total'] ){
+					echo '<td>'.round(($model['login_user_total']/$model['login_total'])*100,3).'</td>';
+				}else{
+					echo '<td>0</td>';
+				}
                 echo '</tr>';
             }
 			if($totals) {
@@ -106,7 +110,11 @@ $modelLabel = new \backend\models\FrontUserCount();
 					echo '  <td>' . $total['register_total'] . '</td>';
 					echo '  <td>' . $total['login_total'] . '</td>';
 					echo '  <td>' . $total['login_user_total'] . '</td>';
-					echo '<td>0</td>';
+					if($total['login_total'] ){
+						echo '<td>'.round(($total['login_user_total']/$total['login_total'])*100,3).'</td>';
+					}else{
+						echo '<td>0</td>';
+					}
 					echo '</tr>';
 				}
 			}

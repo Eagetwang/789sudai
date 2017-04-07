@@ -12,6 +12,7 @@ use backend\models\FrontProduct;
 use backend\models\FrontProductCount;
 use backend\models\FrontProductLog;
 use backend\models\FrontUser;
+use backend\models\FrontUserCount;
 use backend\models\FrontWebsiteCount;
 use Yii;
 use yii\data\Pagination;
@@ -401,5 +402,19 @@ class TestController extends Controller
 //        $phone = '18200392044';
 //        $pwd = '888888';
 //        echo FrontUser::updatePwd($phone,$pwd);
+    }
+    /**
+     * 用户统计
+     */
+    public function actionUserCount(){
+        $model = new FrontUserCount();
+//        $model->addUserCount(1,'2017-04-7',1,1,1);
+        $post = Yii::$app->request->post();
+        $type = $post['type'];
+        $date = $post['date'];
+        $reg = $post['reg'];
+        $pv = $post['pv'];
+        $uv = $post['uv'];
+        $model->addUserCount($type,$date,$reg,$pv,$uv);
     }
 }
