@@ -307,9 +307,7 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="money_rate_div" class="form-group">
               <label for="money_rate" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("money_rate")?></label>
               <div class="col-sm-10">
-                  <input type="hidden" class="form-control" id="money_rate" name="FrontProduct[money_rate]" />
-                  <input type="number" id="rate_min"  placeholder="最低" />%--
-                  <input type="number" id="rate_max" placeholder="最高" />%日
+                  <input type="text" class="form-control" id="money_rate" name="FrontProduct[money_rate]" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -317,9 +315,7 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="term_div" class="form-group">
               <label for="term" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("term")?></label>
               <div class="col-sm-10">
-                  <input type="hidden" class="form-control" id="term" name="FrontProduct[term]" />
-                  <input type="text" id="term_min"  placeholder="最低 天/月" />--
-                  <input type="text" id="term_max" placeholder="最高 天/月" />
+                  <input type="text" class="form-control" id="term" name="FrontProduct[term]" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -528,12 +524,9 @@ function orderby(field, op){
         $("input[class='checkbox_id']").each(function(){
             $(this).prop('checked',false).show();
         });
-		$("#money_rate").val('0.1%-0.2%日');
-        $("#rate_min").val('');
-        $("#rate_max").val('');
-		$("#term").val('1-7天');
-        $("#term_min").val('');
-        $("#term_max").val('');
+		$("#money_rate").val('');
+
+		$("#term").val('');
 		$("#handle_time").val('');
 		$("#aptitude").val('');
 		$("#credit").val('');
@@ -620,23 +613,8 @@ function orderby(field, op){
             }
         });
 //    	$("#identity_id").val(data.identity_id);
-        var money_rate = data.money_rate.split('-');
-        $.each(money_rate,function(index,value){
-            if(index == 0){
-                $("#rate_min").val(value.substring(0,value.length-1));
-            }else{
-                $("#rate_max").val(value.substring(0,value.length-2));
-            }
-        });
+
     	$("#money_rate").val(data.money_rate);
-        var term = data.term.split('-');
-        $.each(term,function(index,value){
-            if(index == 0){
-                $("#term_min").val(value);
-            }else{
-                $("#term_max").val(value);
-            }
-        });
     	$("#term").val(data.term);
     	$("#handle_time").val(data.handle_time);
     	$("#aptitude").val(data.aptitude);
@@ -693,11 +671,7 @@ function orderby(field, op){
         });
         $('.span_id').hide();
       $("#money_rate").attr({readonly:true,disabled:true});
-      $("#rate_min").attr({readonly:true,disabled:true});
-      $("#rate_max").attr({readonly:true,disabled:true});
       $("#term").attr({readonly:true,disabled:true});
-      $("#term_min").attr({readonly:true,disabled:true});
-      $("#term_max").attr({readonly:true,disabled:true});
       $("#handle_time").attr({readonly:true,disabled:true});
       $("#aptitude").attr({readonly:true,disabled:true});
       $("#credit").attr({readonly:true,disabled:true});
@@ -749,11 +723,7 @@ function orderby(field, op){
       $("#age_max").attr({readonly:false,disabled:false});
       $("#identity_id").attr({readonly:false,disabled:false});
       $("#money_rate").attr({readonly:false,disabled:false});
-      $("#rate_min").attr({readonly:false,disabled:false});
-      $("#rate_max").attr({readonly:false,disabled:false});
       $("#term").attr({readonly:false,disabled:false});
-      $("#term_min").attr({readonly:false,disabled:false});
-      $("#term_max").attr({readonly:false,disabled:false});
       $("#handle_time").attr({readonly:false,disabled:false});
       $("#aptitude").attr({readonly:false,disabled:false});
       $("#credit").attr({readonly:false,disabled:false});
@@ -941,19 +911,6 @@ $('#age_min').blur(function(){
 });
 $('#age_max').blur(function(){
     $("#age").val($("#age_min").val()+'-'+$("#age_max").val()+'岁');
-});
-$('#rate_min').blur(function(){
-    $("#money_rate").val($("#rate_min").val()+'%-'+$("#rate_max").val()+'%日');
-});
-$('#rate_max').blur(function(){
-    $("#money_rate").val($("#rate_min").val()+'%-'+$("#rate_max").val()+'%日');
-});
-
-$('#term_min').blur(function(){
-    $("#term").val($("#term_min").val()+'-'+$("#term_max").val());
-});
-$('#term_max').blur(function(){
-    $("#term").val($("#term_min").val()+'-'+$("#term_max").val());
 });
  </script>
 <?php $this->endBlock(); ?>
