@@ -34,6 +34,15 @@ $modelLabel = new \backend\models\FrontEssence();
         </div>
         <div class="clearfix"></div>
     </div>
+    <div id="introduce_div" class="form-group">
+        <label for="rec" class="col-sm-2 control-label">推荐</label>
+        <div class="col-sm-10">
+            <input type="hidden" class="form-control" id="rec" name="rec" value="<?php if($essence) echo $essence['rec'];?>" />
+            <input type="radio" name="is_recommend" id="rec_yes" <?php if($essence && $essence['rec']) echo "checked";?>>是&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="radio" name="is_recommend" id="rec_no" <?php if($essence && !$essence['rec']) echo "checked";?>>否
+        </div>
+        <div class="clearfix"></div>
+    </div>
     <div id="img_div" class="form-group">
         <label for="img" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("img")?></label>
         <div class="col-sm-10">
@@ -208,6 +217,12 @@ $modelLabel = new \backend\models\FrontEssence();
 
                 }
             });
+        });
+        $('#rec_yes').click(function(){
+            $('#rec').val(1);
+        });
+        $('#rec_no').click(function(){
+            $('#rec').val(0);
         });
     </script>
 </div>

@@ -13,6 +13,7 @@ use yii\db\Query;
  * @property string $content
  * @property string $update_date
  * @property string $cteate_date
+ * @property integer $rec
  * @property string $img
  * @property integer $read
  */
@@ -35,7 +36,7 @@ class FrontEssence extends \backend\models\BaseModel
             [['title', 'content', 'update_date', 'cteate_date'], 'required'],
             [['update_date', 'cteate_date'], 'safe'],
             [['title','img'], 'string', 'max' => 50],
-            [['read'], 'integer'],
+            [['read','rec'], 'integer'],
             [['introduce', 'content'], 'string', 'max' => 15000]
         ];
     }

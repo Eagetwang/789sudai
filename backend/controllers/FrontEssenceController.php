@@ -149,10 +149,10 @@ class FrontEssenceController extends BaseController
             $img_url = $upload->upload();
         }
         if ($model->load(Yii::$app->request->post())) {
-
             if($img_url){
                 $model->img = $img_url;
             }
+                $model->rec = Yii::$app->request->post('rec');
               $model->update_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');
