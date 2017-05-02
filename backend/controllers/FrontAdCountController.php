@@ -71,6 +71,8 @@ class FrontAdCountController extends BaseController
             'show_total'=>$show_total,
             'click_total'=>$click_total,
             'uv'=>$uv,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

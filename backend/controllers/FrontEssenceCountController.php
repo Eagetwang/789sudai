@@ -30,7 +30,7 @@ class FrontEssenceCountController extends BaseController
         $essence_model = new FrontEssence();
         $indexs = $index_model->getAllIndex();
         $essences = $essence_model->getAllEssence();
-        $querys = Yii::$app->request->get('query');
+        $querys = Yii::$app->request->get('query',array('type'=>0));
         $datemin = Yii::$app->request->get('date1');
         $datemax = Yii::$app->request->get('date2');
         if($datemax && $datemin){
@@ -76,6 +76,8 @@ class FrontEssenceCountController extends BaseController
             'essences'=>$essences,
             'pages'=>$pagination,
             'query'=>$querys,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

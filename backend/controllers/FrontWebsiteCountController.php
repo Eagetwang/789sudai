@@ -27,7 +27,7 @@ class FrontWebsiteCountController extends BaseController
         $web_c = new FrontWebsiteCount();
         $index_model = new FrontIndex();
         $indexs = $index_model->getAllIndex();
-         $querys = Yii::$app->request->get('query');
+         $querys = Yii::$app->request->get('query',array('type'=>0));
         $datemin = Yii::$app->request->get('date1');
         $datemax = Yii::$app->request->get('date2');
         if($datemax && $datemin){
@@ -67,6 +67,8 @@ class FrontWebsiteCountController extends BaseController
             'totals'=>$totals,
             'pages'=>$pagination,
             'query'=>$querys,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

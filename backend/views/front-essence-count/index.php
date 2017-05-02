@@ -43,7 +43,11 @@ $modelLabel = new \backend\models\FrontEssenceCount();
 					  <select class="form-control" name="query[essence_id]">
 						  <?php
 						  foreach($essences as $essence){
-							  echo "<option value='".$essence['id']."'>".$essence['title']."</option>";
+							  if($essence['id'] == $query['essence_id']){
+								  echo "<option value='".$essence['id']."' selected>".$essence['title']."</option>";
+							  }else{
+								  echo "<option value='".$essence['id']."'>".$essence['title']."</option>";
+							  }
 						  }
 						  ?>
 					  </select>
@@ -52,8 +56,8 @@ $modelLabel = new \backend\models\FrontEssenceCount();
 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
-					  <input class="form-control" name="date1" type="date" />
-					  <input class="form-control" name="date2" type="date" />
+					  <input class="form-control" name="date1" type="date" value="<?php echo $datemin;?>"/>
+					  <input class="form-control" name="date2" type="date" value="<?php echo $datemax;?>"/>
 <!--                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="--><?//=isset($query["date"]) ? $query["date"] : "" ?><!--">-->
                   </div>
 
@@ -63,7 +67,11 @@ $modelLabel = new \backend\models\FrontEssenceCount();
 						  <option value="0">全部</option>
 						  <?php
 						  foreach($indexs as $index){
-							  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+							  if($index['index_id'] == $query['type']){
+								  echo "<option value='".$index['index_id']."' selected>".$index['name']."</option>";
+							  }else{
+								  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+							  }
 						  }
 						  ?>
 					  </select>

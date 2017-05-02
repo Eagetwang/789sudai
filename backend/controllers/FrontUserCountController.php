@@ -68,6 +68,8 @@ class FrontUserCountController extends BaseController
             'pages'=>$pagination,
             'query'=>$querys,
             'indexs'=>$indexs,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

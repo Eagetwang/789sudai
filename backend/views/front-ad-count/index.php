@@ -43,7 +43,11 @@ $modelLabel = new \backend\models\FrontAdCount();
 						  <option value="0">全部</option>
 						  <?php
 						  	foreach($ad as $val){
-								echo "<option value='".$val['id']."'>".$val['name']."</option>";
+								if($val['id'] == $query['ad_id']){
+									echo "<option value='".$val['id']."' selected>".$val['name']."</option>";
+								}else{
+									echo "<option value='".$val['id']."'>".$val['name']."</option>";
+								}
 							}
 						  ?>
 					  </select>
@@ -52,8 +56,8 @@ $modelLabel = new \backend\models\FrontAdCount();
 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('date')?>:</label>
-					  <input class="form-control" name="date1" type="date" />
-					  <input class="form-control" name="date2" type="date" />
+					  <input class="form-control" name="date1" type="date" value="<?php echo $datemin;?>"/>
+					  <input class="form-control" name="date2" type="date" value="<?php echo $datemax;?>"/>
 <!--                      <input type="text" class="form-control" id="query[date]" name="query[date]"  value="--><?//=isset($query["date"]) ? $query["date"] : "" ?><!--">-->
                   </div>
 
@@ -95,7 +99,7 @@ $modelLabel = new \backend\models\FrontAdCount();
 				echo '  <td>' . $model['show_total']. '</td>';
 				echo '  <td>' . $model['click_total'] . '</td>';
 				echo '  <td>' . $model['uv'] . '</td>';
-				if($model['click_total'] != 0){
+				if($model['uv'] != 0){
 					echo '  <td>' . round(($model['click_total']/$model['uv'])*100,3) . '</td>';
 				}else{
 					echo '  <td>' . 0 . '</td>';
