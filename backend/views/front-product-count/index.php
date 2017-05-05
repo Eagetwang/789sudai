@@ -88,7 +88,7 @@ $modelLabel = new \backend\models\FrontProductCount();
             </tr>
             </thead>
             <tbody>
-              
+               
             <?php
             foreach ($models as $model) {
                 echo '<tr>';
