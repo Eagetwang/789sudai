@@ -114,7 +114,7 @@ $modelLabel = new \backend\models\FrontProductLog();
                 echo '  <td>' . $model['username'] . '</td>';
                 echo '  <td>' . $model['p_name'] . '</td>';
                 echo '  <td>' . $model['phone'] . '</td>';
-                echo '  <td>' . $model['date'] . '</td>';
+                echo '  <td>' . $model['create_date'] . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
                 echo '  <td class="center">';
 
