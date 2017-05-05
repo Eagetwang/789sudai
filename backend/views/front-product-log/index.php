@@ -43,7 +43,11 @@ $modelLabel = new \backend\models\FrontProductLog();
 					  <select class="form-control" name="query[product_id]">
 						  <?php
 						  foreach($products as $product){
-							  echo "<option value='".$product['id']."'>".$product['p_name']."</option>";
+							  if($product['id'] == $query['product_id']){
+								  echo "<option value='".$product['id']."' selected>".$product['p_name']."</option>";
+							  }else{
+								  echo "<option value='".$product['id']."'>".$product['p_name']."</option>";
+							  }
 						  }
 						  ?>
 					  </select>
@@ -52,8 +56,8 @@ $modelLabel = new \backend\models\FrontProductLog();
 
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('create_date')?>:</label>
-					  <input class="form-control" name="date1" type="date" />
-					  <input class="form-control" name="date2" type="date" />
+					  <input class="form-control" name="date1" type="date" value="<?php echo $datemin;?>"/>
+					  <input class="form-control" name="date2" type="date" value="<?php echo $datemax;?>"/>
 <!--                      <input type="text" class="form-control" id="query[create_date]" name="query[create_date]"  value="--><?//=isset($query["create_date"]) ? $query["create_date"] : "" ?><!--">-->
                   </div>
 
@@ -63,7 +67,11 @@ $modelLabel = new \backend\models\FrontProductLog();
 						  <option value="0">全部</option>
 						  <?php
 						  foreach($indexs as $index){
-							  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+							  if($index['index_id'] == $query['type']){
+								  echo "<option value='".$index['index_id']."' selected>".$index['name']."</option>";
+							  }else{
+								  echo "<option value='".$index['index_id']."'>".$index['name']."</option>";
+							  }
 						  }
 						  ?>
 					  </select>

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'YiiBoot通用管理后台';
+$this->title = '第五元素通用管理后台';
 
 $system_menus = Yii::$app->user->identity->getSystemMenus();
 $system_rights = Yii::$app->user->identity->getSystemRights();
@@ -170,9 +170,9 @@ if($otherMenu == false){
     <!-- Logo -->
     <a href="<?=Url::toRoute('site/index')?>" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>Y</b>BT</span>
+      <span class="logo-mini"><b>第</b>五元素</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Yii</b>BOOT管理系统</span>
+      <span class="logo-lg"><b>第</b>五元素管理系统</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">

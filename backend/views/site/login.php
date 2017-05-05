@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 <div class="login-box">
   <div class="login-logo">
-    <a href="<?=Url::toRoute('site/login')?>"><b>Yii</b>Boot</a>
+    <a href="<?=Url::toRoute('site/login')?>"><b>第</b>五元素</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">

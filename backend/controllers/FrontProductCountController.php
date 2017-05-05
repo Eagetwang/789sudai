@@ -62,6 +62,8 @@ class FrontProductCountController extends BaseController
             'indexs'=>$indexs,
             'pages'=>$pagination,
             'query'=>$querys,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

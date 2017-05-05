@@ -35,7 +35,7 @@ class FrontProductLogController extends BaseController
         $datemin = Yii::$app->request->get('date1');
         $datemax = Yii::$app->request->get('date2');
         $excel = Yii::$app->request->get('excel');
-         $querys = Yii::$app->request->get('query');
+         $querys = Yii::$app->request->get('query',array('type'=>0));
         if($datemax && $datemin){
             $date = FrontWebsiteCountController::getDates($datemin,$datemax);
             $querys['date'] = $date;
@@ -177,6 +177,8 @@ class FrontProductLogController extends BaseController
             'products'=>$products,
             'pages'=>$pagination,
             'query'=>$querys,
+            'datemin'=>$datemin,
+            'datemax'=>$datemax,
         ]);
     }
 

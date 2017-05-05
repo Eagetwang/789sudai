@@ -347,7 +347,8 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="materials_div" class="form-group">
               <label for="materials" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("materials")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="materials" name="FrontProduct[materials]" placeholder="必填" />
+                  <textarea rows="3" cols="20" class="form-control" name="FrontProduct[materials]" id="materials" placeholder="必填"></textarea>
+<!--                  <input type="texta" class="form-control" id="materials" name="FrontProduct[materials]" placeholder="必填" />-->
               </div>
               <div class="clearfix"></div>
           </div>
@@ -355,7 +356,8 @@ $modelLabel = new \backend\models\FrontProduct();
           <div id="prompt_div" class="form-group">
               <label for="prompt" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("prompt")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="prompt" name="FrontProduct[prompt]" placeholder="必填" />
+                  <textarea rows="3" cols="20" class="form-control" name="FrontProduct[prompt]" id="prompt" placeholder="必填"></textarea>
+<!--                  <input type="text" class="form-control" id="prompt" name="FrontProduct[prompt]" placeholder="必填" />-->
               </div>
               <div class="clearfix"></div>
           </div>
