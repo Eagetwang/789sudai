@@ -83,8 +83,6 @@ $modelLabel = new \backend\models\FrontProductCount();
               echo '<th onclick="orderby(\'uv\', \'desc\')" '.CommonFun::sortClass($orderby, 'uv').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('uv').'</th>';
               echo '<th onclick="orderby(\'apply_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'apply_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('apply_total').'</th>';
 			  echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >申请转化率(%)</th>';
-              echo '<th onclick="orderby(\'share_total\', \'desc\')" '.CommonFun::sortClass($orderby, 'share_total').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('share_total').'</th>';
-         
 			?>
 
             </tr>
@@ -106,7 +104,6 @@ $modelLabel = new \backend\models\FrontProductCount();
 				}else{
 					echo '  <td>' . 0 . '</td>';
 				}
-                echo '  <td>' . $model['share_total'] . '</td>';
 
                 echo '</tr>';
             }

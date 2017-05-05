@@ -55,7 +55,7 @@ $modelLabel = new \backend\models\FrontProductLog();
                   </div>
 
                   <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('create_date')?>:</label>
+                      <label><?='申请时间'?>:</label>
 					  <input class="form-control" name="date1" type="date" value="<?php echo $datemin;?>"/>
 					  <input class="form-control" name="date2" type="date" value="<?php echo $datemax;?>"/>
 <!--                      <input type="text" class="form-control" id="query[create_date]" name="query[create_date]"  value="--><?//=isset($query["create_date"]) ? $query["create_date"] : "" ?><!--">-->
@@ -98,7 +98,7 @@ $modelLabel = new \backend\models\FrontProductLog();
               echo '<th onclick="orderby(\'user_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'user_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('user_id').'</th>';
               echo '<th onclick="orderby(\'product_id\', \'desc\')" '.CommonFun::sortClass($orderby, 'product_id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('product_id').'</th>';
 			echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >电话</th>';
-              echo '<th onclick="orderby(\'create_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'create_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('create_date').'</th>';
+              echo '<th onclick="orderby(\'create_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'create_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.'申请时间'.'</th>';
          
 			?>
 	
@@ -114,7 +114,7 @@ $modelLabel = new \backend\models\FrontProductLog();
                 echo '  <td>' . $model['username'] . '</td>';
                 echo '  <td>' . $model['p_name'] . '</td>';
                 echo '  <td>' . $model['phone'] . '</td>';
-                echo '  <td>' . $model['create_date'] . '</td>';
+                echo '  <td>' . $model['date'] . '</td>';
                 //echo '  <td>' . $model->type . '</td>';
                 echo '  <td class="center">';
 

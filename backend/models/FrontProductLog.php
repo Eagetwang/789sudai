@@ -188,7 +188,7 @@ class FrontProductLog extends \backend\models\BaseModel
     }
     public function getLogByPid($product_id=0,$type=0,$date=[]){
         $query = new Query();
-        $query= $query->select(['username','sex','front_product.create_date as create_date','p_name','phone'])
+        $query= $query->select(['date','username','sex','front_product.create_date as create_date','p_name','phone'])
             ->from('front_product_log')
             ->innerJoin('front_product','front_product_log.product_id = front_product.id ')
             ->innerJoin('front_user','front_product_log.user_id = front_user.id ')
