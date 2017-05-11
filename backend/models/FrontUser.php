@@ -351,8 +351,8 @@ class FrontUser extends \backend\models\BaseModel
         $model->username = $name;
         $model->password = md5($pwd);
         $model->phone = $phone;
-        $model->update_date = date('Y-m-d h:i:s');
-        $model->create_date = date('Y-m-d h:i:s');
+        $model->update_date = date('Y-m-d H:i:s');
+        $model->create_date = date('Y-m-d H:i:s');
         if($model->save()){
             return $model->id;
         }else{

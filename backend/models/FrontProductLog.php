@@ -230,7 +230,7 @@ class FrontProductLog extends \backend\models\BaseModel
         $this->type = $type;
         $this->user_id = $u_id;
         $this->product_id = $p_id;
-        $this->create_date = date('Y-m-d h:i:s');
+        $this->create_date = date('Y-m-d H:i:s');
         $this->date = date('Y-m-d');
         return $this->save(false);
     }
