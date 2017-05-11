@@ -65,7 +65,7 @@ class TestController extends Controller
                   $model->create_user = 'admin';
               }
               $model->create_user = Yii::$app->user->identity->uname;
-              $model->create_date = date('Y-m-d H:i:s');
+              $model->create_date = date('Y-m-d H:i:s',time());
         
             if($model->validate() == true && $model->save()){
                 $msg = array('errno'=>0, 'msg'=>'保存成功');

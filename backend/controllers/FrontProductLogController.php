@@ -204,7 +204,7 @@ class FrontProductLogController extends BaseController
         $model = new FrontProductLog();
         if ($model->load(Yii::$app->request->post())) {
         
-              $model->create_date = date('Y-m-d H:i:s');
+              $model->create_date = date('Y-m-d H:i:s',time());
               if(empty($model->type) == true){
                   $model->type = 1;
               }
