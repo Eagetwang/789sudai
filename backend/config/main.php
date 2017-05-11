@@ -5,6 +5,7 @@ $params = array_merge(
 );
 
 $config = [
+    'timezone'=>'Asia/Chongqing',
     'id' => 'pfast-backend',
 //     'homeUrl'=>'site/index',
     'basePath' => dirname(__DIR__),
