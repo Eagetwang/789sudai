@@ -49,6 +49,7 @@ class FrontProductController extends BaseController
                 $query = $query->where($condition, $parame);
             }
         }
+        $query = $query->orderBy('`order`');
         $category_model = new FrontCategory();
         $category = $category_model->getCategory();
         $identity_model = new FrontIdentity();
@@ -176,7 +177,7 @@ class FrontProductController extends BaseController
             $model->update_date = date('Y-m-d H:i:s');
         
             if($model->validate() == true && $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{
