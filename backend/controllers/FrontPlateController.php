@@ -116,7 +116,7 @@ class FrontPlateController extends BaseController
             $model->update_date = date('Y-m-d H:i:s');
             $model->create_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{
@@ -151,7 +151,7 @@ class FrontPlateController extends BaseController
               $model->update_date = date('Y-m-d H:i:s');        
         
             if($model->validate() == true && $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{

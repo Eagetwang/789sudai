@@ -197,6 +197,16 @@ $modelLabel = new \backend\models\FrontPlate();
                 console.log(value);
                 if(value.errno == 0){
                     $('#edit_dialog').modal('hide');
+                    //生成静态页面
+                    $.ajax({
+                        url:"http://www.789sudai.cn/index.php/Pc/Index/create_gh_html",
+                        type:'post',
+                        dataType:'JSONP',
+                        data:{'id':value.pid,'sign':value.sign},
+                        success:function (res) {
+
+                        }
+                    });
                     admin_tool.alert('msg_info', '添加成功', 'success');
                     window.location.reload();
                 }

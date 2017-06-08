@@ -132,7 +132,7 @@ class FrontProductController extends BaseController
               $model->create_user = Yii::$app->user->identity->uname;
               $model->create_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $id = $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{

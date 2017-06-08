@@ -117,7 +117,7 @@ class FrontEssenceController extends BaseController
               $model->update_date = date('Y-m-d H:i:s');
             $model->cteate_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{
@@ -155,7 +155,7 @@ class FrontEssenceController extends BaseController
                 $model->rec = Yii::$app->request->post('rec');
               $model->update_date = date('Y-m-d H:i:s');
             if($model->validate() == true && $model->save()){
-                $msg = array('errno'=>0, 'msg'=>'保存成功');
+                $msg = array('errno'=>0, 'msg'=>'保存成功','pid'=>$model->id,'sign'=>md5($model->id));
                 echo json_encode($msg);
             }
             else{
