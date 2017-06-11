@@ -794,7 +794,7 @@ class FrontProduct extends \backend\models\BaseModel
         if($rec){
             $query = $query->andWhere('recommend='.$rec);
         }
-        return $query->orderBy('id desc')->all();
+        return $query->orderBy('order')->all();
     }
     public function getProductBy($id){
         $query = new Query();
@@ -814,7 +814,7 @@ class FrontProduct extends \backend\models\BaseModel
         }
         $query->limit($num)
              ->offset($offset)
-             ->orderBy('id desc');
+             ->orderBy('order');
         return $query->all();
     }
     //根据分类获取count

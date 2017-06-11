@@ -6,9 +6,9 @@ use yii\bootstrap\ActiveForm;
 use common\utils\CommonFun;
 use yii\helpers\Url;
 
-use backend\models\FrontAd;
+use backend\models\FrontLink;
 
-$modelLabel = new \backend\models\FrontAd();
+$modelLabel = new \backend\models\FrontLink();
 ?>
 
 <?php $this->beginBlock('header');  ?>
@@ -38,13 +38,8 @@ $modelLabel = new \backend\models\FrontAd();
             <!-- row start search-->
           	<div class="row">
           	<div class="col-sm-12">
-                <?php ActiveForm::begin(['id' => 'front-ad-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-ad/index')]); ?>     
+                <?php ActiveForm::begin(['id' => 'front-link-search-form', 'method'=>'get', 'options' => ['class' => 'form-inline'], 'action'=>Url::toRoute('front-link/index')]); ?>     
                 
-                  <div class="form-group" style="margin: 5px;">
-                      <label><?=$modelLabel->getAttributeLabel('id')?>:</label>
-                      <input type="text" class="form-control" id="query[id]" name="query[id]"  value="<?=isset($query["id"]) ? $query["id"] : "" ?>">
-                  </div>
-
                   <div class="form-group" style="margin: 5px;">
                       <label><?=$modelLabel->getAttributeLabel('name')?>:</label>
                       <input type="text" class="form-control" id="query[name]" name="query[name]"  value="<?=isset($query["name"]) ? $query["name"] : "" ?>">
@@ -69,8 +64,8 @@ $modelLabel = new \backend\models\FrontAd();
 		      echo '<th><input id="data_table_check" type="checkbox"></th>';
               echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
               echo '<th onclick="orderby(\'name\', \'desc\')" '.CommonFun::sortClass($orderby, 'name').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('name').'</th>';
-              echo '<th onclick="orderby(\'banner_url\', \'desc\')" '.CommonFun::sortClass($orderby, 'banner_url').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('banner_url').'</th>';
-              echo '<th onclick="orderby(\'ad_url\', \'desc\')" '.CommonFun::sortClass($orderby, 'ad_url').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('ad_url').'</th>';
+              echo '<th onclick="orderby(\'url\', \'desc\')" '.CommonFun::sortClass($orderby, 'url').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('url').'</th>';
+              echo '<th onclick="orderby(\'create_time\', \'desc\')" '.CommonFun::sortClass($orderby, 'create_time').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('create_time').'</th>';
          
 			?>
 	
@@ -85,10 +80,10 @@ $modelLabel = new \backend\models\FrontAd();
                 echo '  <td><label><input type="checkbox" value="' . $model->id . '"></label></td>';
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->name . '</td>';
-                echo '  <td><img style="width: 100px;height: 60px" src="' . $model->banner_url . '"/></td>';
-                echo '  <td><a target="_blank" href="' . $model->ad_url . '">'.$model->ad_url.'</a></td>';
+                echo '  <td>' . $model->url . '</td>';
+                echo '  <td>' . $model->create_time . '</td>';
                 echo '  <td class="center">';
-                echo '      <a id="edit_btn" onclick="editAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-edit icon-white"></i>修改</a>';
+                echo '      <a id="view_btn" onclick="viewAction(' . $model->id . ')" class="btn btn-primary btn-sm" href="#"> <i class="glyphicon glyphicon-zoom-in icon-white"></i>查看</a>';
                 echo '      <a id="delete_btn" onclick="deleteAction(' . $model->id . ')" class="btn btn-danger btn-sm" href="#"> <i class="glyphicon glyphicon-trash icon-white"></i>删除</a>';
                 echo '  </td>';
                 echo '</tr>';
@@ -148,40 +143,30 @@ $modelLabel = new \backend\models\FrontAd();
 				<h3>Settings</h3>
 			</div>
 			<div class="modal-body">
-                <?php $form = ActiveForm::begin(["id" => "front-ad-form", "class"=>"form-horizontal", "action"=>Url::toRoute("front-ad/save")]); ?>                      
+                <?php $form = ActiveForm::begin(["id" => "front-link-form", "class"=>"form-horizontal", "action"=>Url::toRoute("front-link/save")]); ?>                      
                  
           <input type="hidden" class="form-control" id="id" name="id" />
 
           <div id="name_div" class="form-group">
               <label for="name" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("name")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="name" name="FrontAd[name]" placeholder="必填" />
-              </div>
-              <div class="clearfix"></div>
-          </div>
-				<div id="ad_class_div" class="form-group">
-					<label for="ad_class" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("ad_class")?></label>
-					<div class="col-sm-10">
-						<input type="hidden" class="form-control" id="ad_class" name="FrontAd[ad_class]" placeholder="必填" />
-						<input type="radio" class="class_eaget" name="ad_class" value="1" />移动端首页
-						<input type="radio" class="class_eaget" name="ad_class" value="2" />移动端产品页
-						<input type="radio" class="class_eaget" name="ad_class" value="3" />PC端
-					</div>
-					<div class="clearfix"></div>
-				</div>
-          <div id="banner_url_div" class="form-group">
-              <label for="banner_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("banner_url")?></label>
-              <div class="col-sm-10">
-<!--                  <input type="hidden" class="form-control" id="banner_url" name="FrontAd[banner_url]" placeholder="必填" />-->
-				  <input type="file" name="UploadForm[imageFile]" id="">
+                  <input type="text" class="form-control" id="name" name="FrontLink[name]" placeholder="" />
               </div>
               <div class="clearfix"></div>
           </div>
 
-          <div id="ad_url_div" class="form-group">
-              <label for="ad_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("ad_url")?></label>
+          <div id="url_div" class="form-group">
+              <label for="url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("url")?></label>
               <div class="col-sm-10">
-                  <input type="text" class="form-control" id="ad_url" name="FrontAd[ad_url]" placeholder="必填" />
+                  <input type="text" class="form-control" id="url" name="FrontLink[url]" placeholder="" />
+              </div>
+              <div class="clearfix"></div>
+          </div>
+
+          <div id="create_time_div" class="form-group">
+              <label for="create_time" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("create_time")?></label>
+              <div class="col-sm-10">
+                  <input type="text" class="form-control" id="create_time" name="FrontLink[create_time]" placeholder="" />
               </div>
               <div class="clearfix"></div>
           </div>
@@ -220,7 +205,7 @@ function orderby(field, op){
 	 window.location.href=url; 
  }
  function searchAction(){
-		$('#front-ad-search-form').submit();
+		$('#front-link-search-form').submit();
 	}
  function viewAction(id){
 		initModel(id, 'view', 'fun');
@@ -228,43 +213,32 @@ function orderby(field, op){
 
  function initEditSystemModule(data, type){
 	if(type == 'create'){
-		console.log('create');
 		$("#id").val('');
 		$("#name").val('');
-		$("#banner_url").val('');
-		$("#ad_url").val('');
-		$("#ad_class").val('1');
-
+		$("#url").val('');
+		$("#create_time").val('');
+		
 	}
 	else{
-		console.log('create_else');
 		$("#id").val(data.id);
     	$("#name").val(data.name);
-    	$("#banner_url").val(data.banner_url);
-    	$("#ad_url").val(data.ad_url);
-    	$("#ad_class").val(data.ad_class);
-		$('.class_eaget').each(function(){
-			if(data.ad_class == $(this).val()){
-				$(this).prop('checked',true);
-			}
-		});
+    	$("#url").val(data.url);
+    	$("#create_time").val(data.create_time);
     	}
 	if(type == "view"){
-		console.log('view');
-
-		$("#id").attr({readonly:true,disabled:true});
+      $("#id").attr({readonly:true,disabled:true});
       $("#name").attr({readonly:true,disabled:true});
-      $("#banner_url").attr({readonly:true,disabled:true});
-      $("#ad_url").attr({readonly:true,disabled:true});
+      $("#url").attr({readonly:true,disabled:true});
+      $("#create_time").attr({readonly:true,disabled:true});
+      $("#create_time").parent().parent().show();
 	$('#edit_dialog_ok').addClass('hidden');
 	}
 	else{
-		console.log('view_else');
-
-		$("#id").attr({readonly:false,disabled:false});
+      $("#id").attr({readonly:false,disabled:false});
       $("#name").attr({readonly:false,disabled:false});
-      $("#banner_url").attr({readonly:false,disabled:false});
-      $("#ad_url").attr({readonly:false,disabled:false});
+      $("#url").attr({readonly:false,disabled:false});
+      $("#create_time").attr({readonly:false,disabled:false});
+      $("#create_time").parent().parent().hide();
 		$('#edit_dialog_ok').removeClass('hidden');
 		}
 		$('#edit_dialog').modal('show');
@@ -274,7 +248,7 @@ function initModel(id, type, fun){
 	
 	$.ajax({
 		   type: "GET",
-		   url: "<?=Url::toRoute('front-ad/view')?>",
+		   url: "<?=Url::toRoute('front-link/view')?>",
 		   data: {"id":id},
 		   cache: false,
 		   dataType:"json",
@@ -312,7 +286,7 @@ function deleteAction(id){
 		admin_tool.confirm('请确认是否删除', function(){
 		    $.ajax({
 				   type: "GET",
-				   url: "<?=Url::toRoute('front-ad/delete')?>",
+				   url: "<?=Url::toRoute('front-link/delete')?>",
 				   data: {"ids":ids},
 				   cache: false,
 				   dataType:"json",
@@ -355,7 +329,7 @@ function getSelectedIdValues(formId)
 
 $('#edit_dialog_ok').click(function (e) {
     e.preventDefault();
-	$('#front-ad-form').submit();
+	$('#front-link-form').submit();
 });
 
 $('#create_btn').click(function (e) {
@@ -368,10 +342,10 @@ $('#delete_btn').click(function (e) {
     deleteAction('');
 });
 
-$('#front-ad-form').bind('submit', function(e) {
+$('#front-link-form').bind('submit', function(e) {
 	e.preventDefault();
 	var id = $("#id").val();
-	var action = id == "" ? "<?=Url::toRoute('front-ad/create')?>" : "<?=Url::toRoute('front-ad/update')?>";
+	var action = id == "" ? "<?=Url::toRoute('front-link/create')?>" : "<?=Url::toRoute('front-link/update')?>";
     $(this).ajaxSubmit({
     	type: "post",
     	dataType:"json",
@@ -394,11 +368,7 @@ $('#front-ad-form').bind('submit', function(e) {
     	}
     });
 });
-$(".class_eaget").each(function(){
-	$(this).click(function(){
-		$("#ad_class").val($(this).val());
-	});
-});
+
  
 </script>
 <?php $this->endBlock(); ?>
