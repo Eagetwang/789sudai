@@ -71,6 +71,7 @@ $modelLabel = new \backend\models\FrontPlate();
               echo '<th onclick="orderby(\'id\', \'desc\')" '.CommonFun::sortClass($orderby, 'id').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('id').'</th>';
               echo '<th onclick="orderby(\'title\', \'desc\')" '.CommonFun::sortClass($orderby, 'title').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('title').'</th>';
               echo '<th onclick="orderby(\'introduce\', \'desc\')" '.CommonFun::sortClass($orderby, 'introduce').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('introduce').'</th>';
+              echo '<th onclick="orderby(\'order\', \'desc\')" '.CommonFun::sortClass($orderby, 'order').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('order').'</th>';
               echo '<th tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >图片</th>';
 			echo '<th onclick="orderby(\'content\', \'desc\')" '.CommonFun::sortClass($orderby, 'content').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('content').'</th>';
               echo '<th onclick="orderby(\'update_date\', \'desc\')" '.CommonFun::sortClass($orderby, 'update_date').' tabindex="0" aria-controls="data_table" rowspan="1" colspan="1" aria-sort="ascending" >'.$modelLabel->getAttributeLabel('update_date').'</th>';
@@ -90,6 +91,7 @@ $modelLabel = new \backend\models\FrontPlate();
                 echo '  <td>' . $model->id . '</td>';
                 echo '  <td>' . $model->title . '</td>';
                 echo '  <td>' . $model->introduce . '</td>';
+                echo '  <td>' . $model->order . '</td>';
                 echo '  <td><img style="width: 100px;height: 60px" src="' . $model->img_url . '"></img></td>';
 				echo "<input type='hidden' id='content_".$model->id."' value='".$model->content."'>";
 				echo '  <td>' . Html::a('点击查看', '#', [
@@ -406,7 +408,7 @@ $('#front-plate-form').bind('submit', function(e) {
 				//生成静态页面
 				$.ajax({
 					url:"http://www.789sudai.cn/index.php/Pc/Index/create_gh_html",
-					type:'post',
+					type:'get',
 					dataType:'JSONP',
 					data:{'id':value.pid,'sign':value.sign},
 					success:function (res) {

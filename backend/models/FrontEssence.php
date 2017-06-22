@@ -16,6 +16,7 @@ use yii\db\Query;
  * @property integer $rec
  * @property string $img
  * @property integer $read
+ * @property integer $order
  */
 class FrontEssence extends \backend\models\BaseModel
 {
@@ -36,7 +37,7 @@ class FrontEssence extends \backend\models\BaseModel
             [['title', 'content', 'update_date', 'cteate_date'], 'required'],
             [['update_date', 'cteate_date'], 'safe'],
             [['title','img'], 'string', 'max' => 50],
-            [['read','rec'], 'integer'],
+            [['read','rec','order'], 'integer'],
             [['introduce', 'content'], 'string', 'max' => 15000]
         ];
     }
@@ -54,6 +55,7 @@ class FrontEssence extends \backend\models\BaseModel
             'img' => 'logo',
             'update_date' => '更新时间',
             'cteate_date' => '创建时间',
+            'order' => '排序',
         ];
     }
 
@@ -226,13 +228,13 @@ class FrontEssence extends \backend\models\BaseModel
         $query = new Query();
         $query = $query->from('front_essence')->select('id,title,introduce,rec,img,read')->where('rec='.$rec);
         if($num){
-            $query = $query->limit($num);
+            $query = $query->orderBy('order')->limit($num);
         }
         return $query->all();
     }
     public function getAllEss(){
         $query = new Query();
-        return $query->from('front_essence')->select('id,title,introduce,rec,img,read')->all();
+        return $query->from('front_essence')->select('id,title,introduce,rec,img,read')->orderBy('order')->all();
     }
     public function getEssBy($id){
         $query = new Query();

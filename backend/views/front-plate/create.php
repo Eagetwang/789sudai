@@ -34,7 +34,13 @@ $modelLabel = new \backend\models\FrontPlate();
         </div>
         <div class="clearfix"></div>
     </div>
-
+    <div id="introduce_div" class="form-group">
+        <label for="introduce" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("order")?></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="order" name="FrontPlate[order]" placeholder="" value='<?php if($plate) echo $plate['order'];?>'/>
+        </div>
+        <div class="clearfix"></div>
+    </div>
     <div id="img_url_div" class="form-group">
         <label for="img_url" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("img_url")?></label>
         <div class="col-sm-10">
@@ -200,7 +206,7 @@ $modelLabel = new \backend\models\FrontPlate();
                     //生成静态页面
                     $.ajax({
                         url:"http://www.789sudai.cn/index.php/Pc/Index/create_gh_html",
-                        type:'post',
+                        type:'get',
                         dataType:'JSONP',
                         data:{'id':value.pid,'sign':value.sign},
                         success:function (res) {

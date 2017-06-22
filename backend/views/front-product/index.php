@@ -867,7 +867,7 @@ $('#front-product-form').bind('submit', function(e) {
                 //生成静态页面
                 $.ajax({
                     url:"http://www.789sudai.cn/index.php/Pc/Index/create_info_html",
-                    type:'post',
+                    type:'get',
                     dataType:'JSONP',
                     data:{'id':value.pid,'sign':value.sign},
                     success:function (res) {

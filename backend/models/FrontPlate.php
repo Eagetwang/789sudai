@@ -14,6 +14,7 @@ use yii\db\Query;
  * @property string $update_date
  * @property string $create_date
  * @property integer $read
+ * @property integer $order
  */
 class FrontPlate extends \backend\models\BaseModel
 {
@@ -35,7 +36,7 @@ class FrontPlate extends \backend\models\BaseModel
             [['update_date', 'create_date'], 'safe'],
             [['title'], 'string', 'max' => 50],
             [['introduce'], 'string', 'max' => 255],
-            [['read'], 'integer'],
+            [['read','order'], 'integer'],
             [['content'], 'string', 'max' => 15000]
         ];
     }
@@ -53,6 +54,7 @@ class FrontPlate extends \backend\models\BaseModel
             'content' => '内容详细',
             'update_date' => '更新时间',
             'create_date' => '创建时间',
+            'order' => '排序',
         ];
     }
 
@@ -221,7 +223,7 @@ class FrontPlate extends \backend\models\BaseModel
     //以下是接口方法
     public function getAllPlate(){
         $query = new Query();
-        return $query->from('front_plate')->select('id,title,introduce,img_url,create_date,read')->all();
+        return $query->from('front_plate')->select('id,title,introduce,img_url,create_date,read')->orderBy('order')->all();
     }
     public function getPlateBy($id){
         $query = new Query();

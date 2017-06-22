@@ -26,7 +26,13 @@ $modelLabel = new \backend\models\FrontEssence();
         </div>
         <div class="clearfix"></div>
     </div>
-
+    <div id="title_div" class="form-group">
+        <label for="title" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("order")?></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="order" name="FrontEssence[order]"  value="<?php if($essence) echo $essence['order'];?>"/>
+        </div>
+        <div class="clearfix"></div>
+    </div>
     <div id="introduce_div" class="form-group">
         <label for="introduce" class="col-sm-2 control-label"><?php echo $modelLabel->getAttributeLabel("introduce")?></label>
         <div class="col-sm-10">
@@ -208,7 +214,7 @@ $modelLabel = new \backend\models\FrontEssence();
                         //生成静态页面
                         $.ajax({
                             url:"http://www.789sudai.cn/index.php/Pc/Index/create_gl_html",
-                            type:'post',
+                            type:'get',
                             dataType:'JSONP',
                             data:{'id':value.pid,'sign':value.sign},
                             success:function (res) {

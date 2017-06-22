@@ -46,7 +46,7 @@ class FrontPlateController extends BaseController
                 $query = $query->where($condition, $parame);
             }
         }
-
+        $query = $query->orderBy('`order`');
         $pagination = new Pagination([
             'totalCount' =>$query->count(), 
             'pageSize' => '10', 
